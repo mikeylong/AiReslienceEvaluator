@@ -137,6 +137,12 @@ When current facts matter, the evaluator is expected to use current-source resea
 - `Reassess this company after its new agent product launch.`
 - `Rank these six startups by AI resilience.`
 
+## Example 2x2
+
+Here is a sample 2x2 using Clio, Figma, and Notion from a comparative resilience pass:
+
+![Example AI resilience 2x2](./ai-resilience-2x2.svg)
+
 ## Repository Contents
 
 - [SKILL.md](./SKILL.md): the reusable agent skill
