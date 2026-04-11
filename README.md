@@ -1,5 +1,7 @@
 # AI Resilience Evaluator
 
+![Example AI resilience 2x2](./ai-resilience-2x2.svg)
+
 `ai_resilience_evaluator` is a research-oriented skill for judging whether a company, product, business unit, or category owns durable value above commodity AI generation.
 
 The core question is simple:
@@ -136,12 +138,6 @@ When current facts matter, the evaluator is expected to use current-source resea
 - `Score this investor memo and tell me whether the moat is real.`
 - `Reassess this company after its new agent product launch.`
 - `Rank these six startups by AI resilience.`
-
-## Example 2x2
-
-Here is a sample 2x2 using Clio, Figma, and Notion from a comparative resilience pass:
-
-![Example AI resilience 2x2](./ai-resilience-2x2.svg)
 
 ## Repository Contents
 
