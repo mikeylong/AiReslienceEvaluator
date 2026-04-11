@@ -1,0 +1,160 @@
+---
+name: "ai_resilience_evaluator"
+description: "Produce an AI resilience assessment with 2x2 placement, a 15-factor score, a moat audit, and a final verdict when asked to evaluate a company, compare targets, stress-test a memo, re-score after new evidence, or rank candidates."
+---
+
+# AI Resilience Evaluator
+
+Use this skill to assess whether a company, product, business unit, market category, or investment target owns durable value above commodity AI generation.
+
+Default posture: produce a research-backed resilience assessment, not a generic company summary. Treat current facts as time-sensitive. When the analysis depends on recent launches, pricing, integrations, security posture, APIs, positioning, or leadership claims, verify them with current sources.
+
+## Trigger Cases
+
+Use this skill when the user asks to:
+
+- evaluate a specific company or product for resilience to AI disruption
+- compare multiple companies using the same rubric
+- score a category or ranked candidate set
+- stress-test a strategy or investment memo
+- re-score a company after a launch, product shift, or new evidence
+
+## Contract
+
+Return two artifacts every time:
+
+1. A readable narrative with these sections: Executive summary, 2x2 placement, full score table, top strengths, main vulnerabilities, strategic read, final verdict, confidence level, evidence notes.
+2. A structured object with these base keys: `target_name`, `summary`, `quadrant`, `scores`, `top_strengths`, `main_vulnerabilities`, `strategic_read`, `final_verdict`, `confidence`, `evidence_notes`.
+
+Use this object shape consistently:
+- `quadrant`: `x_axis`, `y_axis`, `placement`, `rationale`
+- `scores`: `proprietary_advantage`, `workflow_criticality`, `ai_resilience_tests`, `total`
+- each score category: named factors plus `subtotal`
+- `strategic_read`: `durable_layers`, `commoditizing_layers`, `next_moves`
+- `confidence`: `level`, `reason`
+
+Add `comparison` only when multiple targets are supplied. When `comparison` is present, include `ranked_targets`, `relative_summary`, and `key_differences`. Sort `ranked_targets` by descending total score and explain when the spread is mostly category-driven rather than execution-driven.
+
+If evidence is sparse, still return the narrative and object, but mark uncertain factor scores as `null`, label subtotals and totals as partial, lower confidence, and include `unknowns_that_would_change_the_score_most`.
+
+Allowed assumptions:
+- infer buyer, user, workflow, and category when evidence supports the inference
+- use category-pattern inference only after exhausting company-specific evidence
+- use user-provided artifacts without external browsing when the task is explicitly artifact-bound
+
+Do not promise:
+- certainty where evidence is weak
+- private-market facts you cannot verify
+- resilience based on UX quality, AI branding, or popularity alone
+
+## Research Standard
+
+Use this evidence order: official company materials, product documentation, pricing and packaging, integration and API docs, trust and security docs, credible third-party analysis, user artifacts, then category inference.
+Use a shared evidence standard and a shared default time window across targets in comparison mode. Default to the most recent 12 months for change-sensitive evidence, and use older materials only for durable background context.
+If the user did not explicitly limit the task to provided artifacts, prefer current-source research over stale prior knowledge for company facts that can change.
+Distinguish evidence from inference in every factor rationale with one of these labels: `Direct evidence`, `Credible third-party evidence`, `Inference`.
+
+## Workflow
+
+1. Normalize the target.
+Build a short operational profile covering what is sold, who buys it, who uses it, what workflow it serves, where AI appears in the value chain, the relevant category, and any comparison targets or constraints. If the target spans multiple products or business units, scope the analysis to the named unit; if the prompt is ambiguous, state the scope you chose.
+
+2. Gather evidence.
+Start with official materials, then product docs, pricing, integrations, APIs, trust/security, and only then move to third-party analysis or category inference. If the user supplied a memo, notes, or transcript, treat that artifact as evidence to analyze, not as ground truth.
+
+3. Identify moat layers.
+Assess whether the company meaningfully owns context, trust, distribution, judgment, and liability or governance.
+
+4. Assess workflow criticality.
+Determine whether the product is optional, recurring but replaceable, embedded, or mission-critical.
+
+5. Run AI pressure tests.
+Stress-test the business against stronger models, cheaper entrants, faster software creation, agent-mediated discovery and execution, and the declining value of raw generation.
+
+6. Score the rubric.
+Assign a score from 1 to 5 for each factor with one concise rationale tied to evidence or explicit inference.
+
+7. Place the target in the 2x2.
+Use structural judgment, not arithmetic alone. Totals inform the placement, but do not fully determine it.
+
+8. Generate the strategic read.
+State what is durable, what is commoditizing, what improves as models improve, and what must become true for the company to remain resilient.
+
+## Scoring Model
+
+Score 15 factors on a fixed 75-point rubric. Do not weight categories numerically in v1.
+
+Score these categories and factors:
+
+- `proprietary_advantage`: `context`, `trust`, `distribution`, `judgment`, `liability_governance`
+- `workflow_criticality`: `frequency`, `operational_dependence`, `system_position`, `switching_cost`, `budget_durability`
+- `ai_resilience_tests`: `model_improvement_test`, `wrapper_risk_test`, `agent_readiness_test`, `accountability_test`, `outcome_depth_test`
+
+Important scoring rules:
+
+- `wrapper_risk_test` is reversed: `5` means low wrapper risk and `1` means high wrapper risk.
+- Do not give high scores for polish, interface familiarity, or feature novelty alone.
+- Do not treat AI features as moat unless they are tied to trust, context, workflow control, governance, or accountability.
+- If evidence is sparse, lower confidence before lowering the business-quality judgment. Only use `null` scores when the gap is too material to defend a number.
+- Do not back-solve factor scores from the final verdict; assign factor scores first, then interpret the aggregate.
+
+Use these interpretation bands: `60-75` strong resilience, `45-59` mixed but promising, `30-44` vulnerable middle, `<30` high disruption risk.
+
+## Heuristics And Red Flags
+
+Increase scores when evidence shows proprietary workflow context, recurring-work embed, system-of-record or system-of-action position, real domain judgment, approvals or auditability, stronger models increasing value, trusted distribution or routing power, accountability in high-stakes outcomes, support for both human and agent use, or payment for outcomes rather than drafts.
+
+Decrease scores when evidence shows wrapper dependence on generic models, novelty without workflow depth, low switching cost, public or easily replicated context, weak distribution, output that must be verified elsewhere, no role when the AI is wrong, draft-only usage, polish mistaken for judgment, or interface familiarity mistaken for moat.
+
+Call out these red flags explicitly when present:
+
+- `Wrapper Illusion`, `Workflow Thinness`, `Trust Gap`, `Context Weakness`, `Agent Irrelevance`, `Accountability Vacuum`
+
+## Category Interpretation
+
+Apply category adjustments in the narrative, not in the scoring math.
+
+- Regulated or high-stakes domains: emphasize trust, governance, accountability, auditability, and system position.
+- Creative and media: emphasize taste, curation, community trust, and distribution; weak workflow embed is not automatically fatal.
+- Developer tooling and infrastructure: emphasize system position, workflow embed, context depth, platform leverage, and whether better models strengthen or replace the tool.
+- Marketplaces and platforms: emphasize trust, verification, routing power, transaction confidence, and network effects.
+
+When differences between companies are driven by category structure rather than execution, say so explicitly.
+
+## Output Guidance
+
+The narrative should be concise, comparative when useful, direct about what is durable versus exposed, and explicit about uncertainty. Avoid hype language, generic strategy cliches, vague admiration, unsupported claims, and fake precision.
+
+The score table should show every factor with `score`, a one-sentence `rationale`, and an evidence label.
+
+Compact rationale style:
+
+- `Context: 4 — Direct evidence. The product stores governed workflow state and customer records used in daily operations.`
+- `Wrapper risk test: 2 — Inference. Most customer-visible value appears reproducible with commodity models and ordinary UX.`
+
+For comparison mode, score each target individually, rank by total score, add a `comparison` block with `ranked_targets`, `relative_summary`, and `key_differences`, and keep the same evidence standard and time window for all targets.
+
+For re-score mode, identify what changed, note which factor scores moved and why, and distinguish changed evidence from unchanged prior assumptions.
+
+For memo stress-test mode, evaluate the memo's claims against external evidence when available, state where the memo overstates moat or misses risk, and do not treat the memo's framing as proof.
+
+For ranked-list mode, evaluate each target with the same rubric, then present the ranking as a compact portfolio screen rather than collapsing everything into one blended narrative.
+
+## Edge Cases
+
+- If the user provides only a target name, infer the rest from current research and state the inferred buyer, user, and workflow.
+- If the user provides only a category, assess the category's typical resilience pattern, name the likely durable and exposed layers, and be explicit that the result is category-level rather than company-specific.
+- If the user provides only artifacts, assess the thesis conservatively and identify which missing facts would most change the result.
+- If public evidence is thin, return a tentative quadrant, partial scores where needed, low confidence, and the top unknowns.
+- If comparison targets span different categories, normalize the scoring method and explain category effects separately from execution quality.
+- If a company uses AI internally but sells durable non-AI value, do not penalize it for not branding itself as an AI company.
+- If a company has strong taste, brand, or community but weak workflow embed, explain the premium-niche path explicitly instead of forcing a workflow-centric conclusion.
+- If a recent launch is doing most of the narrative work, separate the resilience of the underlying business from the resilience of the new AI feature set.
+
+## Example Requests
+
+- `Evaluate Datadog for resilience to AI disruption.`
+- `Compare Clio, Notion, and Figma using the AI resilience rubric.`
+- `Score this investor memo and tell me whether the moat is real.`
+- `Reassess this company after its new agent product launch.`
+- `Rank these six startups by AI resilience.`
