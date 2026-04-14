@@ -1,0 +1,234 @@
+{
+  "target_name": "Figma, Clio, and Notion",
+  "summary": "Clio ranks highest because it owns regulated legal workflow, trusted records, and accountable system behavior. Figma is resilient through design-system context and developer handoff. Notion is improving fast with enterprise search, connectors, custom agents, and MCP governance, but remains a less uniformly mission-critical coordination layer.",
+  "quadrant": {
+    "x_axis": "Commodity Output -> Proprietary Advantage",
+    "y_axis": "Nice-to-Have Utility -> Mission-Critical Workflow",
+    "placement": "Clio: Resilient; Figma: Resilient; Notion: Convenience near the resilient boundary",
+    "rationale": "Clio benefits from category-specific workflow ownership in a regulated domain. Figma benefits from collaborative design and handoff context. Notion owns useful workspace context and agent-ready infrastructure, but its workflow criticality is less consistent across customers."
+  },
+  "scores": {
+    "proprietary_advantage": {
+      "Clio": {
+        "context": 5,
+        "trust": 5,
+        "distribution": 5,
+        "judgment": 4,
+        "liability_governance": 5,
+        "subtotal": 24
+      },
+      "Figma": {
+        "context": 4,
+        "trust": 4,
+        "distribution": 5,
+        "judgment": 3,
+        "liability_governance": 3,
+        "subtotal": 19
+      },
+      "Notion": {
+        "context": 4,
+        "trust": 4,
+        "distribution": 4,
+        "judgment": 3,
+        "liability_governance": 3,
+        "subtotal": 18
+      }
+    },
+    "workflow_criticality": {
+      "Clio": {
+        "frequency": 5,
+        "operational_dependence": 5,
+        "system_position": 5,
+        "switching_cost": 4,
+        "budget_durability": 4,
+        "subtotal": 23
+      },
+      "Figma": {
+        "frequency": 4,
+        "operational_dependence": 4,
+        "system_position": 4,
+        "switching_cost": 4,
+        "budget_durability": 4,
+        "subtotal": 20
+      },
+      "Notion": {
+        "frequency": 5,
+        "operational_dependence": 3,
+        "system_position": 4,
+        "switching_cost": 3,
+        "budget_durability": 4,
+        "subtotal": 19
+      }
+    },
+    "ai_resilience_tests": {
+      "Clio": {
+        "model_improvement_test": 4,
+        "wrapper_risk_test": 4,
+        "agent_readiness_test": 4,
+        "accountability_test": 5,
+        "outcome_depth_test": 4,
+        "subtotal": 21
+      },
+      "Figma": {
+        "model_improvement_test": 4,
+        "wrapper_risk_test": 4,
+        "agent_readiness_test": 5,
+        "accountability_test": 2,
+        "outcome_depth_test": 3,
+        "subtotal": 18
+      },
+      "Notion": {
+        "model_improvement_test": 5,
+        "wrapper_risk_test": 3,
+        "agent_readiness_test": 5,
+        "accountability_test": 3,
+        "outcome_depth_test": 3,
+        "subtotal": 19
+      }
+    },
+    "total": {
+      "Clio": 68,
+      "Figma": 58,
+      "Notion": 56
+    }
+  },
+  "top_strengths": {
+    "Clio": [
+      "High-trust legal operating layer",
+      "Deep workflow embed and record ownership",
+      "Model improvements strengthen the system rather than bypass it"
+    ],
+    "Figma": [
+      "Shared design-system context",
+      "Strong distribution into design and development",
+      "Explicit agent-facing tooling"
+    ],
+    "Notion": [
+      "Broad workspace context",
+      "Enterprise search and connector depth",
+      "Strong agent and MCP posture"
+    ]
+  },
+  "main_vulnerabilities": {
+    "Clio": [
+      "Some assistant features can commoditize",
+      "Agents could route around interfaces if Clio does not remain the action layer",
+      "Final legal judgment remains external"
+    ],
+    "Figma": [
+      "Generative design output commoditizes quickly",
+      "Business outcomes happen downstream",
+      "Human taste and product judgment remain external"
+    ],
+    "Notion": [
+      "Workflow depth varies by customer",
+      "Some AI experiences are reproducible by model-native products",
+      "Context is valuable but often portable"
+    ]
+  },
+  "strategic_read": {
+    "durable_layers": {
+      "Clio": [
+        "Matter and billing records",
+        "Legal workflow management",
+        "Compliance and trust posture",
+        "Ecosystem position"
+      ],
+      "Figma": [
+        "Shared files and components",
+        "Design systems",
+        "Review and handoff workflow",
+        "Developer-facing context"
+      ],
+      "Notion": [
+        "Workspace knowledge graph",
+        "Structured docs and databases",
+        "Cross-tool retrieval",
+        "Admin governance"
+      ]
+    },
+    "commoditizing_layers": {
+      "Clio": [
+        "Generic drafting",
+        "Summarization",
+        "Assistant UX"
+      ],
+      "Figma": [
+        "Layout ideation",
+        "Generic mockup generation",
+        "Surface-level code generation"
+      ],
+      "Notion": [
+        "Generic writing help",
+        "Simple Q&A",
+        "Commodity summarization"
+      ]
+    },
+    "next_moves": {
+      "Clio": [
+        "Push AI deeper into workflow automation and revenue capture",
+        "Keep agents grounded in permissions and firm data"
+      ],
+      "Figma": [
+        "Make design context indispensable to developers and agents",
+        "Own more of the design-to-code execution loop"
+      ],
+      "Notion": [
+        "Turn workspace context into deeper operational ownership",
+        "Make agent actions more trusted and workflow-native"
+      ]
+    }
+  },
+  "final_verdict": "Clio is the strongest resilience candidate of the three, Figma is a durable workflow platform with exposed generative layers, and Notion is improving quickly but still sits closer to a valuable coordination layer than a hard system of record.",
+  "confidence": {
+    "level": "medium",
+    "reason": "Official evidence is strong on product direction, integrations, governance, and security posture, but some workflow-depth and switching-cost judgments remain inferential."
+  },
+  "evidence_notes": [
+    {
+      "company": "Clio",
+      "sources": [
+        "https://www.clio.com/",
+        "https://www.clio.com/wp-content/uploads/2024/04/Brochure-Guide-Security-Protocols-and-Infrastructure-Guide.pdf"
+      ]
+    },
+    {
+      "company": "Figma",
+      "sources": [
+        "https://help.figma.com/hc/en-us/articles/17725942479127-Manage-AI-settings-and-content-training-for-your-team-or-organization",
+        "https://www.figma.com/dev-mode/",
+        "https://www.figma.com/security/"
+      ]
+    },
+    {
+      "company": "Notion",
+      "sources": [
+        "https://www.notion.com/help/notion-mcp",
+        "https://www.notion.com/help/enterprise-search-security-and-privacy-practices",
+        "https://www.notion.com/product/ai"
+      ]
+    }
+  ],
+  "comparison": {
+    "ranked_targets": [
+      {
+        "target": "Clio",
+        "total": 68
+      },
+      {
+        "target": "Figma",
+        "total": 58
+      },
+      {
+        "target": "Notion",
+        "total": 56
+      }
+    ],
+    "relative_summary": "Clio leads because it owns a regulated operating workflow with strong trust and accountability. Figma is more resilient than a generative design wrapper because it controls shared design-system and developer-handoff context. Notion is increasingly agent-ready and gains directly from better models, but its workflow criticality is less consistent.",
+    "key_differences": [
+      "Clio's advantage is category-specific workflow ownership in a high-liability domain.",
+      "Figma's advantage is strong collaborative design context plus developer handoff.",
+      "Notion's advantage is broad workspace context and enterprise AI governance, but with weaker direct outcome ownership."
+    ]
+  }
+}

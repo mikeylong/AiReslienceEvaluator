@@ -1,6 +1,6 @@
 ---
 name: "ai_resilience_evaluator"
-description: "Produce an AI resilience assessment with 2x2 placement, a 15-factor score, a moat audit, a final verdict, and optionally a simple 2x2 graphic when asked to evaluate a company, compare targets, stress-test a memo, re-score after new evidence, or rank candidates."
+description: "Produce an AI resilience assessment with 2x2 placement, a 15-factor score, a moat audit, a final verdict, and a simple 2x2 graphic when evaluating a company, comparing targets, stress-testing a memo, re-scoring after new evidence, or ranking candidates."
 ---
 
 # AI Resilience Evaluator
@@ -21,10 +21,11 @@ Use this skill when the user asks to:
 
 ## Contract
 
-Return two artifacts every time:
+Return three artifacts every time:
 
 1. A readable narrative with these sections: Executive summary, 2x2 placement, full score table, top strengths, main vulnerabilities, strategic read, final verdict, confidence level, evidence notes.
 2. A structured object with these base keys: `target_name`, `summary`, `quadrant`, `scores`, `top_strengths`, `main_vulnerabilities`, `strategic_read`, `final_verdict`, `confidence`, `evidence_notes`.
+3. A scalable SVG 2x2 that plots the target or targets on the same axes used in the narrative. If literal SVG generation is unavailable, return a compact plotting spec with axis labels, coordinates, and label text as the third artifact.
 
 Use this object shape consistently:
 - `quadrant`: `x_axis`, `y_axis`, `placement`, `rationale`
@@ -35,9 +36,7 @@ Use this object shape consistently:
 
 Add `comparison` only when multiple targets are supplied. When `comparison` is present, include `ranked_targets`, `relative_summary`, and `key_differences`. Sort `ranked_targets` by descending total score and explain when the spread is mostly category-driven rather than execution-driven.
 
-When the user asks for a graphic, chart, slide-ready output, or a visual 2x2, return a third artifact: a simple scalable SVG that plots the target or targets on the same 2x2 used in the narrative.
-
-If evidence is sparse, still return the narrative and object, but mark uncertain factor scores as `null`, label subtotals and totals as partial, lower confidence, and include `unknowns_that_would_change_the_score_most`.
+If evidence is sparse, still return all three artifacts, but mark uncertain factor scores as `null`, label subtotals and totals as partial, lower confidence, and include `unknowns_that_would_change_the_score_most`.
 
 Allowed assumptions:
 - infer buyer, user, workflow, and category when evidence supports the inference
@@ -79,8 +78,8 @@ Assign a score from 1 to 5 for each factor with one concise rationale tied to ev
 7. Place the target in the 2x2.
 Use structural judgment, not arithmetic alone. Totals inform the placement, but do not fully determine it.
 
-8. Generate the strategic read and optional visual.
-State what is durable, what is commoditizing, what improves as models improve, and what must become true for the company to remain resilient. If the user asked for a graphic, create a minimal 2x2 that uses the same axes and placements as the written assessment.
+8. Generate the strategic read and visual.
+State what is durable, what is commoditizing, what improves as models improve, and what must become true for the company to remain resilient. Create a minimal 2x2 that uses the same axes and placements as the written assessment.
 
 ## Scoring Model
 
@@ -138,7 +137,7 @@ For comparison mode, score each target individually, rank by total score, add a 
 
 For re-score mode, identify what changed, note which factor scores moved and why, and distinguish changed evidence from unchanged prior assumptions. For memo stress-test mode, evaluate the memo's claims against external evidence when available, state where the memo overstates moat or misses risk, and do not treat the memo's framing as proof. For ranked-list mode, evaluate each target with the same rubric, then present the ranking as a compact portfolio screen rather than collapsing everything into one blended narrative.
 
-For graphic mode, default to a plain black-and-white scalable SVG with no decorative effects, no fixed width or height, and a `viewBox` so the image scales cleanly. Use the same quadrant labels and axis labels as the narrative, add target markers with short labels, and keep dashed divider lines neutral grey if you use them. If only one target is evaluated, plot that single point. If labels collide, offset them minimally rather than adding visual decoration. If file generation is unavailable, return a compact plotting spec with axis labels, coordinates, and label text.
+For the SVG artifact, default to a plain black-and-white scalable SVG with no decorative effects, no fixed width or height, and a `viewBox` so the image scales cleanly. Use the same quadrant labels and axis labels as the narrative, add target markers with short labels, and keep dashed divider lines neutral grey if you use them. Keep quadrant labels visually subordinate and anchored on the frame edges or corners, and do not place descriptive quadrant subtitles inside the plotting area when they risk reducing marker readability. Place rotated y-axis labels in the gutter immediately adjacent to the axis line, not in the outer page margin, and center them vertically within their respective upper and lower halves of the axis. If only one target is evaluated, plot that single point. If labels collide, prioritize preserving clear space around markers over descriptive text. If literal SVG generation is unavailable, return a compact plotting spec with axis labels, coordinates, and label text as the third artifact.
 
 ## Edge Cases
 
@@ -150,14 +149,14 @@ For graphic mode, default to a plain black-and-white scalable SVG with no decora
 - If a company uses AI internally but sells durable non-AI value, do not penalize it for not branding itself as an AI company.
 - If a company has strong taste, brand, or community but weak workflow embed, explain the premium-niche path explicitly instead of forcing a workflow-centric conclusion.
 - If a recent launch is doing most of the narrative work, separate the resilience of the underlying business from the resilience of the new AI feature set.
-- If the user asks for a visual but not a file format, default to SVG.
+- If no file format is specified for the chart artifact, default to SVG.
 - If the visual would contain many targets, keep the chart readable first; shorten labels or return ranked labels outside the plot rather than cluttering the quadrant.
 
 ## Example Requests
 
 - `Evaluate Datadog for resilience to AI disruption.`
 - `Compare Clio, Notion, and Figma using the AI resilience rubric.`
-- `Compare Clio, Notion, and Figma using the AI resilience rubric and generate the 2x2 graphic.`
+- `Compare Clio, Notion, and Figma using the AI resilience rubric for slide-ready review.`
 - `Score this investor memo and tell me whether the moat is real.`
 - `Reassess this company after its new agent product launch.`
 - `Rank these six startups by AI resilience.`

@@ -1,6 +1,6 @@
 # AI Resilience Evaluator
 
-![Example AI resilience 2x2](./ai-resilience-2x2.svg)
+![Figma, Clio, and Notion AI resilience 2x2](./reports/figma-clio-notion-ai-resilience-2x2.svg)
 
 `ai_resilience_evaluator` is a research-oriented skill for judging whether a company, product, business unit, or category owns durable value above commodity AI generation.
 
