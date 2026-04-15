@@ -146,7 +146,7 @@ When current facts matter, the evaluator is expected to use current-source resea
 
 ## Current Status
 
-The skill currently exists as a lean core `SKILL.md` without extra packaging. It has been validated locally with the SkillSkill validator.
+The skill has a canonical root `SKILL.md`, a Claude Code mirror at `.claude/skills/ai_resilience_evaluator/SKILL.md`, and a local installer at `scripts/install.sh` for Codex and Claude Code.
 
 ## Why This Can Be Useful
 

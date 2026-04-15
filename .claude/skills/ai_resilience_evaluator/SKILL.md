@@ -1,6 +1,7 @@
 ---
 name: "ai_resilience_evaluator"
 description: "Produce an AI resilience assessment with 2x2 placement, a 15-factor score, a moat audit, a final verdict, and a simple 2x2 graphic when evaluating a company, comparing targets, stress-testing a memo, re-scoring after new evidence, or ranking candidates."
+argument-hint: "[target, memo, or comparison request]"
 ---
 
 # AI Resilience Evaluator
