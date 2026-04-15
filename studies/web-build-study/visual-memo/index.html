@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web-Build Study Visual Memo</title>
+  <style>
+    :root {
+      --text: #111;
+      --muted: #555;
+      --line: #d6d6d6;
+      --bg: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 24px 56px;
+    }
+    h1, h2 {
+      margin: 0;
+      line-height: 1.15;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    p {
+      margin: 0 0 12px;
+    }
+    .meta,
+    .small,
+    .scoreline,
+    figcaption,
+    footer {
+      color: var(--muted);
+    }
+    .intro,
+    .study,
+    .tasks,
+    .rubric,
+    .evidence,
+    .findings,
+    .placement,
+    .ranking,
+    .why,
+    .offering,
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+    .chart img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+    }
+    .ranking ol {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+    .ranking li {
+      margin: 0 0 6px;
+    }
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .fact {
+      border: 1px solid var(--line);
+      padding: 12px;
+    }
+    .fact strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .study ul,
+    .findings ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+    .study li,
+    .findings li {
+      margin: 0 0 8px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    thead th {
+      background: #fafafa;
+      font-weight: 600;
+    }
+    .matrix thead th span {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .group-row th {
+      background: #f6f6f6;
+      font-weight: 600;
+    }
+    .subtotal-row th,
+    .subtotal-row td,
+    .total-row th,
+    .total-row td {
+      font-weight: 600;
+    }
+    .offering-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .read {
+      max-width: 900px;
+    }
+    .placement-table th span {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .placement-line,
+    .verdict {
+      max-width: 920px;
+    }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+      max-width: 920px;
+    }
+    .analysis-grid h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .analysis-grid ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+    .analysis-grid li {
+      margin: 0 0 8px;
+    }
+    .hero-shot {
+      margin-top: 12px;
+    }
+    .shot {
+      margin: 0;
+      max-width: 920px;
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+    }
+    figcaption {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .links a {
+      color: inherit;
+    }
+    @media (max-width: 820px) {
+      main {
+        padding: 24px 16px 40px;
+      }
+      .fact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Web-Build Study Visual Memo</h1>
+      <p class="meta">Prepared 2026-04-14. Empirical-adjusted ranking for the web-build resilience study.</p>
+    </header>
+
+    <section class="intro">
+      <p>This memo is a visual summary of the web-build pilot, not just a gallery of tool outputs. It combines desk-phase scoring with live task evidence so the ranking reflects what actually held up in create, revise, and publish workflows.</p>
+    </section>
+
+    <section class="study">
+      <h2>Study Design</h2>
+      <p>The unit of analysis is the product offering, not the parent company. The cohort is Figma Sites, Figma Make, Lovable, Webflow, Framer, Wix Studio. The study uses the repository's 15-factor resilience rubric, shared evidence packets, structured desk-rater passes, and empirical task reruns.</p>
+      <ul>
+        <li>Evidence window: Most recent 12 months for change-sensitive official materials, plus older durable context when necessary.</li>
+        <li>Desk phase: 6 standardized evidence packets and 18 structured desk-rater scorecards feed the baseline and consensus totals.</li>
+        <li>Task phase: 3 tasks per tool test net-new creation, governed revision, and publish or handoff.</li>
+        <li>Method note: `operator_b` is the primary live pass. `operator_a` rows are same-agent replications used to widen empirical coverage and stress-test the rubric, not to claim independent human-operator validity.</li>
+      </ul>
+      <div class="fact-grid">
+        <div class="fact"><strong>6</strong><span>offerings in cohort</span></div>
+        <div class="fact"><strong>18</strong><span>desk scorecards</span></div>
+        <div class="fact"><strong>36</strong><span>task rows recorded</span></div>
+        <div class="fact"><strong>22/14</strong><span>completed vs blocker observations</span></div>
+      </div>
+    </section>
+
+    
+    <section class="tasks">
+      <h2>Tasks Exercised</h2>
+      <p>The empirical phase pushed every offering through the same three-task protocol. This is the part that turns the study into a stress test of workflow durability rather than a docs-only ranking.</p>
+      <div class="table-wrap">
+        <table class="tasks-table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>What Was Tested</th>
+              <th>Timebox</th>
+              <th>Prompt</th>
+              <th>Acceptance Checks</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <th>Task 1</th>
+          <td>Net-new marketing page</td>
+          <td>45 min</td>
+          <td>Create a responsive marketing page for Northstar Pediatrics with a hero, three benefit blocks, a pricing section, a testimonial, and a clear call to action for booking an intro call.</td>
+          <td>Usable on desktop and mobile, all five required sections present, healthcare-trustworthy tone, and ready for stakeholder review without extra polishing outside the tool.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Task 2</th>
+          <td>Governed revision and reuse</td>
+          <td>60 min</td>
+          <td>Update the same project so the page supports three membership tiers, reusable testimonial and FAQ content where available, a clinician profile section, and a primary CTA change from booking to join waitlist.</td>
+          <td>Applied on the same project, uses structured reuse where the tool supports it, preserves a consistent design system, and exposes a clear history or reusable structure rather than manual-only edits.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Task 3</th>
+          <td>Publish or handoff</td>
+          <td>60 min</td>
+          <td>Prepare the project for launch or developer handoff, publish the best available artifact, and document how a teammate or agent would make the next safe change.</td>
+          <td>Produces a usable launch or handoff artifact, surfaces versioning or approval behavior where supported, and exercises connector, API, repo, or agent hooks when available.</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+      <p class="small">Metrics captured: `time_to_first_acceptable_output`, `time_to_completion`, `requirements_pass_rate`, `manual_fix_count`, `structured_reuse`, `publish_success`, `governance_support`, `agent_or_api_leverage`.</p>
+    </section>
+    
+
+    
+    <section class="rubric">
+      <h2>15-Factor Rubric Score Matrix</h2>
+      <p>This is the actual empirical-adjusted cohort score table, using the same 15-factor, 75-point rubric used in the individual reports. Each cell is the consensus score for that factor after the task evidence was folded back into the study.</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>Factor</th>
+              <th>Wix Studio<span>58/75</span></th>
+<th>Webflow<span>56/75</span></th>
+<th>Figma Make<span>48/75</span></th>
+<th>Figma Sites<span>47/75</span></th>
+<th>Framer<span>47/75</span></th>
+<th>Lovable<span>39/75</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><th colspan="7">Proprietary Advantage</th></tr>
+<tr><th>Context</th><td>4/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>3/5</td></tr>
+<tr><th>Trust</th><td>4/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr><th>Distribution</th><td>5/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>5/5</td>
+<td>4/5</td>
+<td>3/5</td></tr>
+<tr><th>Judgment</th><td>3/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr><th>Liability / Governance</th><td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr class="subtotal-row"><th>Subtotal</th><td>20/25</td>
+<td>18/25</td>
+<td>16/25</td>
+<td>18/25</td>
+<td>16/25</td>
+<td>12/25</td></tr>
+<tr class="group-row"><th colspan="7">Workflow Criticality</th></tr>
+<tr><th>Frequency</th><td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>3/5</td></tr>
+<tr><th>Operational Dependence</th><td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr><th>System Position</th><td>4/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td>3/5</td></tr>
+<tr><th>Switching Cost</th><td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr><th>Budget Durability</th><td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>2/5</td></tr>
+<tr class="subtotal-row"><th>Subtotal</th><td>20/25</td>
+<td>19/25</td>
+<td>15/25</td>
+<td>16/25</td>
+<td>18/25</td>
+<td>12/25</td></tr>
+<tr class="group-row"><th colspan="7">AI Resilience Tests</th></tr>
+<tr><th>Model Improvement Test</th><td>4/5</td>
+<td>4/5</td>
+<td>5/5</td>
+<td>4/5</td>
+<td>4/5</td>
+<td>4/5</td></tr>
+<tr><th>Wrapper Risk Test</th><td>3/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>2/5</td></tr>
+<tr><th>Agent Readiness Test</th><td>4/5</td>
+<td>5/5</td>
+<td>5/5</td>
+<td>3/5</td>
+<td>3/5</td>
+<td>4/5</td></tr>
+<tr><th>Accountability Test</th><td>3/5</td>
+<td>3/5</td>
+<td>1/5</td>
+<td>1/5</td>
+<td>1/5</td>
+<td>2/5</td></tr>
+<tr><th>Outcome Depth Test</th><td>4/5</td>
+<td>4/5</td>
+<td>3/5</td>
+<td>2/5</td>
+<td>2/5</td>
+<td>3/5</td></tr>
+<tr class="subtotal-row"><th>Subtotal</th><td>18/25</td>
+<td>19/25</td>
+<td>17/25</td>
+<td>13/25</td>
+<td>13/25</td>
+<td>15/25</td></tr>
+<tr class="total-row"><th>Total</th><td>58/75</td>
+<td>56/75</td>
+<td>48/75</td>
+<td>47/75</td>
+<td>47/75</td>
+<td>39/75</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+
+    <section class="evidence">
+      <h2>Empirical Basis</h2>
+      <p>The observed task data supports the rubric&#x27;s central claim more than it refutes it: prompt-first speed and durable workflow ownership separate meaningfully once the study moves from generation into governed revision and publish-or-handoff steps.</p>
+      <p class="small">Current consensus totals incorporate both the desk baseline and the observed task evidence. Blockers are treated as evidence about workflow fit, packaging, or governance rather than ignored as noise.</p>
+    </section>
+
+    <section class="findings">
+      <h2>Observed Findings</h2>
+      <ul>
+        <li>Figma Make was the cleanest end-to-end performer in the observed runs, completing all six rows with perfect requirement pass rates and visible versioning plus publish artifacts. That moved it above Figma Sites and Framer in the empirical-adjusted ranking.</li>
+<li>Lovable validated the desk-phase expectation that AI-native builders can win on first-draft speed and in-place revision, but it also surfaced plan-credit and publish-permission friction that kept governance shallower than the raw generation quality suggests.</li>
+<li>Webflow and Wix Studio validated the rubric&#x27;s emphasis on publish workflow and operational surface. Both produced strong publish outcomes, while their main failures were packaging or revision-flow friction rather than inability to ship.</li>
+<li>Figma Sites underperformed because the live product path we exercised was plan-limited and code-component-first. Framer ended up more mixed: the first authenticated passes missed its AI path, but a follow-on Wireframer rerun validated real AI generation and same-project revision. That keeps Framer below the leaders, but no longer for &#x27;no AI path&#x27; reasons.</li>
+      </ul>
+    </section>
+
+    <section class="chart">
+      <img src="../web-build-ai-resilience-2x2.svg" alt="2x2 AI resilience chart for the web-build study">
+    </section>
+
+    
+    <section class="placement">
+      <h2>2x2 Placement Rationale</h2>
+      <p>The x-axis measures proprietary advantage from commodity output to defensible ownership. The y-axis measures workflow criticality from nice-to-have utility to mission-critical operating depth. Placement uses structural judgment informed by the 15-factor scores, not arithmetic alone.</p>
+      <div class="table-wrap">
+        <table class="placement-table">
+          <thead>
+            <tr>
+              <th>Offering</th>
+              <th>Placement</th>
+              <th>Why It Lands There</th>
+              <th>Strengths Pulling It Up/Right</th>
+              <th>Vulnerabilities Pulling It Down/Left</th>
+              <th>AI Resilience Read</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <th>Wix Studio <span>58/75</span></th>
+          <td>Upper-right, furthest right in the cohort</td>
+          <td>Wix Studio owns a wider operating footprint than the other cohort members: AI tools, site editing, business solutions, developer docs, security, and multi-site management all push it closer to a durable web operating platform.</td>
+          <td>Broad platform surface spanning agencies, enterprise, security, and developer workflows; Explicit AI tooling lives inside a larger system of action rather than replacing it</td>
+          <td>Visible AI features are still reproducible by competitors; Lower-end website creation remains exposed to commodity builders</td>
+          <td>Wix Studio remains the strongest resilience candidate in this cohort because the empirical task phase still pointed to the broadest web operating footprint, even though its AI-assisted revision flow fragmented under the study protocol.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Webflow <span>56/75</span></th>
+          <td>Upper-right, close to center</td>
+          <td>Webflow controls meaningful workflow and platform surface area for web operations, but its visible AI layer is still partially commoditizable.</td>
+          <td>Real website operating layer with CMS, hosting, and publishing workflow; Benefits from better models inside the platform</td>
+          <td>AI generation features are easy to replicate; Underlying content and structure are only moderately proprietary</td>
+          <td>Webflow&#x27;s empirical read mostly confirmed the desk score: it is defensible because of workflow ownership and platform breadth, even though AI-facing features remain exposed and the observed task blockers came from packaging rather than missing capability.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Figma Make <span>48/75</span></th>
+          <td>Right of center on proprietary advantage, near the workflow midpoint</td>
+          <td>Make still is not a full web operating platform, but the observed runs validated more durable workflow ownership than the desk pass initially credited, especially around governed revision, versioning, and publishable artifacts.</td>
+          <td>Prompting can pull in Figma styling context, connectors, and MCP-friendly workflows.; The observed task phase validated clean in-place revision, versioning, and publishable output rather than only first-draft speed.</td>
+          <td>Workflow depth still looks closer to prototyping than to governed production operations.; Accountability for shipped outcomes remains external.</td>
+          <td>Figma Make is still not a full web operating platform, but the task phase showed it already behaves like a more durable creation-and-change surface than the desk pass assumed, lifting it above Figma Sites and Framer in the empirical-adjusted ranking.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Figma Sites <span>47/75</span></th>
+          <td>Right of center on proprietary advantage, modestly above the workflow midpoint</td>
+          <td>Figma Sites retains inherited platform strength from Figma, but the observed product path was template-first or code-component-first and the Starter plan blocked publish, which reduced confidence in day-two governed workflow ownership.</td>
+          <td>Shared components, variables, and file context carry directly into the website workflow.; Figma&#x27;s distribution into design and product teams makes Sites easier to adopt than a net-new site tool.</td>
+          <td>Runtime ownership and business outcomes still happen outside the tool.; Publishing and governance depth look lighter than Webflow or Wix Studio.</td>
+          <td>Figma Sites remains more resilient than a pure AI website wrapper because of Figma&#x27;s broader context and distribution, but the empirical task phase lowered the workflow-depth read and moved it behind Figma Make in this cohort.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Framer <span>47/75</span></th>
+          <td>Right of center, near the workflow midpoint</td>
+          <td>Framer retains real CMS and publish ownership, and the follow-on Wireframer rerun showed a usable AI creation and revision path. The remaining weakness is not absence of AI, but inconsistent discoverability and a lighter publish-governance surface than Webflow or Wix Studio.</td>
+          <td>Real CMS and publish workflow make Framer more than a one-shot AI site builder.; Plugins, collaboration roles, and custom-domain publishing add operating depth.</td>
+          <td>The official AI path worked when entered through Wireframer, but it was not surfaced reliably from the first authenticated project routes.; Governance and accountability still look lighter than Webflow or Wix Studio.</td>
+          <td>Framer remains in the cohort on the strength of a validated Wireframer flow, real in-project AI revision, and real publish mechanics. It still trails the strongest platforms because AI discoverability and launch reliability looked less consistent than the in-editor generation experience.</td>
+        </tr>
+        
+
+        <tr>
+          <th>Lovable <span>39/75</span></th>
+          <td>Near the center-right, below center on workflow criticality</td>
+          <td>Lovable owns a useful prompt, repo, and deploy loop, yet the workflow still looks easier to substitute than the deeper governance, CMS, and multi-stakeholder operating layers in the cohort leaders.</td>
+          <td>Fast prompt-to-app creation plus one-click deploy is directly aligned with stronger models.; The product explicitly syncs with GitHub, which is more durable than a sandboxed demo builder.</td>
+          <td>Public governance and trust posture are much lighter than incumbent platforms.; Free-credit ceilings and publish permissions created real packaging friction during the task phase.</td>
+          <td>Lovable validated more real workflow depth than the desk pass initially credited, especially around prompt-first generation and in-place revision, but packaging and permission friction kept the overall resilience score mixed rather than improved.</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+
+    <section class="ranking">
+      <h2>Empirical Ranking</h2>
+      <ol>
+        <li><strong>Wix Studio</strong> 58</li>
+<li><strong>Webflow</strong> 56</li>
+<li><strong>Figma Make</strong> 48</li>
+<li><strong>Figma Sites</strong> 47</li>
+<li><strong>Framer</strong> 47</li>
+<li><strong>Lovable</strong> 39</li>
+      </ol>
+    </section>
+
+    <section class="why">
+      <h2>Why This Is More Empirical Than A Report</h2>
+      <p>A one-off report tells you what the rubric thinks from desk evidence. This memo also shows how those claims held up once the tools were forced through the same create, revise, and publish sequence. The hero shots below are tied to that empirical read, not to vendor marketing imagery.</p>
+    </section>
+
+    
+    <section class="offering" id="wix-studio">
+      <div class="offering-head">
+        <h2>Wix Studio</h2>
+        <div class="scoreline">Rank 1 · Score 58 · Desk 58 to empirical 58 (unchanged)</div>
+      </div>
+      <p class="read">Wix Studio published cleanly in both passes and continued to look like a broad operating platform, which validated the desk ranking. The main empirical weakness was not lack of platform surface but AI-workflow fragmentation during task 2, where Aria suggested adjacent app actions instead of directly applying the governed revision.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Upper-right, furthest right in the cohort. Wix Studio owns a wider operating footprint than the other cohort members: AI tools, site editing, business solutions, developer docs, security, and multi-site management all push it closer to a durable web operating platform.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Broad platform surface spanning agencies, enterprise, security, and developer workflows</li>
+<li>Explicit AI tooling lives inside a larger system of action rather than replacing it</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>Visible AI features are still reproducible by competitors</li>
+<li>Lower-end website creation remains exposed to commodity builders</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Wix Studio remains the strongest resilience candidate in this cohort because the empirical task phase still pointed to the broadest web operating footprint, even though its AI-assisted revision flow fragmented under the study protocol.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/wix-studio-outcome.png" alt="Published Wix Studio Northstar Pediatrics site" loading="lazy">
+        <figcaption>Published Northstar site. The output validated Wix Studio&#x27;s broad platform surface even though task 2 remained fragmented.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <section class="offering" id="webflow">
+      <div class="offering-head">
+        <h2>Webflow</h2>
+        <div class="scoreline">Rank 2 · Score 56 · Desk 56 to empirical 56 (unchanged)</div>
+      </div>
+      <p class="read">Webflow published and shared handoff artifacts cleanly in both observed passes, which validated the platform-depth thesis. The task-2 failures were real, but they looked like free-plan or workspace-state blockers rather than evidence that the underlying workflow surface is thin.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Upper-right, close to center. Webflow controls meaningful workflow and platform surface area for web operations, but its visible AI layer is still partially commoditizable.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Real website operating layer with CMS, hosting, and publishing workflow</li>
+<li>Benefits from better models inside the platform</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>AI generation features are easy to replicate</li>
+<li>Underlying content and structure are only moderately proprietary</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Webflow&#x27;s empirical read mostly confirmed the desk score: it is defensible because of workflow ownership and platform breadth, even though AI-facing features remain exposed and the observed task blockers came from packaging rather than missing capability.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/webflow-outcome.png" alt="Published Webflow Northstar Pediatrics site" loading="lazy">
+        <figcaption>Webflow produced a live public artifact and retained its publish and review strengths, which is why its score stayed unchanged at 56.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <section class="offering" id="figma-make">
+      <div class="offering-head">
+        <h2>Figma Make</h2>
+        <div class="scoreline">Rank 3 · Score 48 · Desk 43 to empirical 48 (+5)</div>
+      </div>
+      <p class="read">Figma Make was the only offering to complete both governed-revision runs cleanly while also publishing versioned artifacts in both passes. That performance validated more workflow depth, governance, and wrapper resistance than the desk baseline assumed.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Right of center on proprietary advantage, near the workflow midpoint. Make still is not a full web operating platform, but the observed runs validated more durable workflow ownership than the desk pass initially credited, especially around governed revision, versioning, and publishable artifacts.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Prompting can pull in Figma styling context, connectors, and MCP-friendly workflows.</li>
+<li>The observed task phase validated clean in-place revision, versioning, and publishable output rather than only first-draft speed.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>Workflow depth still looks closer to prototyping than to governed production operations.</li>
+<li>Accountability for shipped outcomes remains external.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Figma Make is still not a full web operating platform, but the task phase showed it already behaves like a more durable creation-and-change surface than the desk pass assumed, lifting it above Figma Sites and Framer in the empirical-adjusted ranking.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/figma-make-outcome.png" alt="Published Figma Make Northstar Pediatrics site" loading="lazy">
+        <figcaption>The published site shows that Make moved beyond draft generation and into a real handoff artifact, supporting the +5 empirical lift.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <section class="offering" id="figma-sites">
+      <div class="offering-head">
+        <h2>Figma Sites</h2>
+        <div class="scoreline">Rank 4 · Score 47 · Desk 53 to empirical 47 (-6)</div>
+      </div>
+      <p class="read">Both observed runs hit the same product-path mismatch: blank-site creation routed toward Make code components while the alternate path was template-first, and Starter blocked publish. That evidence reduced the workflow-depth read despite Figma&#x27;s broader platform strength.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Right of center on proprietary advantage, modestly above the workflow midpoint. Figma Sites retains inherited platform strength from Figma, but the observed product path was template-first or code-component-first and the Starter plan blocked publish, which reduced confidence in day-two governed workflow ownership.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Shared components, variables, and file context carry directly into the website workflow.</li>
+<li>Figma&#x27;s distribution into design and product teams makes Sites easier to adopt than a net-new site tool.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>Runtime ownership and business outcomes still happen outside the tool.</li>
+<li>Publishing and governance depth look lighter than Webflow or Wix Studio.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Figma Sites remains more resilient than a pure AI website wrapper because of Figma&#x27;s broader context and distribution, but the empirical task phase lowered the workflow-depth read and moved it behind Figma Make in this cohort.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/figma-sites-publish-blocker.png" alt="Figma Sites publish dialog stating that publish is unavailable on the Starter plan" loading="lazy">
+        <figcaption>Starter-plan publish restriction blocked the final handoff step in both observed runs, reinforcing the workflow-depth downgrade.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <section class="offering" id="framer">
+      <div class="offering-head">
+        <h2>Framer</h2>
+        <div class="scoreline">Rank 5 · Score 47 · Desk 49 to empirical 47 (-2)</div>
+      </div>
+      <p class="read">The follow-on rerun entered Framer through Wireframer and validated the official AI path that earlier authenticated passes missed. Framer generated a Northstar page quickly, then applied the governed revision prompt in the same project through Ask Framer. Publish and View Changes were real, but the public launch artifact looked less stable than the in-editor canvas result.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Right of center, near the workflow midpoint. Framer retains real CMS and publish ownership, and the follow-on Wireframer rerun showed a usable AI creation and revision path. The remaining weakness is not absence of AI, but inconsistent discoverability and a lighter publish-governance surface than Webflow or Wix Studio.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Real CMS and publish workflow make Framer more than a one-shot AI site builder.</li>
+<li>Plugins, collaboration roles, and custom-domain publishing add operating depth.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>The official AI path worked when entered through Wireframer, but it was not surfaced reliably from the first authenticated project routes.</li>
+<li>Governance and accountability still look lighter than Webflow or Wix Studio.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Framer remains in the cohort on the strength of a validated Wireframer flow, real in-project AI revision, and real publish mechanics. It still trails the strongest platforms because AI discoverability and launch reliability looked less consistent than the in-editor generation experience.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/framer-outcome.png" alt="Framer Wireframer canvas showing the generated Northstar Pediatrics page" loading="lazy">
+        <figcaption>Wireframer generated and revised the Northstar page successfully in-editor. Framer still trailed the leaders because the public launch artifact looked less reliable than this canvas result.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <section class="offering" id="lovable">
+      <div class="offering-head">
+        <h2>Lovable</h2>
+        <div class="scoreline">Rank 6 · Score 39 · Desk 39 to empirical 39 (unchanged)</div>
+      </div>
+      <p class="read">Lovable validated the prompt-first part of the thesis: it created strong first drafts quickly and completed one full governed revision cleanly. But a daily credit wall and publish permission blocker limited how much durable workflow ownership the study could credit.</p>
+      <p class="placement-line"><strong>2x2 placement:</strong> Near the center-right, below center on workflow criticality. Lovable owns a useful prompt, repo, and deploy loop, yet the workflow still looks easier to substitute than the deeper governance, CMS, and multi-stakeholder operating layers in the cohort leaders.</p>
+      <div class="analysis-grid">
+        <div>
+          <h3>What Carries The Score</h3>
+          <ul>
+            <li>Fast prompt-to-app creation plus one-click deploy is directly aligned with stronger models.</li>
+<li>The product explicitly syncs with GitHub, which is more durable than a sandboxed demo builder.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What Limits The Score</h3>
+          <ul>
+            <li>Public governance and trust posture are much lighter than incumbent platforms.</li>
+<li>Free-credit ceilings and publish permissions created real packaging friction during the task phase.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="verdict"><strong>Final verdict:</strong> Lovable validated more real workflow depth than the desk pass initially credited, especially around prompt-first generation and in-place revision, but packaging and permission friction kept the overall resilience score mixed rather than improved.</p>
+      <div class="hero-shot">
+
+      <figure class="shot">
+        <img src="screenshots/lovable-outcome.png" alt="Published Lovable Northstar Pediatrics preview site" loading="lazy">
+        <figcaption>Lovable delivered one of the fastest prompt-first outputs in the cohort, which validated stronger workflow depth than the desk pass first gave it.</figcaption>
+      </figure>
+    
+      </div>
+    </section>
+    
+
+    <footer>
+      <p>Sources: <a href="../analysis.md">analysis.md</a>, <a href="../consensus_scores.json">consensus_scores.json</a>, <a href="../task_metrics.csv">task_metrics.csv</a>, <a href="screenshot-manifest.json">screenshot-manifest.json</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>
