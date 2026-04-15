@@ -1,0 +1,77 @@
+{
+  "target_name": "Framer",
+  "summary": "Framer's follow-on rerun validated its official AI site-generation path and same-project AI revisions, but that path was not surfaced cleanly in the first authenticated passes. Its empirical-adjusted score now sits in the middle because the core AI workflow is real while discoverability and launch reliability still look weaker than the strongest platforms.",
+  "quadrant": {
+    "x_axis": "Commodity Output -> Proprietary Advantage",
+    "y_axis": "Nice-to-Have Utility -> Mission-Critical Workflow",
+    "placement": "Right of center, near the workflow midpoint",
+    "rationale": "Framer retains real CMS and publish ownership, and the follow-on Wireframer rerun showed a usable AI creation and revision path. The remaining weakness is not absence of AI, but inconsistent discoverability and a lighter publish-governance surface than Webflow or Wix Studio."
+  },
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 3,
+      "distribution": 4,
+      "judgment": 3,
+      "liability_governance": 3,
+      "subtotal": 16
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 3,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 18
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 3,
+      "accountability_test": 1,
+      "outcome_depth_test": 2,
+      "subtotal": 13
+    },
+    "total": 47
+  },
+  "top_strengths": [
+    "Real CMS and publish workflow make Framer more than a one-shot AI site builder.",
+    "Plugins, collaboration roles, and custom-domain publishing add operating depth.",
+    "AI features benefit directly from stronger models without being the only story."
+  ],
+  "main_vulnerabilities": [
+    "The official AI path worked when entered through Wireframer, but it was not surfaced reliably from the first authenticated project routes.",
+    "Governance and accountability still look lighter than Webflow or Wix Studio.",
+    "Outcome ownership remains limited because Framer does not control the broader business stack."
+  ],
+  "strategic_read": {
+    "durable_layers": [
+      "CMS collections and content workflow",
+      "Publish plus custom-domain surface",
+      "Plugin ecosystem and collaboration model"
+    ],
+    "commoditizing_layers": [
+      "Generic AI site drafting",
+      "Template-heavy landing page generation",
+      "Surface-level copy and layout assistance"
+    ],
+    "next_moves": [
+      "Deepen permissions, multi-site operations, and agent-aware change workflows.",
+      "Keep moving from polished site creation toward more durable operating ownership."
+    ]
+  },
+  "final_verdict": "Framer remains in the cohort on the strength of a validated Wireframer flow, real in-project AI revision, and real publish mechanics. It still trails the strongest platforms because AI discoverability and launch reliability looked less consistent than the in-editor generation experience.",
+  "confidence": {
+    "level": "medium",
+    "reason": "Public documentation plus direct rerun evidence now verify that Framer's official AI, CMS, and publish story is real. Confidence is still capped because the path was easy to miss in the authenticated workspace and the public publish check looked less stable than the in-editor result."
+  },
+  "evidence_notes": [
+    "https://www.framer.com/pricing/",
+    "https://www.framer.com/ai",
+    "https://www.framer.com/developers/cms",
+    "https://www.framer.com/help/articles/do-i-have-to-setup-ssl-when-adding-a-custom-domain-to-a-framer-project/",
+    "https://www.framer.com/help/articles/member-roles-and-permissions/",
+    "https://www.framer.com/security",
+    "https://www.framer.com/updates/plugins-3-3"
+  ]
+}

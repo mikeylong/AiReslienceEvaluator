@@ -1,0 +1,76 @@
+{
+  "target_name": "Webflow",
+  "summary": "Webflow's empirical read mostly validated the desk score: it owns a real governed website operating stack with strong publish and review surfaces, while the observed failures were driven more by free-tier packaging and workspace state than by missing platform capability.",
+  "quadrant": {
+    "x_axis": "Commodity Output -> Proprietary Advantage",
+    "y_axis": "Nice-to-Have Utility -> Mission-Critical Workflow",
+    "placement": "Upper-right, close to center",
+    "rationale": "Webflow controls meaningful workflow and platform surface area for web operations, but its visible AI layer is still partially commoditizable."
+  },
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 4,
+      "distribution": 4,
+      "judgment": 3,
+      "liability_governance": 4,
+      "subtotal": 18
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 4,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 19
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 5,
+      "accountability_test": 3,
+      "outcome_depth_test": 4,
+      "subtotal": 19
+    },
+    "total": 56
+  },
+  "top_strengths": [
+    "Real website operating layer with CMS, hosting, and publishing workflow",
+    "Benefits from better models inside the platform",
+    "Strong developer and agent-facing infrastructure"
+  ],
+  "main_vulnerabilities": [
+    "AI generation features are easy to replicate",
+    "Underlying content and structure are only moderately proprietary",
+    "Lower-end site building is exposed to AI-native entrants"
+  ],
+  "strategic_read": {
+    "durable_layers": [
+      "CMS architecture",
+      "Hosting and publishing",
+      "Workflow governance",
+      "Permissions",
+      "Developer and agent surface"
+    ],
+    "commoditizing_layers": [
+      "Generic AI generation",
+      "Layout drafting",
+      "Simple site creation"
+    ],
+    "next_moves": [
+      "Push deeper into structured content and experimentation",
+      "Make agent-safe publishing and website operations the core moat"
+    ]
+  },
+  "final_verdict": "Webflow's empirical read mostly confirmed the desk score: it is defensible because of workflow ownership and platform breadth, even though AI-facing features remain exposed and the observed task blockers came from packaging rather than missing capability.",
+  "confidence": {
+    "level": "medium-high",
+    "reason": "Official evidence on platform breadth and governance is now reinforced by live publish observations. Remaining uncertainty is mostly about how much the free-tier blockers distorted the revision task, not about whether Webflow owns a real operating layer."
+  },
+  "evidence_notes": [
+    "https://developers.webflow.com/",
+    "https://trust.webflow.com/",
+    "https://webflow.com/ai",
+    "https://webflow.com/pricing"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "target_slug": "lovable",
+  "target_name": "Lovable",
+  "rater_id": "desk_rater_beta",
+  "rater_label": "Desk Rater Beta",
+  "rater_lens": "Balanced baseline reading of the evidence packet.",
+  "scope": "Scoped to Lovable's AI app-building product and cloud deployment workflow rather than any future broader platform ambitions.",
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 2,
+      "distribution": 3,
+      "judgment": 2,
+      "liability_governance": 2,
+      "subtotal": 12
+    },
+    "workflow_criticality": {
+      "frequency": 3,
+      "operational_dependence": 2,
+      "system_position": 2,
+      "switching_cost": 2,
+      "budget_durability": 3,
+      "subtotal": 12
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 2,
+      "agent_readiness_test": 4,
+      "accountability_test": 2,
+      "outcome_depth_test": 3,
+      "subtotal": 15
+    },
+    "total": 39
+  },
+  "factor_notes": {
+    "context": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Lovable accumulates project context and repo-linked state, but the core app logic is often portable and not yet a proprietary data moat."
+    },
+    "trust": {
+      "score": 2,
+      "evidence_label": "Direct evidence",
+      "rationale": "Pentesting and DPA materials help, yet public trust and governance depth still trail the more mature incumbents in the cohort."
+    },
+    "distribution": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Lovable has meaningful brand momentum in the AI builder space, but it does not yet control a pre-existing enterprise distribution channel."
+    },
+    "judgment": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "The product accelerates implementation, but durable design, architecture, and business judgment remain external to the tool."
+    },
+    "liability_governance": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "Current public evidence does not show Lovable owning deep approvals, auditability, or accountable governance for production web changes."
+    },
+    "frequency": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Builders can use Lovable intensively during creation sprints, but recurring day-two usage is less established than on heavier operating platforms."
+    },
+    "operational_dependence": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "If Lovable disappeared, many teams could continue from GitHub or move to another coding agent stack, which limits dependence."
+    },
+    "system_position": {
+      "score": 2,
+      "evidence_label": "Direct evidence",
+      "rationale": "Lovable is part of the create-and-deploy path, but it does not yet look like the central operating system for a broader website or app program."
+    },
+    "switching_cost": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "Repository sync helps continuity, yet that same portability makes the workflow easier to substitute than a more closed operating layer."
+    },
+    "budget_durability": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The product can earn recurring spend from active builders, but the budget still competes with many adjacent AI coding and builder tools."
+    },
+    "model_improvement_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Lovable benefits directly as model quality and agent reliability improve because generation speed and breadth sit at the core of the offering."
+    },
+    "wrapper_risk_test": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "A lot of visible value is still close to the model layer and assistant UX, which creates meaningful wrapper pressure."
+    },
+    "agent_readiness_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "The product is explicitly agent-oriented and already bridges into deploy and repo workflows instead of stopping at text generation."
+    },
+    "accountability_test": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "Lovable can help ship software, but final responsibility for correctness, security, and business impact still lands on the team using it."
+    },
+    "outcome_depth_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The tool can materially change shipping velocity, though durable commercial outcomes still depend on downstream maintenance, distribution, and operations."
+    }
+  },
+  "limitations": "This is a structured desk-research rating pass from one shared evidence packet, not an independent blinded human rater."
+}

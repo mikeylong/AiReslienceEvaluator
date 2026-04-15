@@ -1,0 +1,876 @@
+{
+  "study_metadata": {
+    "study_name": "Web-build empirical pilot for AI resilience",
+    "prepared_on": "2026-04-14",
+    "study_type": "pilot-validity",
+    "unit_of_analysis": "product_offering",
+    "evidence_window": "Most recent 12 months for change-sensitive official materials, plus older durable context when necessary",
+    "cohort": [
+      "Figma Sites",
+      "Figma Make",
+      "Lovable",
+      "Webflow",
+      "Framer",
+      "Wix Studio"
+    ],
+    "phase_status": {
+      "evidence_packets": "complete",
+      "structured_desk_raters": "complete",
+      "consensus_scoring": "complete",
+      "operator_protocol": "complete",
+      "operator_task_runs": "observed_task_evidence_recorded"
+    },
+    "primary_hypothesis": "Higher resilience scores should align more strongly with governed revision, publishing, and handoff workflows than with raw first-draft speed.",
+    "notes": [
+      "Per-offering narrative and JSON reports reuse the repository's existing single-target contract.",
+      "The three rater passes are structured desk-rater simulations from a shared evidence packet, not blinded external humans.",
+      "Task metrics now include live observed runs: 22 completed observations and 14 blocker observations are recorded across 36 task rows.",
+      "operator_b is the primary live task pass. operator_a rows are a same-agent replication used to widen empirical coverage and stress-test the rubric, not to claim independent operator validity.",
+      "The primary ranking is now an empirical-adjusted consensus, while desk-only totals remain preserved for audit and comparison.",
+      "Observed blockers are treated as empirical evidence about workflow fit, packaging, or governance rather than discarded as operator noise."
+    ]
+  },
+  "consensus_scores": {
+    "figma-sites": {
+      "target_name": "Figma Sites",
+      "placement": "Right of center on proprietary advantage, modestly above the workflow midpoint",
+      "summary": "Figma Sites still benefits from Figma's collaborative context and distribution, but the observed task phase showed weaker workflow fit than the desk read assumed. In this protocol it behaved more like an adjacent publishing surface than a durable prompt-first site operating tool.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 4,
+          "trust": 4,
+          "distribution": 5,
+          "judgment": 3,
+          "liability_governance": 2,
+          "subtotal": 18
+        },
+        "workflow_criticality": {
+          "frequency": 4,
+          "operational_dependence": 2,
+          "system_position": 3,
+          "switching_cost": 3,
+          "budget_durability": 4,
+          "subtotal": 16
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 4,
+          "wrapper_risk_test": 3,
+          "agent_readiness_test": 3,
+          "accountability_test": 1,
+          "outcome_depth_test": 2,
+          "subtotal": 13
+        },
+        "total": 47
+      },
+      "report_paths": {
+        "markdown": "individual-reports/figma-sites-ai-resilience-report.md",
+        "json": "individual-reports/figma-sites-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/figma-sites-evidence-packet.md"
+      }
+    },
+    "figma-make": {
+      "target_name": "Figma Make",
+      "placement": "Right of center on proprietary advantage, near the workflow midpoint",
+      "summary": "Figma Make moved up materially after the task phase because it was the cleanest end-to-end performer in the cohort: it generated quickly, handled governed revision cleanly, and published versioned artifacts without breaking workflow continuity.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 3,
+          "trust": 4,
+          "distribution": 4,
+          "judgment": 2,
+          "liability_governance": 3,
+          "subtotal": 16
+        },
+        "workflow_criticality": {
+          "frequency": 3,
+          "operational_dependence": 3,
+          "system_position": 4,
+          "switching_cost": 2,
+          "budget_durability": 3,
+          "subtotal": 15
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 5,
+          "wrapper_risk_test": 3,
+          "agent_readiness_test": 5,
+          "accountability_test": 1,
+          "outcome_depth_test": 3,
+          "subtotal": 17
+        },
+        "total": 48
+      },
+      "report_paths": {
+        "markdown": "individual-reports/figma-make-ai-resilience-report.md",
+        "json": "individual-reports/figma-make-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/figma-make-evidence-packet.md"
+      }
+    },
+    "lovable": {
+      "target_name": "Lovable",
+      "placement": "Near the center-right, below center on workflow criticality",
+      "summary": "Lovable remained one of the fastest tools in the cohort and the task phase validated stronger real workflow depth than the desk pass assumed. But free-credit and publish-permission friction kept the resilience read mixed rather than upgraded overall.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 3,
+          "trust": 2,
+          "distribution": 3,
+          "judgment": 2,
+          "liability_governance": 2,
+          "subtotal": 12
+        },
+        "workflow_criticality": {
+          "frequency": 3,
+          "operational_dependence": 2,
+          "system_position": 3,
+          "switching_cost": 2,
+          "budget_durability": 2,
+          "subtotal": 12
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 4,
+          "wrapper_risk_test": 2,
+          "agent_readiness_test": 4,
+          "accountability_test": 2,
+          "outcome_depth_test": 3,
+          "subtotal": 15
+        },
+        "total": 39
+      },
+      "report_paths": {
+        "markdown": "individual-reports/lovable-ai-resilience-report.md",
+        "json": "individual-reports/lovable-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/lovable-evidence-packet.md"
+      }
+    },
+    "webflow": {
+      "target_name": "Webflow",
+      "placement": "Upper-right, close to center",
+      "summary": "Webflow's empirical read mostly validated the desk score: it owns a real governed website operating stack with strong publish and review surfaces, while the observed failures were driven more by free-tier packaging and workspace state than by missing platform capability.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 3,
+          "trust": 4,
+          "distribution": 4,
+          "judgment": 3,
+          "liability_governance": 4,
+          "subtotal": 18
+        },
+        "workflow_criticality": {
+          "frequency": 4,
+          "operational_dependence": 4,
+          "system_position": 4,
+          "switching_cost": 3,
+          "budget_durability": 4,
+          "subtotal": 19
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 4,
+          "wrapper_risk_test": 3,
+          "agent_readiness_test": 5,
+          "accountability_test": 3,
+          "outcome_depth_test": 4,
+          "subtotal": 19
+        },
+        "total": 56
+      },
+      "report_paths": {
+        "markdown": "individual-reports/webflow-ai-resilience-report.md",
+        "json": "individual-reports/webflow-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/webflow-evidence-packet.md"
+      }
+    },
+    "framer": {
+      "target_name": "Framer",
+      "placement": "Right of center, near the workflow midpoint",
+      "summary": "Framer's follow-on rerun validated its official AI site-generation path and same-project AI revisions, but that path was not surfaced cleanly in the first authenticated passes. Its empirical-adjusted score now sits in the middle because the core AI workflow is real while discoverability and launch reliability still look weaker than the strongest platforms.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 3,
+          "trust": 3,
+          "distribution": 4,
+          "judgment": 3,
+          "liability_governance": 3,
+          "subtotal": 16
+        },
+        "workflow_criticality": {
+          "frequency": 4,
+          "operational_dependence": 3,
+          "system_position": 4,
+          "switching_cost": 3,
+          "budget_durability": 4,
+          "subtotal": 18
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 4,
+          "wrapper_risk_test": 3,
+          "agent_readiness_test": 3,
+          "accountability_test": 1,
+          "outcome_depth_test": 2,
+          "subtotal": 13
+        },
+        "total": 47
+      },
+      "report_paths": {
+        "markdown": "individual-reports/framer-ai-resilience-report.md",
+        "json": "individual-reports/framer-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/framer-evidence-packet.md"
+      }
+    },
+    "wix-studio": {
+      "target_name": "Wix Studio",
+      "placement": "Upper-right, furthest right in the cohort",
+      "summary": "Wix Studio remains the strongest resilience candidate in this cohort because the task phase largely validated the desk thesis: its broad platform surface, publish flow, and enterprise positioning still outweigh the fragmentation seen in AI-assisted revision.",
+      "scores": {
+        "proprietary_advantage": {
+          "context": 4,
+          "trust": 4,
+          "distribution": 5,
+          "judgment": 3,
+          "liability_governance": 4,
+          "subtotal": 20
+        },
+        "workflow_criticality": {
+          "frequency": 4,
+          "operational_dependence": 4,
+          "system_position": 4,
+          "switching_cost": 4,
+          "budget_durability": 4,
+          "subtotal": 20
+        },
+        "ai_resilience_tests": {
+          "model_improvement_test": 4,
+          "wrapper_risk_test": 3,
+          "agent_readiness_test": 4,
+          "accountability_test": 3,
+          "outcome_depth_test": 4,
+          "subtotal": 18
+        },
+        "total": 58
+      },
+      "report_paths": {
+        "markdown": "individual-reports/wix-studio-ai-resilience-report.md",
+        "json": "individual-reports/wix-studio-ai-resilience-report.json",
+        "evidence_packet": "evidence-packets/wix-studio-evidence-packet.md"
+      }
+    }
+  },
+  "desk_baseline_totals": {
+    "figma-sites": {
+      "target_name": "Figma Sites",
+      "total": 53
+    },
+    "figma-make": {
+      "target_name": "Figma Make",
+      "total": 43
+    },
+    "lovable": {
+      "target_name": "Lovable",
+      "total": 39
+    },
+    "webflow": {
+      "target_name": "Webflow",
+      "total": 56
+    },
+    "framer": {
+      "target_name": "Framer",
+      "total": 49
+    },
+    "wix-studio": {
+      "target_name": "Wix Studio",
+      "total": 58
+    }
+  },
+  "empirical_adjustment_summary": {
+    "figma-sites": {
+      "target_name": "Figma Sites",
+      "desk_total": 53,
+      "empirical_total": 47,
+      "total_delta": -6,
+      "changed_factors": [
+        {
+          "factor": "liability_governance",
+          "label": "Liability / Governance",
+          "delta": -1,
+          "desk_score": 3,
+          "empirical_score": 2,
+          "rationale": "Observed task evidence. The live product path exposed lighter publish control than the desk read assumed, and Starter-plan restrictions blocked a real publish outcome in both runs."
+        },
+        {
+          "factor": "operational_dependence",
+          "label": "Operational Dependence",
+          "delta": -1,
+          "desk_score": 3,
+          "empirical_score": 2,
+          "rationale": "Observed task evidence. The task phase did not show Sites acting like a central operating layer for recurring website work; it behaved more like an adjacent surface."
+        },
+        {
+          "factor": "system_position",
+          "label": "System Position",
+          "delta": -1,
+          "desk_score": 4,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. The blank-site path routed into code-component Make and the alternate path was template-first, which weakened the direct system-of-action read for this protocol."
+        },
+        {
+          "factor": "agent_readiness_test",
+          "label": "Agent Readiness Test",
+          "delta": -1,
+          "desk_score": 4,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. Agent-adjacent potential remained theoretical in the task phase because the observed site workflow did not expose a strong brief-driven or change-driven agent path."
+        },
+        {
+          "factor": "accountability_test",
+          "label": "Accountability Test",
+          "delta": -1,
+          "desk_score": 2,
+          "empirical_score": 1,
+          "rationale": "Observed task evidence. The product influenced drafts but did not validate accountable publish or governed follow-up workflow under the observed plan and product path."
+        },
+        {
+          "factor": "outcome_depth_test",
+          "label": "Outcome Depth Test",
+          "delta": -1,
+          "desk_score": 3,
+          "empirical_score": 2,
+          "rationale": "Observed task evidence. Because creation and publish both blocked on workflow fit or plan limits, the task phase did not support the stronger business-outcome read from the desk pass."
+        }
+      ],
+      "empirical_task_read": "Both observed runs hit the same product-path mismatch: blank-site creation routed toward Make code components while the alternate path was template-first, and Starter blocked publish. That evidence reduced the workflow-depth read despite Figma's broader platform strength."
+    },
+    "figma-make": {
+      "target_name": "Figma Make",
+      "desk_total": 43,
+      "empirical_total": 48,
+      "total_delta": 5,
+      "changed_factors": [
+        {
+          "factor": "liability_governance",
+          "label": "Liability / Governance",
+          "delta": 1,
+          "desk_score": 2,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. Both runs preserved versioned change flow and publish artifacts, which supports a stronger governed-change read than the desk pass gave it."
+        },
+        {
+          "factor": "operational_dependence",
+          "label": "Operational Dependence",
+          "delta": 1,
+          "desk_score": 2,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. The tool supported the whole create-revise-publish loop in the study rather than only a disposable prototype step."
+        },
+        {
+          "factor": "system_position",
+          "label": "System Position",
+          "delta": 1,
+          "desk_score": 3,
+          "empirical_score": 4,
+          "rationale": "Observed task evidence. Make held the center of the workflow across creation, revision, version history, and web or community publication."
+        },
+        {
+          "factor": "wrapper_risk_test",
+          "label": "Wrapper Risk Test",
+          "delta": 1,
+          "desk_score": 2,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. The live runs showed more durable value in structured change flow and context-preserving revision than a simple prompt-to-app wrapper read would imply."
+        },
+        {
+          "factor": "outcome_depth_test",
+          "label": "Outcome Depth Test",
+          "delta": 1,
+          "desk_score": 2,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. The tool materially affected speed, completeness, and handoff quality across all three tasks instead of only improving ideation."
+        }
+      ],
+      "empirical_task_read": "Figma Make was the only offering to complete both governed-revision runs cleanly while also publishing versioned artifacts in both passes. That performance validated more workflow depth, governance, and wrapper resistance than the desk baseline assumed."
+    },
+    "lovable": {
+      "target_name": "Lovable",
+      "desk_total": 39,
+      "empirical_total": 39,
+      "total_delta": 0,
+      "changed_factors": [
+        {
+          "factor": "system_position",
+          "label": "System Position",
+          "delta": 1,
+          "desk_score": 2,
+          "empirical_score": 3,
+          "rationale": "Observed task evidence. Lovable handled real create, revise, and handoff work inside the same project more convincingly than the desk baseline implied."
+        },
+        {
+          "factor": "budget_durability",
+          "label": "Budget Durability",
+          "delta": -1,
+          "desk_score": 3,
+          "empirical_score": 2,
+          "rationale": "Observed task evidence. The daily free-credit ceiling materially constrained revision work in one live pass, which supports a weaker budget-durability read than the desk baseline."
+        }
+      ],
+      "empirical_task_read": "Lovable validated the prompt-first part of the thesis: it created strong first drafts quickly and completed one full governed revision cleanly. But a daily credit wall and publish permission blocker limited how much durable workflow ownership the study could credit."
+    },
+    "webflow": {
+      "target_name": "Webflow",
+      "desk_total": 56,
+      "empirical_total": 56,
+      "total_delta": 0,
+      "changed_factors": [],
+      "empirical_task_read": "Webflow published and shared handoff artifacts cleanly in both observed passes, which validated the platform-depth thesis. The task-2 failures were real, but they looked like free-plan or workspace-state blockers rather than evidence that the underlying workflow surface is thin."
+    },
+    "framer": {
+      "target_name": "Framer",
+      "desk_total": 49,
+      "empirical_total": 47,
+      "total_delta": -2,
+      "changed_factors": [
+        {
+          "factor": "accountability_test",
+          "label": "Accountability Test",
+          "delta": -1,
+          "desk_score": 2,
+          "empirical_score": 1,
+          "rationale": "Observed task evidence. Publish mechanics and View Changes were real, but the public launch spot check looked weaker than the in-editor canvas result, so accountable launch quality still reads lighter than the best platforms."
+        },
+        {
+          "factor": "outcome_depth_test",
+          "label": "Outcome Depth Test",
+          "delta": -1,
+          "desk_score": 3,
+          "empirical_score": 2,
+          "rationale": "Observed task evidence. Framer generated and revised the site successfully, but the live launch artifact still looked less reliable than the in-editor workflow, which limits the business-outcome read."
+        }
+      ],
+      "empirical_task_read": "The follow-on rerun entered Framer through Wireframer and validated the official AI path that earlier authenticated passes missed. Framer generated a Northstar page quickly, then applied the governed revision prompt in the same project through Ask Framer. Publish and View Changes were real, but the public launch artifact looked less stable than the in-editor canvas result."
+    },
+    "wix-studio": {
+      "target_name": "Wix Studio",
+      "desk_total": 58,
+      "empirical_total": 58,
+      "total_delta": 0,
+      "changed_factors": [],
+      "empirical_task_read": "Wix Studio published cleanly in both passes and continued to look like a broad operating platform, which validated the desk ranking. The main empirical weakness was not lack of platform surface but AI-workflow fragmentation during task 2, where Aria suggested adjacent app actions instead of directly applying the governed revision."
+    }
+  },
+  "ranking_comparison": [
+    {
+      "slug": "wix-studio",
+      "target_name": "Wix Studio",
+      "desk_rank": 1,
+      "empirical_rank": 1,
+      "rank_change": 0,
+      "desk_total": 58,
+      "empirical_total": 58
+    },
+    {
+      "slug": "webflow",
+      "target_name": "Webflow",
+      "desk_rank": 2,
+      "empirical_rank": 2,
+      "rank_change": 0,
+      "desk_total": 56,
+      "empirical_total": 56
+    },
+    {
+      "slug": "figma-make",
+      "target_name": "Figma Make",
+      "desk_rank": 5,
+      "empirical_rank": 3,
+      "rank_change": 2,
+      "desk_total": 43,
+      "empirical_total": 48
+    },
+    {
+      "slug": "figma-sites",
+      "target_name": "Figma Sites",
+      "desk_rank": 3,
+      "empirical_rank": 4,
+      "rank_change": -1,
+      "desk_total": 53,
+      "empirical_total": 47
+    },
+    {
+      "slug": "framer",
+      "target_name": "Framer",
+      "desk_rank": 4,
+      "empirical_rank": 5,
+      "rank_change": -1,
+      "desk_total": 49,
+      "empirical_total": 47
+    },
+    {
+      "slug": "lovable",
+      "target_name": "Lovable",
+      "desk_rank": 6,
+      "empirical_rank": 6,
+      "rank_change": 0,
+      "desk_total": 39,
+      "empirical_total": 39
+    }
+  ],
+  "rater_variance": {
+    "figma-sites": {
+      "total_mean": 53.0,
+      "total_min": 51,
+      "total_max": 55,
+      "total_stddev": 1.63,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 18.67,
+          "min": 18,
+          "max": 19,
+          "stddev": 0.47
+        },
+        "workflow_criticality": {
+          "mean": 17.67,
+          "min": 17,
+          "max": 18,
+          "stddev": 0.47
+        },
+        "ai_resilience_tests": {
+          "mean": 16.67,
+          "min": 16,
+          "max": 18,
+          "stddev": 0.94
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 0,
+        "distribution": 0,
+        "judgment": 0,
+        "liability_governance": 1,
+        "frequency": 0,
+        "operational_dependence": 1,
+        "system_position": 0,
+        "switching_cost": 0,
+        "budget_durability": 0,
+        "model_improvement_test": 1,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 1,
+        "accountability_test": 0,
+        "outcome_depth_test": 0
+      },
+      "max_factor_disagreement": 1
+    },
+    "figma-make": {
+      "total_mean": 43.0,
+      "total_min": 41,
+      "total_max": 45,
+      "total_stddev": 1.63,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 14.67,
+          "min": 14,
+          "max": 15,
+          "stddev": 0.47
+        },
+        "workflow_criticality": {
+          "mean": 13.0,
+          "min": 12,
+          "max": 14,
+          "stddev": 0.82
+        },
+        "ai_resilience_tests": {
+          "mean": 15.33,
+          "min": 15,
+          "max": 16,
+          "stddev": 0.47
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 1,
+        "distribution": 0,
+        "judgment": 0,
+        "liability_governance": 0,
+        "frequency": 0,
+        "operational_dependence": 0,
+        "system_position": 1,
+        "switching_cost": 1,
+        "budget_durability": 0,
+        "model_improvement_test": 0,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 0,
+        "accountability_test": 0,
+        "outcome_depth_test": 1
+      },
+      "max_factor_disagreement": 1
+    },
+    "lovable": {
+      "total_mean": 39.0,
+      "total_min": 36,
+      "total_max": 42,
+      "total_stddev": 2.45,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 11.33,
+          "min": 10,
+          "max": 12,
+          "stddev": 0.94
+        },
+        "workflow_criticality": {
+          "mean": 11.67,
+          "min": 11,
+          "max": 12,
+          "stddev": 0.47
+        },
+        "ai_resilience_tests": {
+          "mean": 16.0,
+          "min": 15,
+          "max": 18,
+          "stddev": 1.41
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 1,
+        "distribution": 1,
+        "judgment": 0,
+        "liability_governance": 0,
+        "frequency": 0,
+        "operational_dependence": 0,
+        "system_position": 0,
+        "switching_cost": 1,
+        "budget_durability": 0,
+        "model_improvement_test": 1,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 1,
+        "accountability_test": 0,
+        "outcome_depth_test": 1
+      },
+      "max_factor_disagreement": 1
+    },
+    "webflow": {
+      "total_mean": 55.67,
+      "total_min": 54,
+      "total_max": 57,
+      "total_stddev": 1.25,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 18.0,
+          "min": 18,
+          "max": 18,
+          "stddev": 0.0
+        },
+        "workflow_criticality": {
+          "mean": 18.67,
+          "min": 18,
+          "max": 19,
+          "stddev": 0.47
+        },
+        "ai_resilience_tests": {
+          "mean": 19.0,
+          "min": 18,
+          "max": 20,
+          "stddev": 0.82
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 0,
+        "distribution": 0,
+        "judgment": 0,
+        "liability_governance": 0,
+        "frequency": 0,
+        "operational_dependence": 0,
+        "system_position": 0,
+        "switching_cost": 1,
+        "budget_durability": 0,
+        "model_improvement_test": 1,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 0,
+        "accountability_test": 1,
+        "outcome_depth_test": 0
+      },
+      "max_factor_disagreement": 1
+    },
+    "framer": {
+      "total_mean": 49.0,
+      "total_min": 47,
+      "total_max": 51,
+      "total_stddev": 1.63,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 15.33,
+          "min": 14,
+          "max": 16,
+          "stddev": 0.94
+        },
+        "workflow_criticality": {
+          "mean": 18.0,
+          "min": 18,
+          "max": 18,
+          "stddev": 0.0
+        },
+        "ai_resilience_tests": {
+          "mean": 15.67,
+          "min": 15,
+          "max": 17,
+          "stddev": 0.94
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 1,
+        "distribution": 0,
+        "judgment": 0,
+        "liability_governance": 1,
+        "frequency": 0,
+        "operational_dependence": 0,
+        "system_position": 0,
+        "switching_cost": 0,
+        "budget_durability": 0,
+        "model_improvement_test": 1,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 1,
+        "accountability_test": 0,
+        "outcome_depth_test": 0
+      },
+      "max_factor_disagreement": 1
+    },
+    "wix-studio": {
+      "total_mean": 58.0,
+      "total_min": 56,
+      "total_max": 60,
+      "total_stddev": 1.63,
+      "category_variance": {
+        "proprietary_advantage": {
+          "mean": 20.0,
+          "min": 20,
+          "max": 20,
+          "stddev": 0.0
+        },
+        "workflow_criticality": {
+          "mean": 19.67,
+          "min": 19,
+          "max": 20,
+          "stddev": 0.47
+        },
+        "ai_resilience_tests": {
+          "mean": 18.33,
+          "min": 17,
+          "max": 20,
+          "stddev": 1.25
+        }
+      },
+      "factor_spread": {
+        "context": 0,
+        "trust": 0,
+        "distribution": 0,
+        "judgment": 0,
+        "liability_governance": 0,
+        "frequency": 0,
+        "operational_dependence": 0,
+        "system_position": 0,
+        "switching_cost": 1,
+        "budget_durability": 0,
+        "model_improvement_test": 1,
+        "wrapper_risk_test": 0,
+        "agent_readiness_test": 1,
+        "accountability_test": 1,
+        "outcome_depth_test": 0
+      },
+      "max_factor_disagreement": 1
+    }
+  },
+  "task_metrics": {
+    "path": "task_metrics.csv",
+    "row_count": 36,
+    "status": "empirical_runs_recorded",
+    "phase_status": "observed_task_evidence_recorded",
+    "display_summary": "22 completed observations and 14 blocker observations are recorded across 36 task rows.",
+    "completed_runs": 22,
+    "blocked_runs": 14,
+    "pending_runs": 0,
+    "status_counts": {
+      "blocked_plan_limit": 6,
+      "blocked_product_path": 6,
+      "blocked_workflow_fragmentation": 2,
+      "completed_observed": 22
+    },
+    "task_status_counts": {
+      "task_1": {
+        "blocked_plan_limit": 1,
+        "blocked_product_path": 3,
+        "completed_observed": 8
+      },
+      "task_2": {
+        "blocked_plan_limit": 3,
+        "blocked_product_path": 3,
+        "blocked_workflow_fragmentation": 2,
+        "completed_observed": 4
+      },
+      "task_3": {
+        "blocked_plan_limit": 2,
+        "completed_observed": 10
+      }
+    },
+    "method_note": "operator_b is the primary live task pass. operator_a rows are a same-agent replication used to widen empirical coverage and stress-test the rubric, not to claim independent operator validity."
+  },
+  "validity_read": {
+    "desk_phase_read": "The desk-research phase already ranks platform-like web operating tools above faster-but-thinner AI-native generators.",
+    "task_phase_status": "observed_task_evidence_recorded",
+    "empirical_read": "The observed task data supports the rubric's central claim more than it refutes it: prompt-first speed and durable workflow ownership separate meaningfully once the study moves from generation into governed revision and publish-or-handoff steps.",
+    "observed_findings": [
+      "Figma Make was the cleanest end-to-end performer in the observed runs, completing all six rows with perfect requirement pass rates and visible versioning plus publish artifacts. That moved it above Figma Sites and Framer in the empirical-adjusted ranking.",
+      "Lovable validated the desk-phase expectation that AI-native builders can win on first-draft speed and in-place revision, but it also surfaced plan-credit and publish-permission friction that kept governance shallower than the raw generation quality suggests.",
+      "Webflow and Wix Studio validated the rubric's emphasis on publish workflow and operational surface. Both produced strong publish outcomes, while their main failures were packaging or revision-flow friction rather than inability to ship.",
+      "Figma Sites underperformed because the live product path we exercised was plan-limited and code-component-first. Framer ended up more mixed: the first authenticated passes missed its AI path, but a follow-on Wireframer rerun validated real AI generation and same-project revision. That keeps Framer below the leaders, but no longer for 'no AI path' reasons."
+    ],
+    "next_required_step": "Optional: add independent human reruns or higher-tier plan access if you want cleaner separation between product capability and plan-packaging blockers."
+  },
+  "ranked_targets": [
+    {
+      "target_name": "Wix Studio",
+      "slug": "wix-studio",
+      "total": 58,
+      "placement": "Upper-right, furthest right in the cohort",
+      "primary_read": "Wix Studio remains the strongest resilience candidate in this cohort because the empirical task phase still pointed to the broadest web operating footprint, even though its AI-assisted revision flow fragmented under the study protocol."
+    },
+    {
+      "target_name": "Webflow",
+      "slug": "webflow",
+      "total": 56,
+      "placement": "Upper-right, close to center",
+      "primary_read": "Webflow's empirical read mostly confirmed the desk score: it is defensible because of workflow ownership and platform breadth, even though AI-facing features remain exposed and the observed task blockers came from packaging rather than missing capability."
+    },
+    {
+      "target_name": "Figma Make",
+      "slug": "figma-make",
+      "total": 48,
+      "placement": "Right of center on proprietary advantage, near the workflow midpoint",
+      "primary_read": "Figma Make is still not a full web operating platform, but the task phase showed it already behaves like a more durable creation-and-change surface than the desk pass assumed, lifting it above Figma Sites and Framer in the empirical-adjusted ranking."
+    },
+    {
+      "target_name": "Figma Sites",
+      "slug": "figma-sites",
+      "total": 47,
+      "placement": "Right of center on proprietary advantage, modestly above the workflow midpoint",
+      "primary_read": "Figma Sites remains more resilient than a pure AI website wrapper because of Figma's broader context and distribution, but the empirical task phase lowered the workflow-depth read and moved it behind Figma Make in this cohort."
+    },
+    {
+      "target_name": "Framer",
+      "slug": "framer",
+      "total": 47,
+      "placement": "Right of center, near the workflow midpoint",
+      "primary_read": "Framer remains in the cohort on the strength of a validated Wireframer flow, real in-project AI revision, and real publish mechanics. It still trails the strongest platforms because AI discoverability and launch reliability looked less consistent than the in-editor generation experience."
+    },
+    {
+      "target_name": "Lovable",
+      "slug": "lovable",
+      "total": 39,
+      "placement": "Near the center-right, below center on workflow criticality",
+      "primary_read": "Lovable validated more real workflow depth than the desk pass initially credited, especially around prompt-first generation and in-place revision, but packaging and permission friction kept the overall resilience score mixed rather than improved."
+    }
+  ],
+  "limitations": [
+    "The task phase now includes live authenticated runs, but `operator_a` is a same-agent replication pass rather than an independent second human operator.",
+    "The three rater passes are structured desk-rater simulations rather than independent human raters.",
+    "Some blocker outcomes reflect plan packaging or workspace state rather than pure product capability, especially in Webflow, Figma Sites, and Lovable.",
+    "Figma Sites was stressed with a prompt-first workflow that did not fully match the product path we exercised, so that empirical task read should be interpreted as workflow-fit evidence rather than a total product-quality verdict. Framer's official AI path was validated in a follow-on Wireframer rerun, but it was not surfaced cleanly from the first authenticated project routes.",
+    "Some workflow-depth, switching-cost, and accountability judgments remain inferential because vendors rarely publish those details directly."
+  ]
+}

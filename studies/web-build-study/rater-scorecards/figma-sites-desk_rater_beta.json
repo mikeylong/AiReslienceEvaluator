@@ -1,0 +1,113 @@
+{
+  "target_slug": "figma-sites",
+  "target_name": "Figma Sites",
+  "rater_id": "desk_rater_beta",
+  "rater_label": "Desk Rater Beta",
+  "rater_lens": "Balanced baseline reading of the evidence packet.",
+  "scope": "Scoped to Figma's website design and publishing product rather than the full Figma suite.",
+  "scores": {
+    "proprietary_advantage": {
+      "context": 4,
+      "trust": 4,
+      "distribution": 5,
+      "judgment": 3,
+      "liability_governance": 3,
+      "subtotal": 19
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 3,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 18
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 4,
+      "accountability_test": 2,
+      "outcome_depth_test": 3,
+      "subtotal": 16
+    },
+    "total": 53
+  },
+  "factor_notes": {
+    "context": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Figma Sites reuses shared components, variables, and file context from the design workflow instead of starting from a blank website canvas."
+    },
+    "trust": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Sites inherits Figma's organization-level security and account controls, which matter for teams already standardizing on the broader platform."
+    },
+    "distribution": {
+      "score": 5,
+      "evidence_label": "Direct evidence",
+      "rationale": "Figma already sits inside many product and brand design teams, so Sites can piggyback on an existing collaboration footprint."
+    },
+    "judgment": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The tool preserves design intent well, but scarce website strategy and performance judgment still live largely with the team using it."
+    },
+    "liability_governance": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Team and org controls exist, but public evidence still points to lighter publishing governance than the more operations-heavy web platforms."
+    },
+    "frequency": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Teams that already work in Figma can use Sites in recurring launch and update cycles, though not every Figma user publishes sites regularly."
+    },
+    "operational_dependence": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Sites can matter materially for launch velocity, but it is not yet the default operating system for public web programs in the way deeper incumbents can be."
+    },
+    "system_position": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "The product sits at the handoff point between design intent and publishable website output rather than only at ideation time."
+    },
+    "switching_cost": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Teams with established Figma systems gain reuse, but the published site layer remains portable enough that migration risk is still moderate."
+    },
+    "budget_durability": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Sites benefits from Figma's existing seat budget, which makes it more durable than a standalone experimental AI subscription."
+    },
+    "model_improvement_test": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Better models should improve iteration speed and content generation inside the same shared design context instead of bypassing it entirely."
+    },
+    "wrapper_risk_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Sites is deeper than a generator because it carries team context and design systems, but the web publishing surface is still young enough to face copycat pressure."
+    },
+    "agent_readiness_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "The broader Figma stack already exposes strong design-to-code and agent-facing surfaces, which helps Sites fit agent-assisted workflows."
+    },
+    "accountability_test": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "The product influences what gets shipped, but it does not own uptime, conversion, or downstream business execution once the site is live."
+    },
+    "outcome_depth_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Sites can accelerate launches and improve consistency, but real business outcomes still depend on external content, traffic, and experimentation loops."
+    }
+  },
+  "limitations": "This is a structured desk-research rating pass from one shared evidence packet, not an independent blinded human rater."
+}

@@ -1,0 +1,113 @@
+{
+  "target_slug": "framer",
+  "target_name": "Framer",
+  "rater_id": "desk_rater_beta",
+  "rater_label": "Desk Rater Beta",
+  "rater_lens": "Balanced baseline reading of the evidence packet.",
+  "scope": "Scoped to Framer's website creation, CMS, publishing, AI, and plugin workflow rather than the broader design ecosystem around it.",
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 3,
+      "distribution": 4,
+      "judgment": 3,
+      "liability_governance": 3,
+      "subtotal": 16
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 3,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 18
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 3,
+      "accountability_test": 2,
+      "outcome_depth_test": 3,
+      "subtotal": 15
+    },
+    "total": 49
+  },
+  "factor_notes": {
+    "context": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Framer stores site structure and CMS collections, but most underlying website content remains portable and not deeply proprietary."
+    },
+    "trust": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Security and SSL documentation provide real trust evidence, though the public enterprise-control layer still looks lighter than incumbent leaders."
+    },
+    "distribution": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Framer has strong mindshare among designers and agencies building modern marketing sites, giving it better distribution than newer AI-native builders."
+    },
+    "judgment": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Framer can preserve polished design intent, but durable strategy and performance judgment still sits largely with the team using it."
+    },
+    "liability_governance": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Roles, permissions, and publish controls exist, but public evidence still points to a lighter governance posture than Webflow or Wix Studio."
+    },
+    "frequency": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Teams running active websites can use Framer repeatedly for launches, edits, and CMS updates."
+    },
+    "operational_dependence": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Framer can become central for some teams, but it still looks more replaceable than the deeper operating stacks in the cohort."
+    },
+    "system_position": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Framer owns content modeling, site editing, and publish-to-domain behavior rather than stopping at design files."
+    },
+    "switching_cost": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "CMS and publish workflow create friction, but many of the assets and patterns remain movable enough that lock-in is moderate."
+    },
+    "budget_durability": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "When Framer runs a public site, the budget can be durable because the website itself remains commercially important."
+    },
+    "model_improvement_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "AI tooling should improve directly as models get better, and those gains can compound inside an existing CMS and publish workflow."
+    },
+    "wrapper_risk_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Framer is not just a wrapper because it already owns publishing and CMS, but its most visible AI layers are still exposed to copycat pressure."
+    },
+    "agent_readiness_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Plugins and CMS developer surfaces help, but public evidence is lighter on explicit agent-facing posture than Figma Make, Webflow, or Wix Studio."
+    },
+    "accountability_test": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "Framer controls what gets published, yet it does not own the broader business result or long-tail runtime accountability."
+    },
+    "outcome_depth_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The product can influence launch speed and website quality, but durable commercial results still rely on traffic, content, and experimentation outside Framer."
+    }
+  },
+  "limitations": "This is a structured desk-research rating pass from one shared evidence packet, not an independent blinded human rater."
+}

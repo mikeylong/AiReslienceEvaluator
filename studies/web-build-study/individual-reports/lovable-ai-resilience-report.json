@@ -1,0 +1,76 @@
+{
+  "target_name": "Lovable",
+  "summary": "Lovable remained one of the fastest tools in the cohort and the task phase validated stronger real workflow depth than the desk pass assumed. But free-credit and publish-permission friction kept the resilience read mixed rather than upgraded overall.",
+  "quadrant": {
+    "x_axis": "Commodity Output -> Proprietary Advantage",
+    "y_axis": "Nice-to-Have Utility -> Mission-Critical Workflow",
+    "placement": "Near the center-right, below center on workflow criticality",
+    "rationale": "Lovable owns a useful prompt, repo, and deploy loop, yet the workflow still looks easier to substitute than the deeper governance, CMS, and multi-stakeholder operating layers in the cohort leaders."
+  },
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 2,
+      "distribution": 3,
+      "judgment": 2,
+      "liability_governance": 2,
+      "subtotal": 12
+    },
+    "workflow_criticality": {
+      "frequency": 3,
+      "operational_dependence": 2,
+      "system_position": 3,
+      "switching_cost": 2,
+      "budget_durability": 2,
+      "subtotal": 12
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 2,
+      "agent_readiness_test": 4,
+      "accountability_test": 2,
+      "outcome_depth_test": 3,
+      "subtotal": 15
+    },
+    "total": 39
+  },
+  "top_strengths": [
+    "Fast prompt-to-app creation plus one-click deploy is directly aligned with stronger models.",
+    "The product explicitly syncs with GitHub, which is more durable than a sandboxed demo builder.",
+    "Docs show ongoing platform work around plans, roles, and branded emails instead of only a chat toy."
+  ],
+  "main_vulnerabilities": [
+    "Public governance and trust posture are much lighter than incumbent platforms.",
+    "Free-credit ceilings and publish permissions created real packaging friction during the task phase.",
+    "The visible customer value is close to commodity app generation, which raises wrapper risk."
+  ],
+  "strategic_read": {
+    "durable_layers": [
+      "Repository sync and deploy loop",
+      "Integrated cloud app workflow",
+      "Growing workspace and collaboration surface"
+    ],
+    "commoditizing_layers": [
+      "Prompt-driven UI and code generation",
+      "Chat-centric assistant UX",
+      "General-purpose scaffolding"
+    ],
+    "next_moves": [
+      "Deepen governance, collaboration, and operations so Lovable owns more than generation speed.",
+      "Turn deploy, auth, and integration loops into harder-to-replicate workflow depth."
+    ]
+  },
+  "final_verdict": "Lovable validated more real workflow depth than the desk pass initially credited, especially around prompt-first generation and in-place revision, but packaging and permission friction kept the overall resilience score mixed rather than improved.",
+  "confidence": {
+    "level": "medium",
+    "reason": "Lovable's public posture is still lighter than incumbent platforms, but the observed task runs confirmed that the tool can handle real create, revise, and handoff work. Confidence remains constrained by plan-credit and publish-permission blockers."
+  },
+  "evidence_notes": [
+    "https://lovable.dev/pricing",
+    "https://docs.lovable.dev/",
+    "https://docs.lovable.dev/introduction/plans-and-credits",
+    "https://docs.lovable.dev/features/custom-emails",
+    "https://lovable.dev/blog/announcing-pentesting",
+    "https://enterprise.lovable.dev/documents/Lovable_DPA_17Nov2025_Signed.pdf"
+  ]
+}

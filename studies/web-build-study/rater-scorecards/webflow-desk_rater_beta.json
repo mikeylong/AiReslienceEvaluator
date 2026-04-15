@@ -1,0 +1,113 @@
+{
+  "target_slug": "webflow",
+  "target_name": "Webflow",
+  "rater_id": "desk_rater_beta",
+  "rater_label": "Desk Rater Beta",
+  "rater_lens": "Balanced baseline reading of the evidence packet.",
+  "scope": "Scoped to Webflow's current website platform including CMS, hosting, APIs, and AI features.",
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 4,
+      "distribution": 4,
+      "judgment": 3,
+      "liability_governance": 4,
+      "subtotal": 18
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 4,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 19
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 5,
+      "accountability_test": 3,
+      "outcome_depth_test": 4,
+      "subtotal": 19
+    },
+    "total": 56
+  },
+  "factor_notes": {
+    "context": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "Webflow stores site structure, CMS schemas, publishing state, and increasingly app and cloud deployment context, but much underlying content remains portable."
+    },
+    "trust": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Enterprise customers can access deeper security documentation, and the platform emphasizes governance and security posture."
+    },
+    "distribution": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Webflow has meaningful ecosystem reach across the website lifecycle and a large developer and app surface."
+    },
+    "judgment": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The platform improves execution quality and speed, but does not clearly own scarce domain judgment."
+    },
+    "liability_governance": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Permissions, publishing controls, enterprise security posture, and workflow governance matter for public-facing web operations."
+    },
+    "frequency": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Web and marketing teams use the platform continuously or recurrently."
+    },
+    "operational_dependence": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "The public website is commercially important for many businesses even if it is not always existential."
+    },
+    "system_position": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Webflow sits directly in content creation, CMS, hosting, publishing, and now supports broader developer and cloud workflows."
+    },
+    "switching_cost": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Migration pain exists, but strong alternatives remain available."
+    },
+    "budget_durability": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Website platform spend is usually durable within modern go-to-market stacks."
+    },
+    "model_improvement_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Better models should improve site operations, app generation, optimization, and content workflows inside Webflow."
+    },
+    "wrapper_risk_test": {
+      "score": 3,
+      "evidence_label": "Direct evidence",
+      "rationale": "AI-facing features are exposed to commoditization, but the overall platform is deeper than an AI wrapper."
+    },
+    "agent_readiness_test": {
+      "score": 5,
+      "evidence_label": "Direct evidence",
+      "rationale": "Webflow now exposes APIs across data, designer, and browser workflows, plus an MCP server and broader developer platform."
+    },
+    "accountability_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Webflow governs publishing and execution workflows, but does not fully own the business result."
+    },
+    "outcome_depth_test": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "It can materially affect traffic, conversion, and operational web velocity, but broader GTM performance still depends on external strategy."
+    }
+  },
+  "limitations": "This is a structured desk-research rating pass from one shared evidence packet, not an independent blinded human rater."
+}

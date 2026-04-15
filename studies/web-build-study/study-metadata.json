@@ -1,0 +1,31 @@
+{
+  "study_name": "Web-build empirical pilot for AI resilience",
+  "prepared_on": "2026-04-14",
+  "study_type": "pilot-validity",
+  "unit_of_analysis": "product_offering",
+  "evidence_window": "Most recent 12 months for change-sensitive official materials, plus older durable context when necessary",
+  "cohort": [
+    "Figma Sites",
+    "Figma Make",
+    "Lovable",
+    "Webflow",
+    "Framer",
+    "Wix Studio"
+  ],
+  "phase_status": {
+    "evidence_packets": "complete",
+    "structured_desk_raters": "complete",
+    "consensus_scoring": "complete",
+    "operator_protocol": "complete",
+    "operator_task_runs": "observed_task_evidence_recorded"
+  },
+  "primary_hypothesis": "Higher resilience scores should align more strongly with governed revision, publishing, and handoff workflows than with raw first-draft speed.",
+  "notes": [
+    "Per-offering narrative and JSON reports reuse the repository's existing single-target contract.",
+    "The three rater passes are structured desk-rater simulations from a shared evidence packet, not blinded external humans.",
+    "Task metrics now include live observed runs: 22 completed observations and 14 blocker observations are recorded across 36 task rows.",
+    "operator_b is the primary live task pass. operator_a rows are a same-agent replication used to widen empirical coverage and stress-test the rubric, not to claim independent operator validity.",
+    "The primary ranking is now an empirical-adjusted consensus, while desk-only totals remain preserved for audit and comparison.",
+    "Observed blockers are treated as empirical evidence about workflow fit, packaging, or governance rather than discarded as operator noise."
+  ]
+}

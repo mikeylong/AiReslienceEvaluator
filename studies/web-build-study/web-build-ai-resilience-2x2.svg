@@ -1,0 +1,41 @@
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 860" role="img" aria-labelledby="title desc">
+          <title id="title">Web-build AI resilience pilot 2x2</title>
+          <desc id="desc">A black and white 2x2 chart plotting Wix Studio, Webflow, Figma Sites, Framer, Figma Make, and Lovable on proprietary advantage and workflow criticality.</desc>
+          <rect width="1360" height="860" fill="#ffffff" />
+          <text x="120" y="58" fill="#000000" font-size="34" font-weight="700" font-family="Helvetica, Arial, sans-serif">Web-Build AI Resilience Pilot</text>
+          <text x="120" y="92" fill="#555555" font-size="18" font-family="Helvetica, Arial, sans-serif">Prepared April 14, 2026</text>
+
+          <line x1="220" y1="110" x2="220" y2="730" stroke="#000000" stroke-width="3" />
+          <line x1="220" y1="730" x2="980" y2="730" stroke="#000000" stroke-width="3" />
+          <line x1="600.0" y1="110" x2="600.0" y2="730" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="10 8" />
+          <line x1="220" y1="420.0" x2="980" y2="420.0" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="10 8" />
+
+          <text x="220" y="778" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Commodity Output</text>
+          <text x="748" y="778" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Proprietary Advantage</text>
+          <text transform="translate(132 620) rotate(-90)" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Nice-to-Have Utility</text>
+          <text transform="translate(132 320) rotate(-90)" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Mission-Critical Workflow</text>
+
+          <text x="236" y="144" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Convenience</text>
+          <text x="236" y="712" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Fragile</text>
+          <text x="786" y="144" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Resilient</text>
+          <text x="758" y="712" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Premium Niche</text>
+
+        <path d="M 736.8 351.8 L 994.0 376.0 L 1002.0 376.0" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="736.8" cy="351.8" r="9" fill="#000000" />
+<text x="1014.0" y="376.0" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Figma Sites (47/75)</text>
+<path d="M 660.8 457.2 L 994.0 457.2 L 1002.0 457.2" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="660.8" cy="457.2" r="9" fill="#000000" />
+<text x="1014.0" y="457.2" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Figma Make (48/75)</text>
+<path d="M 615.2 482.0 L 994.0 497.2 L 1002.0 497.2" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="615.2" cy="482.0" r="9" fill="#000000" />
+<text x="1014.0" y="497.2" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Lovable (39/75)</text>
+<path d="M 767.2 320.8 L 994.0 336.0 L 1002.0 336.0" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="767.2" cy="320.8" r="9" fill="#000000" />
+<text x="1014.0" y="336.0" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Webflow (56/75)</text>
+<path d="M 706.4 382.8 L 994.0 416.0 L 1002.0 416.0" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="706.4" cy="382.8" r="9" fill="#000000" />
+<text x="1014.0" y="416.0" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Framer (47/75)</text>
+<path d="M 797.6 296.0 L 994.0 296.0 L 1002.0 296.0" fill="none" stroke="#777777" stroke-width="1.5" />
+<circle cx="797.6" cy="296.0" r="9" fill="#000000" />
+<text x="1014.0" y="296.0" fill="#000000" font-size="22" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Wix Studio (58/75)</text>
+        </svg>

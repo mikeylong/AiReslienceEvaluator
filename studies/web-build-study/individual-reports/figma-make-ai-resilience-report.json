@@ -1,0 +1,74 @@
+{
+  "target_name": "Figma Make",
+  "summary": "Figma Make moved up materially after the task phase because it was the cleanest end-to-end performer in the cohort: it generated quickly, handled governed revision cleanly, and published versioned artifacts without breaking workflow continuity.",
+  "quadrant": {
+    "x_axis": "Commodity Output -> Proprietary Advantage",
+    "y_axis": "Nice-to-Have Utility -> Mission-Critical Workflow",
+    "placement": "Right of center on proprietary advantage, near the workflow midpoint",
+    "rationale": "Make still is not a full web operating platform, but the observed runs validated more durable workflow ownership than the desk pass initially credited, especially around governed revision, versioning, and publishable artifacts."
+  },
+  "scores": {
+    "proprietary_advantage": {
+      "context": 3,
+      "trust": 4,
+      "distribution": 4,
+      "judgment": 2,
+      "liability_governance": 3,
+      "subtotal": 16
+    },
+    "workflow_criticality": {
+      "frequency": 3,
+      "operational_dependence": 3,
+      "system_position": 4,
+      "switching_cost": 2,
+      "budget_durability": 3,
+      "subtotal": 15
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 5,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 5,
+      "accountability_test": 1,
+      "outcome_depth_test": 3,
+      "subtotal": 17
+    },
+    "total": 48
+  },
+  "top_strengths": [
+    "Prompting can pull in Figma styling context, connectors, and MCP-friendly workflows.",
+    "The observed task phase validated clean in-place revision, versioning, and publishable output rather than only first-draft speed.",
+    "Distribution into existing Figma teams makes experimentation cheaper than adopting a new standalone builder."
+  ],
+  "main_vulnerabilities": [
+    "Workflow depth still looks closer to prototyping than to governed production operations.",
+    "Accountability for shipped outcomes remains external.",
+    "Prompt-to-app experiences are under intense model-driven commoditization pressure."
+  ],
+  "strategic_read": {
+    "durable_layers": [
+      "Figma library and styling context",
+      "Connector and documentation grounding",
+      "Agent-friendly handoff to coding workflows"
+    ],
+    "commoditizing_layers": [
+      "Prompt-to-app generation itself",
+      "Standalone prototype drafting",
+      "Generic UI scaffolding"
+    ],
+    "next_moves": [
+      "Attach Make outputs to governed review, deployment, and change-management loops.",
+      "Turn connectors and context grounding into durable workflow ownership rather than a faster demo surface."
+    ]
+  },
+  "final_verdict": "Figma Make is still not a full web operating platform, but the task phase showed it already behaves like a more durable creation-and-change surface than the desk pass assumed, lifting it above Figma Sites and Framer in the empirical-adjusted ranking.",
+  "confidence": {
+    "level": "medium-high",
+    "reason": "Current pricing and help materials are now reinforced by direct task evidence: Make completed all six observed rows cleanly, which materially reduced uncertainty about workflow depth relative to the original desk-only read."
+  },
+  "evidence_notes": [
+    "https://www.figma.com/make/",
+    "https://www.figma.com/pricing/",
+    "https://help.figma.com/hc/en-us/articles/14563969806359-What-is-Figma",
+    "https://www.figma.com/security/"
+  ]
+}

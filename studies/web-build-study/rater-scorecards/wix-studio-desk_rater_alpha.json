@@ -1,0 +1,113 @@
+{
+  "target_slug": "wix-studio",
+  "target_name": "Wix Studio",
+  "rater_id": "desk_rater_alpha",
+  "rater_label": "Desk Rater Alpha",
+  "rater_lens": "More conservative on governance, switching cost, and outcome ownership.",
+  "scope": "Scoped to Wix Studio as the agency and enterprise web platform, including AI tooling, dev docs, security, and multi-site management surfaces.",
+  "scores": {
+    "proprietary_advantage": {
+      "context": 4,
+      "trust": 4,
+      "distribution": 5,
+      "judgment": 3,
+      "liability_governance": 4,
+      "subtotal": 20
+    },
+    "workflow_criticality": {
+      "frequency": 4,
+      "operational_dependence": 4,
+      "system_position": 4,
+      "switching_cost": 3,
+      "budget_durability": 4,
+      "subtotal": 19
+    },
+    "ai_resilience_tests": {
+      "model_improvement_test": 4,
+      "wrapper_risk_test": 3,
+      "agent_readiness_test": 4,
+      "accountability_test": 2,
+      "outcome_depth_test": 4,
+      "subtotal": 17
+    },
+    "total": 56
+  },
+  "factor_notes": {
+    "context": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Wix Studio owns site structure, business-solution connections, and broader platform context beyond a single design artifact."
+    },
+    "trust": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Wix Studio publicly foregrounds security and enterprise-grade infrastructure, which strengthens trust relative to lighter AI-native builders."
+    },
+    "distribution": {
+      "score": 5,
+      "evidence_label": "Direct evidence",
+      "rationale": "Wix has broad existing market reach and Studio is packaged for agencies and enterprises rather than needing to build distribution from scratch."
+    },
+    "judgment": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "The platform can encode workflow and infrastructure choices, but scarce website strategy and creative judgment still remain largely external."
+    },
+    "liability_governance": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "Public messaging around security, reliability, and multi-site management supports a stronger governance story than most peers in this cohort."
+    },
+    "frequency": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Agencies and enterprise teams managing multiple sites can use Studio continuously, not only during initial build phases."
+    },
+    "operational_dependence": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Once Studio is running an important web program, teams are likely to depend on it for recurring operational work."
+    },
+    "system_position": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "The platform sits across building, publishing, business solutions, and developer extensions rather than only at the mockup layer."
+    },
+    "switching_cost": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Multi-site and enterprise use cases create more migration friction than lighter tools, even if underlying content is still somewhat portable."
+    },
+    "budget_durability": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Agency and enterprise site-platform spend is typically more durable than experimental AI tooling budgets."
+    },
+    "model_improvement_test": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Stronger models should improve Studio's AI surfaces, but the broader platform still matters because AI sits inside a larger system of action."
+    },
+    "wrapper_risk_test": {
+      "score": 3,
+      "evidence_label": "Inference",
+      "rationale": "Wix Studio is clearly deeper than a wrapper, yet its visible AI layers are still subject to the same commoditization pressure affecting the category."
+    },
+    "agent_readiness_test": {
+      "score": 4,
+      "evidence_label": "Direct evidence",
+      "rationale": "The developer docs and platform breadth suggest Studio can support agent-mediated workflows better than tools with only a narrow UI surface."
+    },
+    "accountability_test": {
+      "score": 2,
+      "evidence_label": "Inference",
+      "rationale": "Studio controls meaningful site operations, but it still does not own the full business outcome after launch."
+    },
+    "outcome_depth_test": {
+      "score": 4,
+      "evidence_label": "Inference",
+      "rationale": "Because the platform spans publishing, management, and business solutions, Studio can influence operational and commercial outcomes more deeply than lighter builders."
+    }
+  },
+  "limitations": "This is a structured desk-research rating pass from one shared evidence packet, not an independent blinded human rater."
+}
