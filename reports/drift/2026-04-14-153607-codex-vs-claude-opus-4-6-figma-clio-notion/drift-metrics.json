@@ -1,0 +1,210 @@
+{
+  "run_dir": "/Users/mike/AiReslienceEvaluator/reports/drift/2026-04-14-153607-codex-vs-claude-opus-4-6-figma-clio-notion",
+  "prompt_path": "/Users/mike/AiReslienceEvaluator/reports/drift/2026-04-14-153607-codex-vs-claude-opus-4-6-figma-clio-notion/prompt.md",
+  "models": {
+    "codex": "gpt-5.4",
+    "claude": "claude-opus-4-6"
+  },
+  "cli_versions": {
+    "codex": "codex-cli 0.119.0-alpha.28",
+    "claude": "2.1.92 (Claude Code)"
+  },
+  "severity": "high",
+  "interpretation": "source-selection drift",
+  "rankings": {
+    "codex": [
+      "Clio",
+      "Figma",
+      "Notion"
+    ],
+    "claude": [
+      "Clio",
+      "Figma",
+      "Notion"
+    ]
+  },
+  "quadrants": {
+    "codex": {
+      "Clio": "Resilient",
+      "Figma": "Resilient",
+      "Notion": "Resilient"
+    },
+    "claude": {
+      "Clio": "Resilient",
+      "Figma": "Resilient",
+      "Notion": "Resilient"
+    }
+  },
+  "total_deltas": {
+    "Clio": {
+      "codex": 72,
+      "claude": 67,
+      "delta": -5
+    },
+    "Figma": {
+      "codex": 61,
+      "claude": 61,
+      "delta": 0
+    },
+    "Notion": {
+      "codex": 55,
+      "claude": 47,
+      "delta": -8
+    }
+  },
+  "category_subtotal_deltas": {
+    "Clio": {
+      "proprietary_advantage": 0,
+      "workflow_criticality": -1,
+      "ai_resilience_tests": -4
+    },
+    "Figma": {
+      "proprietary_advantage": -1,
+      "workflow_criticality": 2,
+      "ai_resilience_tests": -1
+    },
+    "Notion": {
+      "proprietary_advantage": -3,
+      "workflow_criticality": -3,
+      "ai_resilience_tests": -2
+    }
+  },
+  "factor_deltas_gt_1": {
+    "Notion": {
+      "proprietary_advantage": {
+        "liability_governance": {
+          "codex": 4,
+          "claude": 2,
+          "delta": -2
+        }
+      }
+    }
+  },
+  "final_verdicts": {
+    "codex": "Clio is the strongest AI-resilience target of the three because it owns the most defensible combination of proprietary context, workflow criticality, and accountability. Figma is second because it controls high-value design-system context and has already built strong interfaces that let better models amplify, rather than bypass, its core workflow. Notion is still resilient enough to matter, but it is the most exposed to wrapper compression because much of its incremental AI value can be recreated above generic models and connected data unless it moves deeper into execution.",
+    "claude": "Clio and Figma both achieve strong resilience but through different structural advantages. Clio's lead is anchored in regulated-domain dynamics (trust, liability, accountability) that are inherent to legal practice management. Figma's strength is execution-driven (dominant distribution, design-system lock-in, platform leverage). Notion trails on workflow criticality and proprietary advantage \u2014 its AI ambitions are the most visible of the three but rest on the thinnest workflow foundation. The Clio-Figma gap (6 points) is partly category-driven: legal practice management inherently scores higher on trust, liability, and budget durability than creative tooling. The Figma-Notion gap (14 points) is primarily execution- and positioning-driven."
+  },
+  "confidence_levels": {
+    "codex": "medium-high",
+    "claude": "Clio Moderate-High, Figma Moderate-High, Notion Moderate-High"
+  },
+  "theme_overlap": {
+    "Clio": {
+      "codex_strengths": [
+        "System-of-record control over regulated legal workflow data and actions.",
+        "High trust, security, and governance requirements turn AI from novelty into accountable workflow infrastructure.",
+        "AI value is attached to deadlines, billing, intake, and matter execution rather than draft generation alone."
+      ],
+      "claude_strengths": [
+        "System of record in a regulated domain where trust, compliance, and accountability are structural requirements",
+        "Deepest workflow embed of the three \u2014 law firms cannot operate without practice management",
+        "AI layer (Manage AI) completes full legal workflows with built-in review checkpoints, not just drafts"
+      ],
+      "codex_vulnerabilities": [
+        "AI upside is concentrated in a vertical market, so horizontal expansion is narrower than in general-purpose platforms.",
+        "Human lawyers remain the final accountable actor, which caps autonomous judgment.",
+        "If another vendor wins the legal system of record, Clio's AI features alone are not enough to defend the account."
+      ],
+      "claude_vulnerabilities": [
+        "Enterprise segment dominated by Thomson Reuters and LexisNexis \u2014 upmarket expansion faces entrenched incumbents",
+        "Agent readiness lags Figma and Notion; less evidence of agent-first infrastructure",
+        "SMB law firm market may face consolidation or AI-driven practice restructuring"
+      ],
+      "jaccard_similarity": 0.0
+    },
+    "Figma": {
+      "codex_strengths": [
+        "Deep design-system context through files, components, variables, annotations, and Dev Mode.",
+        "Explicit model-facing developer surface through MCP, Code Connect, APIs, plugins, and Make connectors.",
+        "Cross-functional distribution across design and engineering makes model improvements accretive."
+      ],
+      "claude_strengths": [
+        "Dominant distribution with 40.65% market share and 95% Fortune 500 penetration",
+        "Near-prohibitive switching costs through design system lock-in \u2014 customers would pay 3x before switching",
+        "Platform model (APIs, plugins, MCP) positions Figma as infrastructure for design agents"
+      ],
+      "codex_vulnerabilities": [
+        "Generative design and prototyping surfaces are increasingly reproducible by cheaper AI tools.",
+        "Figma is upstream of production systems, so ultimate accountability sits elsewhere.",
+        "Switching costs are meaningful but not as hard as in regulated systems of record."
+      ],
+      "claude_vulnerabilities": [
+        "Design outputs carry no regulatory liability or accountability weight \u2014 moat is execution-based, not structurally mandated",
+        "Open-source alternatives (Penpot) offer 50-75% cost savings, creating long-term price pressure",
+        "AI-generated design could reduce the volume of human design work, shrinking the addressable workflow"
+      ],
+      "jaccard_similarity": 0.0
+    },
+    "Notion": {
+      "codex_strengths": [
+        "Broad horizontal distribution inside team knowledge and coordination workflows.",
+        "Strong agent surface through MCP, Custom Agents, Enterprise Search, APIs, and Link Previews.",
+        "Permission-aware search across workspace and connected apps improves as base models improve."
+      ],
+      "claude_strengths": [
+        "Massive distribution base (100M+ users) creating a large surface for AI feature adoption",
+        "Aggressive and early agent infrastructure (Notion 3.0, Custom Agents, Enterprise Search across 10+ connectors)",
+        "All-in-one positioning that consolidates knowledge across team workflows"
+      ],
+      "codex_vulnerabilities": [
+        "Many AI features sit close to commodity search, drafting, and orchestration layers.",
+        "Notion often coordinates work above source systems instead of owning the canonical transaction record.",
+        "High breadth can mask shallow embed at the team or workflow level."
+      ],
+      "claude_vulnerabilities": [
+        "Wrapper Risk: AI differentiation layer is largely reproducible with commodity models and good UX",
+        "Workflow Thinness: Rarely the system of record for critical business workflows; often supplementary",
+        "Accountability Vacuum: No role in regulated, high-stakes, or liability-bearing outcomes",
+        "Switching costs are moderate; content portability limits lock-in"
+      ],
+      "jaccard_similarity": 0.0
+    }
+  },
+  "source_url_overlap": {
+    "codex_count": 21,
+    "claude_count": 18,
+    "intersection_count": 5,
+    "union_count": 34,
+    "overlap_ratio": 0.147,
+    "shared_urls": [
+      "https://clio.com/pricing",
+      "https://clio.com/security",
+      "https://figma.com/security",
+      "https://notion.com/pricing",
+      "https://notion.com/security"
+    ],
+    "codex_only_urls": [
+      "https://clio.com/ai-principles",
+      "https://clio.com/blog/clio-duo",
+      "https://clio.com/features/integrations",
+      "https://developers.figma.com/docs/code-connect/quickstart-guide",
+      "https://developers.figma.com/docs/rest-api/discovery",
+      "https://developers.figma.com/docs/rest-api/variables",
+      "https://developers.notion.com/guides/get-started",
+      "https://developers.notion.com/guides/link-previews/introduction",
+      "https://docs.developers.clio.com/clio-manage/api-reference",
+      "https://docs.developers.clio.com/handbook/build-your-app",
+      "https://figma.com/dev-mode",
+      "https://figma.com/pricing",
+      "https://notion.com/help/custom-agents-security-features",
+      "https://notion.com/help/how-notion-protects-against-prompt-injection-risks",
+      "https://notion.com/help/notion-mcp",
+      "https://notion.com/product/enterprise-search"
+    ],
+    "claude_only_urls": [
+      "https://6sense.com/",
+      "https://blog.legaltechmg.com/",
+      "https://clio.com/about",
+      "https://clio.com/features",
+      "https://cropink.com/figma-statistics",
+      "https://developers.figma.com/",
+      "https://figma.com/ai",
+      "https://lawyerist.com/",
+      "https://notion.com/integrations",
+      "https://notion.com/product",
+      "https://notion.com/releases/2026-01-20",
+      "https://techcrunch.com/",
+      "https://tracxn.com/"
+    ]
+  }
+}

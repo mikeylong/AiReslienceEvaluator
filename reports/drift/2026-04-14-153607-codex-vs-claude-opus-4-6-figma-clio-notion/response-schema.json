@@ -1,0 +1,628 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "narrative_markdown",
+    "structured_object",
+    "svg_artifact",
+    "run_metadata"
+  ],
+  "properties": {
+    "narrative_markdown": {
+      "type": "string",
+      "minLength": 1
+    },
+    "structured_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_name",
+        "summary",
+        "quadrant",
+        "scores",
+        "top_strengths",
+        "main_vulnerabilities",
+        "strategic_read",
+        "final_verdict",
+        "confidence",
+        "evidence_notes",
+        "comparison"
+      ],
+      "properties": {
+        "target_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quadrant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "x_axis",
+            "y_axis",
+            "placement",
+            "rationale"
+          ],
+          "properties": {
+            "x_axis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "y_axis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "placement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "scores": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "proprietary_advantage",
+            "workflow_criticality",
+            "ai_resilience_tests",
+            "total"
+          ],
+          "properties": {
+            "proprietary_advantage": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "context",
+                    "trust",
+                    "distribution",
+                    "judgment",
+                    "liability_governance",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "context": { "type": ["integer", "null"] },
+                    "trust": { "type": ["integer", "null"] },
+                    "distribution": { "type": ["integer", "null"] },
+                    "judgment": { "type": ["integer", "null"] },
+                    "liability_governance": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Figma": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "context",
+                    "trust",
+                    "distribution",
+                    "judgment",
+                    "liability_governance",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "context": { "type": ["integer", "null"] },
+                    "trust": { "type": ["integer", "null"] },
+                    "distribution": { "type": ["integer", "null"] },
+                    "judgment": { "type": ["integer", "null"] },
+                    "liability_governance": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Notion": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "context",
+                    "trust",
+                    "distribution",
+                    "judgment",
+                    "liability_governance",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "context": { "type": ["integer", "null"] },
+                    "trust": { "type": ["integer", "null"] },
+                    "distribution": { "type": ["integer", "null"] },
+                    "judgment": { "type": ["integer", "null"] },
+                    "liability_governance": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                }
+              }
+            },
+            "workflow_criticality": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "frequency",
+                    "operational_dependence",
+                    "system_position",
+                    "switching_cost",
+                    "budget_durability",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "frequency": { "type": ["integer", "null"] },
+                    "operational_dependence": { "type": ["integer", "null"] },
+                    "system_position": { "type": ["integer", "null"] },
+                    "switching_cost": { "type": ["integer", "null"] },
+                    "budget_durability": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Figma": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "frequency",
+                    "operational_dependence",
+                    "system_position",
+                    "switching_cost",
+                    "budget_durability",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "frequency": { "type": ["integer", "null"] },
+                    "operational_dependence": { "type": ["integer", "null"] },
+                    "system_position": { "type": ["integer", "null"] },
+                    "switching_cost": { "type": ["integer", "null"] },
+                    "budget_durability": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Notion": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "frequency",
+                    "operational_dependence",
+                    "system_position",
+                    "switching_cost",
+                    "budget_durability",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "frequency": { "type": ["integer", "null"] },
+                    "operational_dependence": { "type": ["integer", "null"] },
+                    "system_position": { "type": ["integer", "null"] },
+                    "switching_cost": { "type": ["integer", "null"] },
+                    "budget_durability": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                }
+              }
+            },
+            "ai_resilience_tests": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "model_improvement_test",
+                    "wrapper_risk_test",
+                    "agent_readiness_test",
+                    "accountability_test",
+                    "outcome_depth_test",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "model_improvement_test": { "type": ["integer", "null"] },
+                    "wrapper_risk_test": { "type": ["integer", "null"] },
+                    "agent_readiness_test": { "type": ["integer", "null"] },
+                    "accountability_test": { "type": ["integer", "null"] },
+                    "outcome_depth_test": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Figma": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "model_improvement_test",
+                    "wrapper_risk_test",
+                    "agent_readiness_test",
+                    "accountability_test",
+                    "outcome_depth_test",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "model_improvement_test": { "type": ["integer", "null"] },
+                    "wrapper_risk_test": { "type": ["integer", "null"] },
+                    "agent_readiness_test": { "type": ["integer", "null"] },
+                    "accountability_test": { "type": ["integer", "null"] },
+                    "outcome_depth_test": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                },
+                "Notion": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "model_improvement_test",
+                    "wrapper_risk_test",
+                    "agent_readiness_test",
+                    "accountability_test",
+                    "outcome_depth_test",
+                    "subtotal"
+                  ],
+                  "properties": {
+                    "model_improvement_test": { "type": ["integer", "null"] },
+                    "wrapper_risk_test": { "type": ["integer", "null"] },
+                    "agent_readiness_test": { "type": ["integer", "null"] },
+                    "accountability_test": { "type": ["integer", "null"] },
+                    "outcome_depth_test": { "type": ["integer", "null"] },
+                    "subtotal": { "type": ["integer", "null"] }
+                  }
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": { "type": ["integer", "null"] },
+                "Figma": { "type": ["integer", "null"] },
+                "Notion": { "type": ["integer", "null"] }
+              }
+            }
+          }
+        },
+        "top_strengths": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Clio",
+            "Figma",
+            "Notion"
+          ],
+          "properties": {
+            "Clio": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "Figma": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "Notion": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            }
+          }
+        },
+        "main_vulnerabilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Clio",
+            "Figma",
+            "Notion"
+          ],
+          "properties": {
+            "Clio": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "Figma": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "Notion": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            }
+          }
+        },
+        "strategic_read": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "durable_layers",
+            "commoditizing_layers",
+            "next_moves"
+          ],
+          "properties": {
+            "durable_layers": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Figma": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Notion": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                }
+              }
+            },
+            "commoditizing_layers": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Figma": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Notion": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                }
+              }
+            },
+            "next_moves": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "Clio",
+                "Figma",
+                "Notion"
+              ],
+              "properties": {
+                "Clio": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Figma": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                },
+                "Notion": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        },
+        "final_verdict": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "level",
+            "reason"
+          ],
+          "properties": {
+            "level": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "evidence_notes": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "company",
+              "sources"
+            ],
+            "properties": {
+              "company": {
+                "type": "string",
+                "enum": [
+                  "Clio",
+                  "Figma",
+                  "Notion"
+                ]
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        "comparison": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ranked_targets",
+            "relative_summary",
+            "key_differences"
+          ],
+          "properties": {
+            "ranked_targets": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "target",
+                  "total"
+                ],
+                "properties": {
+                  "target": {
+                    "type": "string",
+                    "enum": [
+                      "Clio",
+                      "Figma",
+                      "Notion"
+                    ]
+                  },
+                  "total": {
+                    "type": ["integer", "null"]
+                  }
+                }
+              }
+            },
+            "relative_summary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "key_differences": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    "svg_artifact": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "format",
+            "content"
+          ],
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "svg",
+                "plotting-spec"
+              ]
+            },
+            "content": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "run_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp",
+        "requested_model",
+        "resolved_model",
+        "cwd",
+        "notes"
+      ],
+      "properties": {
+        "timestamp": {
+          "type": "string"
+        },
+        "requested_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resolved_model": {
+          "type": "string"
+        },
+        "cwd": {
+          "type": "string"
+        },
+        "cli": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cli_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "command_template": {
+          "type": "string",
+          "minLength": 1
+        },
+        "live_research_enabled": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

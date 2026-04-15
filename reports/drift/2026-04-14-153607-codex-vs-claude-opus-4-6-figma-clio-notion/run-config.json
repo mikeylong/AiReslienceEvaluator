@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-04-14-153607",
+  "cwd": "/Users/mike/AiReslienceEvaluator",
+  "run_dir": "/Users/mike/AiReslienceEvaluator/reports/drift/2026-04-14-153607-codex-vs-claude-opus-4-6-figma-clio-notion",
+  "prompt_path": "/Users/mike/AiReslienceEvaluator/reports/drift/2026-04-14-153607-codex-vs-claude-opus-4-6-figma-clio-notion/prompt.md",
+  "response_schema_path": "/Users/mike/AiReslienceEvaluator/reports/drift/2026-04-14-153607-codex-vs-claude-opus-4-6-figma-clio-notion/response-schema.json",
+  "models": {
+    "codex": "gpt-5.4",
+    "claude": "claude-opus-4-6"
+  },
+  "command_templates": {
+    "codex": "codex --search exec --cd /Users/mike/AiReslienceEvaluator --model gpt-5.4 --sandbox workspace-write --output-schema response-schema.json -o codex-response.raw.json - < prompt.md",
+    "claude": "claude -p --model claude-opus-4-6 --effort high --permission-mode dontAsk --allowedTools Read,WebSearch,WebFetch --output-format json --json-schema \"$(cat response-schema.json)\" < prompt.md > claude-response.raw.json"
+  },
+  "drift_rules": {
+    "none": "same rank order, same quadrant per company, and every company total differs by at most 2 points",
+    "moderate": "same rank order and same top-ranked company, but any company total differs by 3 to 5 points or theme emphasis materially differs",
+    "high": "rank order changes, top-ranked company changes, any company changes quadrant, or any company total differs by 6 or more points"
+  }
+}
