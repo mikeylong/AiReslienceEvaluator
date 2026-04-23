@@ -1,0 +1,3 @@
+name: ai_resilience_evaluator
+display_name: AI Resilience Evaluator
+description: Score companies, products, and categories for AI resilience with a 15-factor rubric and markdown, HTML, JSON, and SVG outputs.

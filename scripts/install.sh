@@ -109,6 +109,6 @@ fi
 if [[ "$install_claude" -eq 1 ]]; then
   install_target \
     "Claude" \
-    "$repo_root/.claude/skills/$skill_name" \
+    "$repo_root" \
     "$claude_home/skills/$skill_name"
 fi

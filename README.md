@@ -30,10 +30,12 @@ It is designed to work well for:
 
 ## What The Skill Produces
 
-Every evaluation is meant to return two things:
+Every evaluation is meant to return four artifacts:
 
-1. A readable narrative for humans
-2. A structured object for downstream tooling or agent workflows
+1. A readable markdown narrative for humans
+2. A shareable HTML report generated from the markdown and SVG
+3. A structured object for downstream tooling or agent workflows
+4. A scalable SVG 2x2 using the same axes and placements as the narrative
 
 The narrative includes:
 
@@ -127,7 +129,7 @@ The default workflow is:
 5. Run AI pressure tests
 6. Score the 15-factor rubric
 7. Place the target in the 2x2
-8. Generate a strategic read and final verdict
+8. Generate a strategic read, HTML report, structured object, and SVG
 
 When current facts matter, the evaluator is expected to use current-source research rather than stale memory.
 
@@ -142,11 +144,14 @@ When current facts matter, the evaluator is expected to use current-source resea
 ## Repository Contents
 
 - [SKILL.md](./SKILL.md): the reusable agent skill
+- [agents/openai.yaml](./agents/openai.yaml): Codex metadata
+- [references/report-artifacts.md](./references/report-artifacts.md): detailed artifact requirements
+- [scripts/install.sh](./scripts/install.sh): local installer for Codex and Claude Code
 - [README.md](./README.md): this human overview
 
 ## Current Status
 
-The skill has a canonical root `SKILL.md`, a Claude Code mirror at `.claude/skills/ai_resilience_evaluator/SKILL.md`, and a local installer at `scripts/install.sh` for Codex and Claude Code.
+The root directory is the canonical installable skill package for Codex and Claude Code. `scripts/install.sh` symlinks the same package into either local skill directory.
 
 ## Why This Can Be Useful
 
