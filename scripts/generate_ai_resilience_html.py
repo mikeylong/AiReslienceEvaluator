@@ -196,9 +196,13 @@ def css() -> str:
   --soft-strong: #eeeeea;
   --max: 1180px;
   --measure: 900px;
+  --sticky-nav-anchor-offset: 44px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--sticky-nav-anchor-offset);
+}
 body {
   margin: 0;
   background: #fff;
@@ -332,6 +336,9 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 30px;
   line-height: 1.08;
+}
+.report-body h2[id] {
+  scroll-margin-top: var(--sticky-nav-anchor-offset);
 }
 .report-body h3 {
   margin: 34px 0 0;

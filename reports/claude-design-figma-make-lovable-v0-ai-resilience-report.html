@@ -13,9 +13,13 @@
   --soft-strong: #eeeeea;
   --max: 1180px;
   --measure: 900px;
+  --sticky-nav-anchor-offset: 44px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--sticky-nav-anchor-offset);
+}
 body {
   margin: 0;
   background: #fff;
@@ -149,6 +153,9 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 30px;
   line-height: 1.08;
+}
+.report-body h2[id] {
+  scroll-margin-top: var(--sticky-nav-anchor-offset);
 }
 .report-body h3 {
   margin: 34px 0 0;
@@ -2101,7 +2108,7 @@ substitute for controlled task runs, official product claims, or
 production reliability data.</p>
 
 </article>
-<p class="footer">Generated Apr 22, 2026 at 8:15 pm &middot; <a href="https://github.com/mikeylong/AiReslienceEvaluator">GitHub repo</a></p>
+<p class="footer">Generated Apr 22, 2026 at 11:12 pm &middot; <a href="https://github.com/mikeylong/AiReslienceEvaluator">GitHub repo</a></p>
 </main>
 </body>
 </html>
