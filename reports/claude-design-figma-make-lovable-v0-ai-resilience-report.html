@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Design vs Figma Make vs Lovable vs Vercel v0 vs Codex vs Cursor vs Claude Code | AI Resilience Report</title>
+<style>
+:root {
+  --ink: #101010;
+  --muted: #5f6368;
+  --line: #d8d8d2;
+  --soft: #f7f7f4;
+  --soft-strong: #eeeeea;
+  --max: 1180px;
+  --measure: 900px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+.page {
+  width: min(var(--max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 28px 0 72px;
+}
+.primary-figure { margin: 0; }
+.primary-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(78vh, 860px);
+}
+.chart-note,
+.paper-header,
+.nav,
+.report-body,
+.footer {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-note {
+  margin-top: 14px;
+  color: #303236;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.58;
+}
+.paper-header {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.paper-header h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 650;
+  line-height: 1.12;
+}
+.meta {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.abstract {
+  margin-top: 18px;
+  color: #2d2f32;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+}
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 22px;
+}
+.score-card {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 12px 14px;
+  min-height: 82px;
+}
+.score-card strong {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+}
+.score-card span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, .95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav a {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #282828;
+  font-size: 12px;
+  font-weight: 680;
+  text-decoration: none;
+}
+.report-body {
+  display: grid;
+  gap: 0;
+  margin-top: 26px;
+}
+.report-body p,
+.report-body ul,
+.report-body .table-wrap {
+  margin-top: 16px;
+}
+.report-body p {
+  color: #2d2f32;
+  font-size: 16px;
+}
+.report-body strong { color: #111; }
+.report-body h2 {
+  margin: 44px 0 0;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1.08;
+}
+.report-body h3 {
+  margin: 34px 0 0;
+  font-size: 21px;
+  line-height: 1.08;
+}
+.report-body ul {
+  padding-left: 22px;
+  color: #2d2f32;
+}
+.report-body li + li { margin-top: 8px; }
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+}
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+th:last-child,
+td:last-child { border-right: 0; }
+thead th {
+  background: var(--soft-strong);
+  font-size: 12px;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+tbody tr:last-child td { border-bottom: 0; }
+code {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  font-family: "Aptos Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .92em;
+}
+a { color: #111; text-underline-offset: 2px; }
+.footer {
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .page { width: calc(100vw - 24px); }
+  .chart-note,
+  .paper-header,
+  .nav,
+  .report-body,
+  .footer { max-width: none; }
+}
+</style>
+</head>
+<body>
+<main class="page paper">
+<figure class="primary-figure" aria-label="AI resilience 2x2 chart">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 600" role="img" aria-labelledby="title desc">
+  <title id="title">AI resilience 2x2: seven-product same-cohort comparison</title>
+  <desc id="desc">Black-and-white 2x2 comparing seven scored AI UI/product creation workflows. Circles are visual app builders; diamonds are coding tools. Labels include total scores out of 75.</desc>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#111}.axis{stroke:#111;stroke-width:2}.divider{stroke:#777;stroke-width:1.5;stroke-dasharray:7 7}.point,.diamond{fill:#fff;stroke:#111;stroke-width:2.5}.leader{stroke:#111;stroke-width:1.15;fill:none}.small{font-size:12px}.label{font-size:14px;font-weight:700}.axislabel{font-size:15px;font-weight:700}.quadrant{font-size:13px;fill:#444}</style>
+  <rect x="0" y="0" width="940" height="600" fill="#fff"/>
+  <text x="470" y="36" text-anchor="middle" font-size="22" font-weight="700">AI Resilience Comparison</text>
+  <text x="470" y="58" text-anchor="middle" class="small">Seven scored targets · 15-factor rubric · 75-point scale</text>
+  <circle cx="330" cy="78" r="5" class="point"/><text x="342" y="82" class="quadrant">Visual/app-builder surface</text>
+  <path d="M510 72 L516 78 L510 84 L504 78 Z" class="diamond"/><text x="524" y="82" class="quadrant">Coding tool</text>
+  <line x1="120" y1="500" x2="760" y2="500" class="axis"/><line x1="120" y1="500" x2="120" y2="100" class="axis"/>
+  <line x1="440" y1="500" x2="440" y2="100" class="divider"/><line x1="120" y1="300" x2="760" y2="300" class="divider"/>
+  <text x="120" y="532" text-anchor="start" class="axislabel">Nice-to-Have Output</text><text x="760" y="532" text-anchor="end" class="axislabel">Proprietary Workflow Context</text>
+  <text x="440" y="562" text-anchor="middle" class="small">Proprietary advantage, context, trust, distribution, and owned workflow state</text>
+  <text transform="translate(92 500) rotate(-90)" text-anchor="start" class="axislabel">Prototype Surface</text><text transform="translate(92 100) rotate(-90)" text-anchor="end" class="axislabel">Production Workflow Control</text>
+  <text x="132" y="120" class="quadrant">Workflow-anchored</text><text x="748" y="120" text-anchor="end" class="quadrant">Resilient operating surface</text>
+  <text x="132" y="485" class="quadrant">Commodity output</text><text x="748" y="485" text-anchor="end" class="quadrant">Premium context, weak workflow</text>
+  <path d="M650 117 L661 128 L650 139 L639 128 Z" class="diamond"/>
+  <path d="M660 128 L782 128" class="leader"/>
+  <text x="792" y="133" class="label">Cursor (59/75)</text>
+  <path d="M625 149 L636 160 L625 171 L614 160 Z" class="diamond"/>
+  <path d="M635 160 L782 160" class="leader"/>
+  <text x="792" y="165" class="label">Claude Code (58/75)</text>
+  <path d="M600 181 L611 192 L600 203 L589 192 Z" class="diamond"/>
+  <path d="M610 192 L782 192" class="leader"/>
+  <text x="792" y="197" class="label">Codex (57/75)</text>
+  <circle cx="575" cy="230" r="7" class="point"/>
+  <path d="M585 230 L782 230" class="leader"/>
+  <text x="792" y="235" class="label">Vercel v0 (54/75)</text>
+  <circle cx="540" cy="270" r="7" class="point"/>
+  <path d="M550 270 L782 270" class="leader"/>
+  <text x="792" y="275" class="label">Figma Make (50/75)</text>
+  <circle cx="515" cy="315" r="7" class="point"/>
+  <path d="M525 315 L782 315" class="leader"/>
+  <text x="792" y="320" class="label">Lovable (46/75)</text>
+  <circle cx="485" cy="352" r="7" class="point"/>
+  <path d="M495 352 L782 352" class="leader"/>
+  <text x="792" y="357" class="label">Claude Design (44/75)</text>
+</svg>
+</figure>
+<p class="chart-note"><strong>How to read the markers.</strong> Every marker is scored and ranked in the same 75-point cohort. Circles mark visual/app-builder surfaces: Claude Design, Figma Make, Lovable, Vercel v0. Diamonds mark coding tools: Claude Code, Codex, Cursor. The shape is a caveat about workflow entry point and technical ergonomics, not an exclusion from the ranking.</p>
+<header class="paper-header">
+<p class="eyebrow">Research report</p>
+<h1>Claude Design vs Figma Make vs Lovable vs Vercel v0 vs Codex vs Cursor vs Claude Code</h1>
+<p class="meta">Prepared April 23, 2026 - 15-factor rubric - 75-point scale - same-cohort rerun</p>
+<p class="abstract"><strong>Abstract.</strong> A current-source AI resilience comparison of seven AI-assisted creation-to-published UI/product workflows, now scored as one cohort. Cursor leads at 59/75 because it sits deepest in the editor, repository, terminal, and review loop. Claude Code and Codex follow at 58/75 and 57/75 because they are similarly close to production code, with slightly different distribution and workflow-continuity profiles. Vercel v0 leads the visual/app-builder products at 54/75 through Vercel deploy, GitHub, preview, and app-building linkage. Figma Make scores 50/75 from design-system context and Figma distribution. Lovable scores 46/75 as a credible full-stack app builder with cost and assurance caveats. Claude Design scores 44/75 because it has impressive visual breadth but launch-stage operational evidence.</p>
+<div class="score-grid">
+<div class="score-card"><strong>59/75</strong><span>Cursor - mixed but promising</span></div>
+<div class="score-card"><strong>58/75</strong><span>Claude Code - mixed but promising</span></div>
+<div class="score-card"><strong>57/75</strong><span>Codex - mixed but promising</span></div>
+<div class="score-card"><strong>54/75</strong><span>Vercel v0 - mixed but promising</span></div>
+<div class="score-card"><strong>50/75</strong><span>Figma Make - mixed but promising</span></div>
+<div class="score-card"><strong>46/75</strong><span>Lovable - mixed but promising</span></div>
+<div class="score-card"><strong>44/75</strong><span>Claude Design - vulnerable middle</span></div>
+</div>
+</header>
+<nav class="nav" aria-label="Report sections">
+<a href="#executive-summary">Executive Summary</a>
+<a href="#2x2-placement">2x2 Placement</a>
+<a href="#full-score-table">Full Score Table</a>
+<a href="#top-strengths">Top Strengths</a>
+<a href="#main-vulnerabilities">Main Vulnerabilities</a>
+<a href="#strategic-read">Strategic Read</a>
+<a href="#comparison">Comparison</a>
+<a href="#final-verdict">Final Verdict</a>
+<a href="#confidence-level">Confidence Level</a>
+<a href="#evidence-notes">Evidence Notes</a>
+<a href="#evidence-sources-by-function">Evidence Sources By Function</a>
+<a href="#youtube-review-transcript-evidence">YouTube Review Transcript Evidence</a>
+</nav>
+<article class="report-body">
+<p>Prepared: April 23, 2026</p>
+<p>Scope: AI-assisted creation-to-published UI/product workflows used by
+designers, founders, PMs, and engineering-adjacent teams. Claude Design,
+Figma Make, Lovable, and Vercel v0 are visual/app-builder surfaces.
+Codex, Cursor, and Claude Code are codebase-native coding tools scored
+in the same cohort because designers can use them to generate and revise
+application UI, but they retain diamond markers in the 2x2 to flag the
+different entry point and the need for technical workflow comfort.</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>A current-source AI resilience comparison of seven AI-assisted
+creation-to-published UI/product workflows, now scored as one cohort.
+Cursor leads at 59/75 because it sits deepest in the editor, repository,
+terminal, and review loop. Claude Code and Codex follow at 58/75 and
+57/75 because they are similarly close to production code, with slightly
+different distribution and workflow-continuity profiles. Vercel v0 leads
+the visual/app-builder products at 54/75 through Vercel deploy, GitHub,
+preview, and app-building linkage. Figma Make scores 50/75 from
+design-system context and Figma distribution. Lovable scores 46/75 as a
+credible full-stack app builder with cost and assurance caveats. Claude
+Design scores 44/75 because it has impressive visual breadth but
+launch-stage operational evidence.</p>
+<p>Ranking:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Target</th>
+<th>Marker</th>
+<th>Total</th>
+<th>Band</th>
+<th>Short read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cursor</td>
+<td>Diamond</td>
+<td>59/75</td>
+<td>Mixed But Promising</td>
+<td>Best codebase-native operating surface; less designer-native than
+visual app builders.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Claude Code</td>
+<td>Diamond</td>
+<td>58/75</td>
+<td>Mixed But Promising</td>
+<td>Strong repo-native coding agent; excellent handoff partner but not a
+design workspace.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Codex</td>
+<td>Diamond</td>
+<td>57/75</td>
+<td>Mixed But Promising</td>
+<td>Powerful code agent and PR workflow; less visual/designer-native
+than v0 or Figma Make.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Vercel v0</td>
+<td>Circle</td>
+<td>54/75</td>
+<td>Mixed But Promising</td>
+<td>Closest non-code-agent product to shipped software through Vercel,
+GitHub, PRs, and deploys.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Figma Make</td>
+<td>Circle</td>
+<td>50/75</td>
+<td>Mixed But Promising</td>
+<td>Best design-system context and stakeholder-prototype workflow;
+weaker as production control plane.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Lovable</td>
+<td>Circle</td>
+<td>46/75</td>
+<td>Mixed But Promising</td>
+<td>Strong prompt-to-app/deploy workflow, but trust, costs, and
+production assurance remain limiting.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Claude Design</td>
+<td>Circle</td>
+<td>44/75</td>
+<td>Vulnerable Middle</td>
+<td>Powerful visual artifact surface, but launch-stage evidence and
+production control are still thin.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2x2-placement">2x2 Placement</h2>
+<p>Axes used in the SVG:</p>
+<ul>
+<li>X-axis: Nice-to-Have Output -&gt; Proprietary Workflow Context</li>
+<li>Y-axis: Prototype Surface -&gt; Production Workflow Control</li>
+</ul>
+<p>Marker convention: circles and diamonds are both scored in the same
+75-point cohort. Circles mark visual/app-builder surfaces. Diamonds mark
+coding tools: Codex, Cursor, and Claude Code. The diamond is a caveat
+about workflow entry point, not a scoring discount or exclusion.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Marker</th>
+<th>Placement</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cursor</td>
+<td>Diamond</td>
+<td>Upper-right: strongest same-cohort workflow control, with
+designer-ergonomics caveat</td>
+<td>Best codebase-native operating surface; less designer-native than
+visual app builders.</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Diamond</td>
+<td>Upper-right: terminal-native production control, with non-visual
+surface caveat</td>
+<td>Strong repo-native coding agent; excellent handoff partner but not a
+design workspace.</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>Diamond</td>
+<td>Upper-right: strong agentic coding command center, slightly lower
+continuity than editor-native Cursor</td>
+<td>Powerful code agent and PR workflow; less visual/designer-native
+than v0 or Figma Make.</td>
+</tr>
+<tr>
+<td>Vercel v0</td>
+<td>Circle</td>
+<td>Upper-right: best visual app-builder link to deploy and production
+surfaces</td>
+<td>Closest non-code-agent product to shipped software through Vercel,
+GitHub, PRs, and deploys.</td>
+</tr>
+<tr>
+<td>Figma Make</td>
+<td>Circle</td>
+<td>Right of center: strongest design-context surface, below code-agent
+production control</td>
+<td>Best design-system context and stakeholder-prototype workflow;
+weaker as production control plane.</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td>Circle</td>
+<td>Near center-right: app-builder depth, below stronger
+incumbent/code-agent control</td>
+<td>Strong prompt-to-app/deploy workflow, but trust, costs, and
+production assurance remain limiting.</td>
+</tr>
+<tr>
+<td>Claude Design</td>
+<td>Circle</td>
+<td>Right of center on output breadth, below workflow midpoint</td>
+<td>Powerful visual artifact surface, but launch-stage evidence and
+production control are still thin.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="full-score-table">Full Score Table</h2>
+<h3 id="cursor---5975">Cursor - 59/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Cursor indexes codebases, uses editor state, rules, terminal
+context, and PR history, giving it the deepest local implementation
+context in this cohort.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Cursor publishes security, SOC 2 Type II, privacy-mode, and
+enterprise controls, while its own security page still cautions
+sensitive environments to assess risk.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>The product benefits from AI-editor adoption and VS Code
+familiarity; recent reviewer transcripts also frame it as a default
+agentic coding workspace for many builders.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>Cursor improves implementation throughput but does not own product
+judgment, brand taste, accessibility acceptance, or release
+decisions.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Review diffs, approval flows, security controls, privacy modes, and
+enterprise settings help governance, but customers remain accountable
+for shipped code.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Reviewer transcripts show frequent agentic coding use; for designers
+specifically, frequency depends on comfort working in a code
+editor.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Cursor can sit inside the implementation loop through files,
+terminal commands, code review, agent tools, and codebase indexing.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>It occupies the editor/agent layer where UI code is inspected,
+modified, run, reviewed, and committed.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>4</td>
+<td>Inference</td>
+<td>Rules, indexed context, editor habits, and project setup create
+meaningful friction, though code remains portable.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Paid team and enterprise packaging ties spend to daily software
+delivery rather than one-off prototype generation.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Inference</td>
+<td>Better models should increase value because Cursor attaches model
+output to repository context, terminal execution, and review loops.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>4</td>
+<td>Inference</td>
+<td>The codebase/editor position lowers wrapper risk, though Cursor
+still depends on access to frontier models and competing agentic
+editors.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Cursor documents agent tools for search, edit, terminal execution,
+MCP, and codebase search.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Inference</td>
+<td>It can surface diffs and run checks, but production correctness,
+security, accessibility, and user acceptance remain human-owned.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts show full-feature coding workflows and PR-oriented
+review, but not end-to-end responsibility for product outcomes.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 18/25, workflow criticality 21/25,
+ai resilience tests 20/25.</p>
+<h3 id="claude-code---5875">Claude Code - 58/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Claude Code reads project files, executes commands, uses
+memory/rules, connects via MCP, and can integrate external context such
+as Figma through tools.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Anthropic trust, enterprise packaging, and Claude distribution
+support buyer trust, though code-agent risk still requires customer
+controls.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Claude Code inherits Claude/Anthropic distribution and has terminal,
+IDE, and GitHub workflow surfaces.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>It can reason through code and edge cases, but product judgment, UX
+quality, and release approval remain user responsibilities.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>GitHub Actions, MCP controls, permissions, and review workflows help
+governance but do not transfer accountability.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Recent practitioner transcripts show recurring use for planning,
+coding, testing, and codebase exploration.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>It can modify files, run commands, create commits, and operate in
+real repos, making it part of the implementation loop.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Claude Code sits directly in terminal/IDE/GitHub workflows where
+production code changes happen.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>4</td>
+<td>Inference</td>
+<td>Project memories, commands, MCP setup, and workflow habits create
+friction, although source code remains portable.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Claude paid plans and enterprise packaging make spend attach to
+software delivery, despite transcript-reported credit/cost management
+needs.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Inference</td>
+<td>Stronger reasoning and coding models should directly improve
+repo-level planning, edits, testing, and debugging.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>4</td>
+<td>Inference</td>
+<td>Terminal, GitHub, MCP, and workflow integration reduce wrapper risk,
+but competition among code agents remains intense.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Claude Code is explicitly an agentic coding tool with MCP, IDE
+integrations, and GitHub workflows.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Inference</td>
+<td>It can run checks and support reviews, but users still own
+correctness, security, accessibility, and production outcomes.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts show sophisticated codebase work and production-style
+review, but not durable ownership after deployment.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 17/25, workflow criticality 21/25,
+ai resilience tests 20/25.</p>
+<h3 id="codex---5775">Codex - 57/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Codex connects to repositories, cloud worktrees, IDE/terminal
+surfaces, skills, and PR review flows, but is less continuously
+editor-native than Cursor.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>OpenAI security, enterprise data controls, and Codex product
+positioning support trust for teams.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Codex benefits from ChatGPT/OpenAI distribution, app, IDE, and
+terminal surfaces.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>It can reason through implementation, but product/design judgment
+and final release decisions remain external.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>PR review, worktrees, comments, and business security controls
+support governance without assuming outcome liability.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Official and reviewer transcripts position Codex for recurring
+engineering tasks, review, refactors, and multi-agent work.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Codex can modify repos, run work in cloud environments, support PRs,
+and integrate with local workflows.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>It sits close to code, review, branch/worktree, terminal, and PR
+workflows.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>3</td>
+<td>Inference</td>
+<td>Skills, automations, and OpenAI account workflows add friction, but
+code and repos remain portable.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Team credits, ChatGPT/OpenAI packaging, and engineering workflow
+value make budget durability stronger than prototype-only tools.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Inference</td>
+<td>OpenAI coding-model improvements should directly increase Codex
+value across implementation, review, and multi-agent workflows.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>4</td>
+<td>Inference</td>
+<td>Repo, worktree, PR, skills, and automations reduce thin-wrapper
+risk, though the code-agent category is highly competitive.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Codex is positioned as a multi-agent coding command center with
+cloud environments, skills, automations, IDE, and terminal
+surfaces.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Inference</td>
+<td>Codex can run checks and support review, but customers own
+acceptance and production consequences.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Official evidence shows feature, refactor, migration, review, and
+app-building workflows, but not customer outcome ownership.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 17/25, workflow criticality 20/25,
+ai resilience tests 20/25.</p>
+<h3 id="vercel-v0---5475">Vercel v0 - 54/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>v0 can use repos, environment variables, Vercel configuration,
+design mode, databases, and APIs, but customer/product context often
+lives outside v0.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Vercel security, trust, deployment protections, and enterprise
+controls support buyer trust.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>v0 benefits from Vercel distribution, templates, one-click deploy,
+and developer-channel reach.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>v0 can generate and revise apps, but product judgment, architecture,
+security, and release decisions still need human review.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>GitHub, PRs, deploy protection, access controls, and Vercel platform
+defaults strengthen governance.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>3</td>
+<td>Inference</td>
+<td>App and website iteration can be recurring, but v0 may not be a
+daily operating surface for every team.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Repo import, deploy, preview, branch, and PR workflows can become
+part of shipping work.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>v0 links AI generation to code, GitHub, Vercel deployment, and
+production preview workflows.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>3</td>
+<td>Inference</td>
+<td>Git portability lowers lock-in while Vercel setup, deploy habits,
+and generated project context create some friction.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Team/business packaging and production software use support budget
+durability.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Inference</td>
+<td>Better models should increase v0 value because outputs are tied to
+code, deploy, debugging, and platform workflows.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>3</td>
+<td>Inference</td>
+<td>Vercel linkage reduces wrapper risk, but visible prompt-to-app
+generation remains exposed to coding agents and model-native
+builders.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>v0 positions itself around agentic app/website building, planning,
+integrations, GitHub, and deployment.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Inference</td>
+<td>v0 can route work through code and deployment controls, but users
+still own production correctness.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>v0 can create, publish, and deploy working applications, but durable
+operations still depend on customer process.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 17/25, workflow criticality 18/25,
+ai resilience tests 19/25.</p>
+<h3 id="figma-make---5075">Figma Make - 50/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Figma Make can attach Figma designs, components, library styling,
+images, and team templates to prompt-to-app workflows.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Figma paid plans, enterprise posture, collaboration, permissions,
+and security docs support buyer trust.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Make benefits from Figma files, collaboration graph, paid seats,
+Community, and designer mindshare.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>Make accelerates prototypes and web apps but does not own product
+judgment, usability validation, or production acceptance.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Figma sharing, plan controls, and governance help, but Figma docs
+still place content rights and publishing responsibility on users.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>3</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts support repeated MVP/prototype use, but not daily
+production operation for most teams.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Make supports previews, collaboration, code editing, backends, and
+publishing, but teams can still move implementation elsewhere.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>It sits inside Figma where design files, components, previews, and
+team collaboration already happen.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>2</td>
+<td>Inference</td>
+<td>Generated artifacts are useful, but teams can recreate outputs
+elsewhere if Figma context is not central.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Paid-seat and AI-credit packaging creates a budget path tied to
+existing Figma use.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Inference</td>
+<td>Better models should improve Make because Figma owns design context,
+components, and collaboration surfaces.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>3</td>
+<td>Inference</td>
+<td>Figma context reduces wrapper risk, but prompt-to-app generation is
+exposed to coding agents and app builders.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>Figma documents code, packages, publishing, and MCP/code-agent
+handoff for Make files.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>1</td>
+<td>Direct evidence</td>
+<td>Make can publish and share, but it does not absorb responsibility
+for production correctness, rights, compliance, or app outcomes.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts and docs support strong interactive prototype/MVP
+outcomes, though not sustained production operation.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 17/25, workflow criticality 15/25,
+ai resilience tests 18/25.</p>
+<h3 id="lovable---4675">Lovable - 46/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Lovable stores project code, chat context, GitHub sync, connectors,
+and app-building history, but deeper customer data usually lives
+elsewhere.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Security scans, SSO, audit logs, publishing controls, and enterprise
+features improve trust, but production assurance remains
+customer-owned.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Lovable has direct app-builder distribution, templates, pricing
+tiers, connectors, and GitHub workflow without Figma/Vercel-scale
+incumbent channels.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>Lovable can assemble apps quickly, but product, architecture, UX,
+and security judgment remain substantially user-owned.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Security and audit features help governance, but docs and transcript
+context reinforce that users must validate critical behavior.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>3</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts support recurring prototype and app-building use, but
+not universal daily operational dependence.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Publishing, hosting, GitHub sync, cloud, and connectors make it
+operationally useful, though users can continue elsewhere.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Lovable spans generation, app code, publishing, GitHub,
+cloud/backend paths, and connectors.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>GitHub sync/export improves portability while project history,
+connectors, and cloud setup create moderate friction.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>2</td>
+<td>Credible third-party evidence</td>
+<td>Docs and transcripts show credit/usage-cost sensitivity, making
+large sustained production budgets less certain.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>4</td>
+<td>Inference</td>
+<td>Better models should improve app assembly and debugging but also
+lower barriers for competing app builders.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>3</td>
+<td>Inference</td>
+<td>Lovable has more workflow depth than a thin wrapper, but
+prompt-to-app generation remains crowded and model-sensitive.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Agent mode, browser testing, connectors, GitHub sync, and cloud
+integration make it meaningfully agent-ready.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Direct evidence</td>
+<td>Security scans and controls help, but Lovable does not take
+responsibility for production correctness or app-specific
+assurance.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts and docs support live full-stack app outcomes, with
+review and reliability caveats.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 14/25, workflow criticality 15/25,
+ai resilience tests 17/25.</p>
+<h3 id="claude-design---4475">Claude Design - 44/75</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Evidence label</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Claude Design can build design systems from codebases, design files,
+brand assets, and web capture, but production telemetry and customer
+state remain outside the product.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>It inherits Claude/Anthropic trust and paid-plan distribution,
+though product-specific governance evidence is still sparse.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Claude Design launches inside Claude for paid subscriber tiers and
+benefits from Claude distribution.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>2</td>
+<td>Inference</td>
+<td>It expands visual exploration but does not own brand approval,
+design judgment, accessibility, or production acceptance.</td>
+</tr>
+<tr>
+<td>Proprietary advantage</td>
+<td>Liability governance</td>
+<td>2</td>
+<td>Direct evidence</td>
+<td>Admin controls and org sharing exist, but launch-stage docs leave
+gaps around auditability, data residency, API maturity, and production
+governance.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>3</td>
+<td>Credible third-party evidence</td>
+<td>Transcripts support repeated artifact/prototype use, but frequency
+varies by role and launch-stage limits.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Operational dependence</td>
+<td>2</td>
+<td>Inference</td>
+<td>Evidence supports ideation, refinement, export, and handoff rather
+than dependence as a system of record or production control plane.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>System position</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Claude Design can hand off to Claude Code and read design/code
+context, but does not itself own Git, deploy, or release workflows.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Switching cost</td>
+<td>1</td>
+<td>Inference</td>
+<td>Outputs can be exported or recreated, and durable lock-in beyond
+Claude preference is not yet proven.</td>
+</tr>
+<tr>
+<td>Workflow criticality</td>
+<td>Budget durability</td>
+<td>3</td>
+<td>Direct evidence</td>
+<td>Paid-plan access and extra usage create a budget path, while
+transcript evidence flags limits and cost friction.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Model improvement test</td>
+<td>5</td>
+<td>Direct evidence</td>
+<td>The product is model-native and powered by Anthropic multimodal
+capabilities, so model improvements should raise output breadth and
+quality.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Wrapper risk test</td>
+<td>2</td>
+<td>Inference</td>
+<td>The launch surface is easy to imitate unless design-system,
+collaboration, handoff, and workflow controls deepen.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Agent readiness test</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>Claude Design packages handoff bundles for Claude Code and supports
+code-powered prototypes, but external integration evidence is
+early.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Accountability test</td>
+<td>2</td>
+<td>Inference</td>
+<td>Customers still own correctness, rights, approval, brand fit,
+accessibility, and production use.</td>
+</tr>
+<tr>
+<td>AI resilience tests</td>
+<td>Outcome depth test</td>
+<td>4</td>
+<td>Direct evidence</td>
+<td>It spans prototypes, slides, decks, one-pagers, collateral, and
+interactive visual artifacts, though not production operation.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotals: proprietary advantage 15/25, workflow criticality 12/25,
+ai resilience tests 17/25.</p>
+<h2 id="top-strengths">Top Strengths</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cursor</td>
+<td>Deep repo/editor context, codebase indexing, terminal/tool
+execution, reviewable diffs, enterprise security posture, and strong
+daily workflow fit.</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Strong terminal/IDE/GitHub positioning, MCP extensibility, project
+memory, real-file edits, and credible practitioner workflow
+evidence.</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>OpenAI distribution, repository/worktree/PR workflows, skills and
+automations, multi-agent command-center positioning, and strong
+model-improvement leverage.</td>
+</tr>
+<tr>
+<td>Vercel v0</td>
+<td>Best visual-builder bridge into code, GitHub, previews, Vercel
+deploys, and production sharing.</td>
+</tr>
+<tr>
+<td>Figma Make</td>
+<td>Design-file context, components, libraries, collaboration,
+stakeholder buy-in workflows, publishing, and agent handoff.</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td>Fast app generation, live publishing, GitHub sync, cloud/backend
+path, connectors, and increasingly explicit security tooling.</td>
+</tr>
+<tr>
+<td>Claude Design</td>
+<td>Chat-native visual creation, broad artifact range, design-system
+setup, inline refinement, export/handoff, and Claude distribution.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="main-vulnerabilities">Main Vulnerabilities</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Vulnerabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cursor</td>
+<td>Not a visual design surface; designers need code fluency or
+engineering partnership, and source-code privacy/security concerns
+remain material.</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Requires technical workflow comfort, can consume credits quickly,
+and is not optimized as a visual design review surface.</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>Not a visual design tool; switching costs are moderate and
+production acceptance still needs human review.</td>
+</tr>
+<tr>
+<td>Vercel v0</td>
+<td>Some moat belongs to Vercel rather than v0 alone; output quality,
+security, and architecture still require review.</td>
+</tr>
+<tr>
+<td>Figma Make</td>
+<td>Still more design/prototype surface than production operating
+system; accountability remains user-owned.</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td>Credit/usage costs, production assurance, and security review remain
+exposed; less incumbent distribution than Figma or Vercel.</td>
+</tr>
+<tr>
+<td>Claude Design</td>
+<td>Research-preview launch, sparse operational governance, low
+switching cost, and transcript-reported generic output/bug/limit
+concerns.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Red flags observed:</p>
+<ul>
+<li>Cursor: Accountability Vacuum for production correctness; Trust Gap
+for highly sensitive code unless enterprise controls are validated.</li>
+<li>Claude Code: Accountability Vacuum; Workflow Thinness for
+nontechnical designers who need a visual operating surface.</li>
+<li>Codex: Accountability Vacuum; Workflow Thinness for purely visual
+ideation workflows.</li>
+<li>Vercel v0: Wrapper Illusion if generated apps are treated as
+production assurance; Accountability Vacuum for final release
+quality.</li>
+<li>Figma Make: Accountability Vacuum and partial Workflow Thinness
+outside design/prototype loops.</li>
+<li>Lovable: Trust Gap and Wrapper Risk if users assume generated
+full-stack apps are production-safe by default.</li>
+<li>Claude Design: Workflow Thinness and Context Weakness until team
+governance, integrations, and live production-handoff evidence
+mature.</li>
+</ul>
+<h2 id="strategic-read">Strategic Read</h2>
+<p>Durable layers:</p>
+<ul>
+<li>Cursor: Codebase index, editor state, rules, terminal execution,
+PR/review loop, and daily developer workflow position.</li>
+<li>Claude Code: Terminal and GitHub workflow embed, MCP ecosystem,
+project memory, Anthropic distribution, and handoff compatibility with
+Claude Design.</li>
+<li>Codex: OpenAI account distribution, coding models, cloud worktrees,
+PR/review loop, skills, automations, and multi-surface access.</li>
+<li>Vercel v0: Vercel deployment surface, GitHub/PR path, preview links,
+enterprise security, and developer distribution.</li>
+<li>Figma Make: Figma design context, components/libraries,
+collaboration graph, existing paid-seat distribution, and
+design-to-prototype continuity.</li>
+<li>Lovable: Project/chat/code context, publish path, GitHub sync,
+cloud/backend workflows, connectors, and security scans.</li>
+<li>Claude Design: Claude multimodal model surface, Claude distribution,
+broad visual artifact range, design-system setup, and Claude Code
+handoff.</li>
+</ul>
+<p>Commoditizing layers:</p>
+<ul>
+<li>Prompt-to-layout generation, one-off landing pages, generic app
+scaffolds, static prototypes, and basic code edits are increasingly
+exposed to stronger foundation models and competing agents.</li>
+<li>Visual polish without proprietary context, review loops, governance,
+or production linkage is not enough to sustain resilience.</li>
+</ul>
+<p>Next moves that would raise resilience:</p>
+<ul>
+<li>Cursor: Run designer-led UI-generation tests, measure design-system
+adherence, and validate security/privacy settings for enterprise
+codebases.</li>
+<li>Claude Code: Score with a controlled designer-to-UI implementation
+run and test review discipline, rollback, accessibility, and security
+behavior.</li>
+<li>Codex: Run the same UI task protocol as visual builders and separate
+app-generation speed from reviewed production-readiness.</li>
+<li>Vercel v0: Run controlled live tasks across existing repos and
+measure bug rate, review quality, deployment handoff, and post-launch
+maintenance.</li>
+<li>Figma Make: Prove production handoff, lifecycle governance, and
+sustained usefulness after engineering takes over.</li>
+<li>Lovable: Reduce cost friction, prove sustained maintenance
+workflows, and make production security guarantees more operationally
+concrete.</li>
+<li>Claude Design: Publish clearer governance/API/integration docs and
+run side-by-side creation-to-publish tasks against the other cohort
+members.</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<p>When scored as one cohort, coding tools lead because the rubric
+rewards proximity to implementation context, versioned code,
+terminal/test loops, and production review. That is a category effect as
+much as an execution effect: Cursor, Claude Code, and Codex are not
+visual-first design products, so their diamond marker remains as a
+caveat. v0 is the strongest app-builder because it bridges AI generation
+to Vercel deploys and GitHub. Figma Make has the strongest
+design-context story. Lovable is a credible app-builder but weaker on
+trust and cost durability. Claude Design is high-upside but early and
+less operationally embedded.</p>
+<p><code>comparison.ranked_targets</code>: Cursor (59), Claude Code
+(58), Codex (57), Vercel v0 (54), Figma Make (50), Lovable (46), Claude
+Design (44).</p>
+<h2 id="final-verdict">Final Verdict</h2>
+<p>The same-cohort rerun moves the coding tools from contextual diamonds
+into the ranked set. Cursor, Claude Code, and Codex lead because they
+operate closest to production code, test/build loops, and reviewable
+changes. That does not mean they are better design products; it means
+the AI resilience rubric rewards owned workflow context and production
+control. v0 is the strongest visual/app-builder product because Vercel
+gives it deploy and GitHub linkage. Figma Make remains the strongest
+design-context surface. Lovable is a credible full-stack app builder but
+must prove trust, cost durability, and sustained maintenance. Claude
+Design remains high-upside but launch-stage: broad artifact generation
+and Claude Code handoff are promising, but governance, integrations, and
+production-operation evidence are still thin.</p>
+<h2 id="confidence-level">Confidence Level</h2>
+<p>Overall confidence: Medium. Official evidence is current and
+transcript evidence now covers every product, but no controlled live
+task run was performed for the seven-product cohort. The largest
+uncertainty is designer usability for code-native tools versus their
+clear production-control advantage.</p>
+<ul>
+<li>Cursor: Medium-high. Official security/docs evidence is strong and
+transcript evidence is recent, but UI-generation-for-designers needs
+controlled runs.</li>
+<li>Claude Code: Medium-high. Official Claude Code docs and current
+transcripts support the score; designer-specific usability remains less
+proven.</li>
+<li>Codex: Medium-high. OpenAI official evidence is strong and
+transcripts cover comparative use; design-specific UI runs are still
+missing.</li>
+<li>Vercel v0: Medium. Official evidence is strong and transcripts add
+context, but no controlled live task run was performed.</li>
+<li>Figma Make: Medium-high. Official docs and transcripts align on
+design-context strengths; production depth is still less proven.</li>
+<li>Lovable: Medium. Official docs and transcripts support a credible
+app-builder workflow, with cost/reliability caveats.</li>
+<li>Claude Design: Low-medium. Official launch docs and transcripts are
+current, but the product is new and operational evidence is sparse.</li>
+</ul>
+<p>Unknowns that would change the score most:</p>
+<ul>
+<li>Side-by-side UI-generation runs for all seven tools using the same
+prompts, design-system inputs, accessibility requirements, Git/deploy
+requirements, and review rubric.</li>
+<li>Evidence of enterprise adoption, auditability, and production
+approval workflows for Claude Design and newer app-builder
+surfaces.</li>
+<li>Longitudinal maintenance data showing whether generated apps survive
+real bugs, feature changes, security review, and team handoff.</li>
+<li>Designer-specific evidence for Codex, Cursor, and Claude Code,
+especially for non-engineers working from visual requirements rather
+than existing code issues.</li>
+</ul>
+<h2 id="evidence-notes">Evidence Notes</h2>
+<p>Primary official evidence used:</p>
+<ul>
+<li>Anthropic, <a
+href="https://www.anthropic.com/news/claude-design-anthropic-labs">Introducing
+Claude Design by Anthropic Labs</a>.</li>
+<li>Claude Help Center, <a
+href="https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans">Claude
+Design admin guide</a>.</li>
+<li>Claude Help Center, <a
+href="https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing">Claude
+Design subscription usage and pricing</a>.</li>
+<li>Claude Help Center, <a
+href="https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design">Set
+up your design system in Claude Design</a>.</li>
+<li>Claude Help Center, <a
+href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">Get
+started with Claude Design</a>.</li>
+<li>Figma Help Center, <a
+href="https://help.figma.com/hc/en-us/articles/31304412302231-Explore-Figma-Make">Explore
+Figma Make</a>.</li>
+<li>Figma Developer Docs, <a
+href="https://developers.figma.com/docs/code/intro-to-figma-make/">Intro
+to Figma Make</a>.</li>
+<li>Figma, <a href="https://www.figma.com/pricing/">Plans &amp;
+Pricing</a>.</li>
+<li>Figma, <a href="https://www.figma.com/security/">Security</a>.</li>
+<li>Figma Help Center, <a
+href="https://help.figma.com/hc/en-us/articles/31825370509591-Governance-for-Figma-Enterprise">Governance+
+for Figma Enterprise</a>.</li>
+<li>Lovable Docs, <a
+href="https://docs.lovable.dev/features/publish">Publish your Lovable
+project</a>.</li>
+<li>Lovable Docs, <a
+href="https://docs.lovable.dev/integrations/github">Connect your project
+to GitHub</a>.</li>
+<li>Lovable Docs, <a
+href="https://docs.lovable.dev/integrations/cloud">Lovable
+Cloud</a>.</li>
+<li>Lovable Docs, <a
+href="https://docs.lovable.dev/features/security">Security
+overview</a>.</li>
+<li>Lovable Docs, <a
+href="https://docs.lovable.dev/features/audit-logs">Audit logs</a>.</li>
+<li>Lovable, <a href="https://lovable.dev/pricing">Pricing</a>.</li>
+<li>Vercel, <a
+href="https://vercel.com/blog/introducing-the-new-v0">Introducing the
+new v0</a>.</li>
+<li>v0, <a href="https://v0.app/">Product page</a>.</li>
+<li>v0 Docs, <a href="https://v0.app/docs/github">GitHub</a>.</li>
+<li>v0, <a href="https://v0.app/pricing">Pricing</a>.</li>
+<li>Vercel, <a href="https://vercel.com/security">Security</a>.</li>
+<li>Vercel, <a href="https://security.vercel.com/">Trust
+Center</a>.</li>
+<li>OpenAI, <a href="https://openai.com/codex">Codex</a>.</li>
+<li>OpenAI Developers, <a
+href="https://platform.openai.com/docs/codex/overview">Codex
+cloud</a>.</li>
+<li>OpenAI, <a href="https://openai.com/security">Security and
+privacy</a>.</li>
+<li>Cursor, <a href="https://cursor.com/product">Agent</a>.</li>
+<li>Cursor Docs, <a href="https://docs.cursor.com/chat/overview">Agent
+overview</a>.</li>
+<li>Cursor Docs, <a
+href="https://docs.cursor.com/chat/codebase">Codebase indexing</a>.</li>
+<li>Cursor Docs, <a
+href="https://docs.cursor.com/en/agent/tools">Tools</a>.</li>
+<li>Cursor Docs, <a href="https://docs.cursor.com/en/context/mcp">Model
+Context Protocol</a>.</li>
+<li>Cursor, <a
+href="https://www.cursor.com/en/pricing">Pricing</a>.</li>
+<li>Cursor, <a href="https://www.cursor.com/security">Security</a>.</li>
+<li>Anthropic, <a href="https://www.anthropic.com/claude-code">Claude
+Code product page</a>.</li>
+<li>Anthropic Docs, <a
+href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude
+Code overview</a>.</li>
+<li>Anthropic Docs, <a
+href="https://docs.anthropic.com/en/docs/claude-code/mcp">Connect Claude
+Code to tools via MCP</a>.</li>
+<li>Anthropic Docs, <a
+href="https://docs.anthropic.com/en/docs/claude-code/ide-integrations">Add
+Claude Code to your IDE</a>.</li>
+<li>Anthropic Docs, <a
+href="https://docs.anthropic.com/en/docs/claude-code/github-actions">Claude
+Code GitHub Actions</a>.</li>
+<li>Anthropic, <a href="https://trust.anthropic.com/">Trust
+Center</a>.</li>
+<li>Claude, <a href="https://anthropic.statuspage.io/">Status</a>.</li>
+<li>Figma, <a href="https://status.figma.com/">Status</a>.</li>
+<li>Lovable, <a href="https://status.lovable.dev/">Status</a>.</li>
+<li>Vercel, <a href="https://www.vercel-status.com/">Status</a>.</li>
+<li>v0, <a href="https://v0-status.com/">Status</a>.</li>
+</ul>
+<h2 id="evidence-sources-by-function">Evidence Sources By Function</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source function</th>
+<th>Supports</th>
+<th>Evidence weight</th>
+<th>Stale-context handling</th>
+<th>Representative sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product facts and scope</td>
+<td>Defines the product surface, user, workflow, supported outputs, and
+scoped target boundary for each cohort member.</td>
+<td>Highest: current official product pages, launch posts, help centers,
+docs, and pricing pages.</td>
+<td>Use current official pages at report time; do not reuse older repo
+summaries for product facts.</td>
+<td><a
+href="https://www.anthropic.com/news/claude-design-anthropic-labs">https://www.anthropic.com/news/claude-design-anthropic-labs</a>;
+<a
+href="https://help.figma.com/hc/en-us/articles/31304412302231-Explore-Figma-Make">https://help.figma.com/hc/en-us/articles/31304412302231-Explore-Figma-Make</a>;
+<a
+href="https://docs.lovable.dev/features/publish">https://docs.lovable.dev/features/publish</a>;
+<a href="https://v0.app/">https://v0.app/</a>; <a
+href="https://openai.com/codex">https://openai.com/codex</a>; ...</td>
+</tr>
+<tr>
+<td>Workflow and integration claims</td>
+<td>Substantiates design-system context, code/Git handoff, publishing,
+deployment, repository sync, terminal/editor workflows, and MCP/tool
+integrations.</td>
+<td>High: official developer docs, integration docs, and product docs;
+supplement with transcript evidence for user-visible workflow
+friction.</td>
+<td>Prefer current docs and fresh transcript pulls; avoid dated repo
+task evidence for this rerun.</td>
+<td><a
+href="https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design">https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design</a>;
+<a
+href="https://developers.figma.com/docs/code/intro-to-figma-make/">https://developers.figma.com/docs/code/intro-to-figma-make/</a>;
+<a
+href="https://docs.lovable.dev/integrations/github">https://docs.lovable.dev/integrations/github</a>;
+<a href="https://v0.app/docs/github">https://v0.app/docs/github</a>; <a
+href="https://platform.openai.com/docs/codex/overview">https://platform.openai.com/docs/codex/overview</a>;
+...</td>
+</tr>
+<tr>
+<td>Adoption and packaging signals</td>
+<td>Informs distribution, budget durability, paid-plan fit, usage-limit
+friction, and team/enterprise packaging.</td>
+<td>Medium-high: official pricing and packaging pages plus recent
+transcript context for cost/friction patterns.</td>
+<td>Use latest pricing pages and label transcript cost comments as
+qualitative, not official pricing facts.</td>
+<td><a
+href="https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing">https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing</a>;
+<a
+href="https://www.figma.com/pricing/">https://www.figma.com/pricing/</a>;
+<a href="https://lovable.dev/pricing">https://lovable.dev/pricing</a>;
+<a href="https://v0.app/pricing">https://v0.app/pricing</a>; <a
+href="https://openai.com/codex">https://openai.com/codex</a>; ...</td>
+</tr>
+<tr>
+<td>Reliability and operational risk</td>
+<td>Checks incident history, service disruption evidence, and whether
+the product can be operationally depended on.</td>
+<td>High for official status pages; medium for transcript-reported
+bugs/friction.</td>
+<td>Use current status pages and current transcripts; do not treat old
+incidents as current unless repeated.</td>
+<td><a
+href="https://anthropic.statuspage.io/">https://anthropic.statuspage.io/</a>;
+<a href="https://status.figma.com/">https://status.figma.com/</a>; <a
+href="https://status.lovable.dev/">https://status.lovable.dev/</a>; <a
+href="https://www.vercel-status.com/">https://www.vercel-status.com/</a>;
+<a href="https://v0-status.com/">https://v0-status.com/</a></td>
+</tr>
+<tr>
+<td>Trust, security, and governance</td>
+<td>Supports trust, liability governance, admin control, auditability,
+source-code privacy, data handling, and enterprise readiness.</td>
+<td>Highest: official trust centers, security docs, admin guides, and
+governance docs.</td>
+<td>Use current trust/security docs and mark missing or launch-stage
+controls as uncertainty.</td>
+<td><a
+href="https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans">https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans</a>;
+<a
+href="https://www.figma.com/security/">https://www.figma.com/security/</a>;
+<a
+href="https://docs.lovable.dev/features/security">https://docs.lovable.dev/features/security</a>;
+<a href="https://vercel.com/security">https://vercel.com/security</a>;
+<a href="https://openai.com/security">https://openai.com/security</a>;
+...</td>
+</tr>
+<tr>
+<td>Qualitative reviewer transcript context</td>
+<td>Captures hands-on workflow friction, output quality, cost/credit
+sensitivity, designer/developer ergonomics, and reviewer uncertainty for
+every target.</td>
+<td>Medium: third-party qualitative evidence; official demo transcripts
+are used only for workflow demonstration, not independent
+validation.</td>
+<td>Use transcript pull date and video dates; cross-check product facts
+against official sources.</td>
+<td><a
+href="https://www.youtube.com/watch?v=IkspcJdeP3U">https://www.youtube.com/watch?v=IkspcJdeP3U</a>;
+<a
+href="https://www.youtube.com/watch?v=IksDIJzfXg8">https://www.youtube.com/watch?v=IksDIJzfXg8</a>;
+<a
+href="https://www.youtube.com/watch?v=Zrqpq-uQBM0">https://www.youtube.com/watch?v=Zrqpq-uQBM0</a>;
+<a
+href="https://www.youtube.com/watch?v=EUPbdk972JI">https://www.youtube.com/watch?v=EUPbdk972JI</a>;
+<a
+href="https://www.youtube.com/watch?v=lhaGyrp1vfY">https://www.youtube.com/watch?v=lhaGyrp1vfY</a>;
+...</td>
+</tr>
+<tr>
+<td>Cohort normalization and coding-tool caveats</td>
+<td>Explains why Codex, Cursor, and Claude Code are scored in the same
+cohort but retained as diamond markers: they are codebase-native
+UI-generation tools, not visual-first design surfaces.</td>
+<td>Analytical normalization using the same rubric, official docs, and
+transcript context.</td>
+<td>Treat marker shape as a caveat, not a scoring exemption; refresh
+with controlled live UI-generation runs.</td>
+<td><a href="https://openai.com/codex">https://openai.com/codex</a>; <a
+href="https://www.cursor.com/security">https://www.cursor.com/security</a>;
+<a
+href="https://docs.anthropic.com/en/docs/claude-code/overview">https://docs.anthropic.com/en/docs/claude-code/overview</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="youtube-review-transcript-evidence">YouTube Review Transcript
+Evidence</h2>
+<p>Purpose: the rerun uses current transcript evidence for every product
+to capture hands-on friction, workflow positioning, cost sensitivity,
+and reviewer uncertainty that official sources do not fully expose.</p>
+<p>Method: YouTube searches were run on April 23, 2026 for review,
+tutorial, demo, and comparison videos for each product. Captions were
+pulled with <code>yt-dlp</code> and treated as qualitative evidence.
+Product facts were cross-checked against official sources. Transcript
+evidence did not count as controlled live-task evidence.</p>
+<p>Sources:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Source</th>
+<th>Publisher</th>
+<th>Date</th>
+<th>Transcript type</th>
+<th>Evidence use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Design</td>
+<td><a href="https://www.youtube.com/watch?v=IkspcJdeP3U">Claude Design
+is NOT what you think</a></td>
+<td>Malewicz</td>
+<td>2026-04-18</td>
+<td>captions pulled via yt-dlp</td>
+<td>Product-position critique and Figma-replacement skepticism.</td>
+</tr>
+<tr>
+<td>Claude Design</td>
+<td><a href="https://www.youtube.com/watch?v=IksDIJzfXg8">I Tested
+Claude Design and Here's the Problem (Hands on review)</a></td>
+<td>Matt Thorne</td>
+<td>2026-04-19</td>
+<td>automatic captions</td>
+<td>Hands-on output and workflow friction.</td>
+</tr>
+<tr>
+<td>Figma Make</td>
+<td><a href="https://www.youtube.com/watch?v=Zrqpq-uQBM0">Figma Make
+review: game-changer or all hype?</a></td>
+<td>No Code MBA</td>
+<td>2025-07-09</td>
+<td>provided captions</td>
+<td>Third-party review of app/prototype generation, design-context fit,
+and limits.</td>
+</tr>
+<tr>
+<td>Figma Make</td>
+<td><a href="https://www.youtube.com/watch?v=EUPbdk972JI">Designing Fast
+MVP's for Buy-in with Figma Make</a></td>
+<td>Jesse Showalter</td>
+<td>2025-10-28</td>
+<td>automatic captions</td>
+<td>MVP workflow and stakeholder buy-in use case.</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td><a href="https://www.youtube.com/watch?v=lhaGyrp1vfY">Lovable vs
+MeDo, which AI app builder actually works?</a></td>
+<td>Tech With Tim</td>
+<td>2026-01-14</td>
+<td>captions pulled via yt-dlp</td>
+<td>Comparative app-builder workflow and reliability context.</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td><a href="https://www.youtube.com/watch?v=0UCWNYd3Heg">Base44 vs
+Lovable: which AI app builder comes out on top?</a></td>
+<td>Santrel Media</td>
+<td>2025-12-29</td>
+<td>automatic captions</td>
+<td>Comparative app-builder workflow, speed, and output quality
+context.</td>
+</tr>
+<tr>
+<td>Vercel v0</td>
+<td>[Replit vs. Lovable vs. v0</td>
+<td>Which is best for you? (Fall 2025 review)](<a
+href="https://www.youtube.com/watch?v=YCaCpONZdMw">https://www.youtube.com/watch?v=YCaCpONZdMw</a>)</td>
+<td>Olivia in the City</td>
+<td>2025-10-31</td>
+<td>automatic captions</td>
+</tr>
+<tr>
+<td>Vercel v0</td>
+<td>[v0 for AI Apps</td>
+<td>Demo](<a
+href="https://www.youtube.com/watch?v=ey2XShILsx0">https://www.youtube.com/watch?v=ey2XShILsx0</a>)</td>
+<td>Vercel</td>
+<td>2026-01-05</td>
+<td>provided captions</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td><a href="https://www.youtube.com/watch?v=qEs7UHZSfrg">Codex vs
+Claude Code: which AI coding agent is better?</a></td>
+<td>Steve (Builder.io)</td>
+<td>2025-09-28</td>
+<td>automatic captions</td>
+<td>Comparative code-agent workflow, strengths, and limitations.</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td><a href="https://www.youtube.com/watch?v=HFM3se4lNiw">Introducing
+the Codex app</a></td>
+<td>OpenAI</td>
+<td>2026-02-02</td>
+<td>provided captions</td>
+<td>Official Codex app workflow and product positioning.</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td><a href="https://www.youtube.com/watch?v=JSuS-zXMVwE">Cursor ditches
+VS Code, but not everyone is happy...</a></td>
+<td>Fireship</td>
+<td>2026-04-06</td>
+<td>automatic captions</td>
+<td>Recent Cursor positioning, workflow, and adoption friction
+context.</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td><a href="https://www.youtube.com/watch?v=EJX9Ckqt0YU">Cursor vs
+Conductor vs Superset — Which Agentic Code Editor Is The Best?</a></td>
+<td>Your Average Tech Bro</td>
+<td>2026-03-13</td>
+<td>automatic captions</td>
+<td>Comparative agentic editor workflow and output context.</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>[The Ultimate Claude Code Guide</td>
+<td>MCP, Skills &amp; More](<a
+href="https://www.youtube.com/watch?v=uogzSxOw4LU">https://www.youtube.com/watch?v=uogzSxOw4LU</a>)</td>
+<td>Tech With Tim</td>
+<td>2026-04-13</td>
+<td>captions pulled via yt-dlp</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td><a href="https://www.youtube.com/watch?v=MzhIr7BfpI0">How I use
+Claude Code (Senior Software Engineer Tips)</a></td>
+<td>Maddy Zhang</td>
+<td>2026-04-05</td>
+<td>automatic captions</td>
+<td>Practitioner workflow, review discipline, and production coding
+context.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Synthesis: transcripts for the coding tools converge on strong repo,
+terminal, review, and multi-agent workflows, while also reinforcing
+caveats around cost, code fluency, review burden, and source-code risk.
+v0 transcripts support fast deploy-oriented app creation but still show
+template/aesthetic bias and need for review. Figma Make transcripts
+support MVP and stakeholder-prototype utility inside the Figma context.
+Lovable transcripts support fast full-stack app creation but repeatedly
+surface cost/credit and production-readiness concerns. Claude Design
+transcripts support broad visual output and design-system ingestion
+while reinforcing launch-stage concerns about generic output, limits,
+and product-position ambiguity.</p>
+<p>Scoring impact:</p>
+<ul>
+<li>Cursor: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Claude Code: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Codex: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Vercel v0: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Figma Make: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Lovable: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+<li>Claude Design: transcript evidence increased confidence in workflow
+placement and reinforced the caveats in vulnerabilities; official
+sources still anchor product facts and factor scores.</li>
+</ul>
+<p>Limits: transcripts are third-party qualitative evidence or official
+demo narration. They are useful for friction and positioning, but not a
+substitute for controlled task runs, official product claims, or
+production reliability data.</p>
+
+</article>
+<p class="footer">Generated Apr 22, 2026 at 8:15 pm &middot; <a href="https://github.com/mikeylong/AiReslienceEvaluator">GitHub repo</a></p>
+</main>
+</body>
+</html>

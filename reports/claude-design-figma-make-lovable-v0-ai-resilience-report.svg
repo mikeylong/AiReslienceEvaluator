@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 600" role="img" aria-labelledby="title desc">
+  <title id="title">AI resilience 2x2: seven-product same-cohort comparison</title>
+  <desc id="desc">Black-and-white 2x2 comparing seven scored AI UI/product creation workflows. Circles are visual app builders; diamonds are coding tools. Labels include total scores out of 75.</desc>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#111}.axis{stroke:#111;stroke-width:2}.divider{stroke:#777;stroke-width:1.5;stroke-dasharray:7 7}.point,.diamond{fill:#fff;stroke:#111;stroke-width:2.5}.leader{stroke:#111;stroke-width:1.15;fill:none}.small{font-size:12px}.label{font-size:14px;font-weight:700}.axislabel{font-size:15px;font-weight:700}.quadrant{font-size:13px;fill:#444}</style>
+  <rect x="0" y="0" width="940" height="600" fill="#fff"/>
+  <text x="470" y="36" text-anchor="middle" font-size="22" font-weight="700">AI Resilience Comparison</text>
+  <text x="470" y="58" text-anchor="middle" class="small">Seven scored targets · 15-factor rubric · 75-point scale</text>
+  <circle cx="330" cy="78" r="5" class="point"/><text x="342" y="82" class="quadrant">Visual/app-builder surface</text>
+  <path d="M510 72 L516 78 L510 84 L504 78 Z" class="diamond"/><text x="524" y="82" class="quadrant">Coding tool</text>
+  <line x1="120" y1="500" x2="760" y2="500" class="axis"/><line x1="120" y1="500" x2="120" y2="100" class="axis"/>
+  <line x1="440" y1="500" x2="440" y2="100" class="divider"/><line x1="120" y1="300" x2="760" y2="300" class="divider"/>
+  <text x="120" y="532" text-anchor="start" class="axislabel">Nice-to-Have Output</text><text x="760" y="532" text-anchor="end" class="axislabel">Proprietary Workflow Context</text>
+  <text x="440" y="562" text-anchor="middle" class="small">Proprietary advantage, context, trust, distribution, and owned workflow state</text>
+  <text transform="translate(92 500) rotate(-90)" text-anchor="start" class="axislabel">Prototype Surface</text><text transform="translate(92 100) rotate(-90)" text-anchor="end" class="axislabel">Production Workflow Control</text>
+  <text x="132" y="120" class="quadrant">Workflow-anchored</text><text x="748" y="120" text-anchor="end" class="quadrant">Resilient operating surface</text>
+  <text x="132" y="485" class="quadrant">Commodity output</text><text x="748" y="485" text-anchor="end" class="quadrant">Premium context, weak workflow</text>
+  <path d="M650 117 L661 128 L650 139 L639 128 Z" class="diamond"/>
+  <path d="M660 128 L782 128" class="leader"/>
+  <text x="792" y="133" class="label">Cursor (59/75)</text>
+  <path d="M625 149 L636 160 L625 171 L614 160 Z" class="diamond"/>
+  <path d="M635 160 L782 160" class="leader"/>
+  <text x="792" y="165" class="label">Claude Code (58/75)</text>
+  <path d="M600 181 L611 192 L600 203 L589 192 Z" class="diamond"/>
+  <path d="M610 192 L782 192" class="leader"/>
+  <text x="792" y="197" class="label">Codex (57/75)</text>
+  <circle cx="575" cy="230" r="7" class="point"/>
+  <path d="M585 230 L782 230" class="leader"/>
+  <text x="792" y="235" class="label">Vercel v0 (54/75)</text>
+  <circle cx="540" cy="270" r="7" class="point"/>
+  <path d="M550 270 L782 270" class="leader"/>
+  <text x="792" y="275" class="label">Figma Make (50/75)</text>
+  <circle cx="515" cy="315" r="7" class="point"/>
+  <path d="M525 315 L782 315" class="leader"/>
+  <text x="792" y="320" class="label">Lovable (46/75)</text>
+  <circle cx="485" cy="352" r="7" class="point"/>
+  <path d="M495 352 L782 352" class="leader"/>
+  <text x="792" y="357" class="label">Claude Design (44/75)</text>
+</svg>

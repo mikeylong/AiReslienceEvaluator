@@ -1,0 +1,1097 @@
+{
+  "target_name": "Claude Design vs Figma Make vs Lovable vs Vercel v0 vs Codex vs Cursor vs Claude Code",
+  "summary": "A current-source AI resilience comparison of seven AI-assisted creation-to-published UI/product workflows, now scored as one cohort. Cursor leads at 59/75 because it sits deepest in the editor, repository, terminal, and review loop. Claude Code and Codex follow at 58/75 and 57/75 because they are similarly close to production code, with slightly different distribution and workflow-continuity profiles. Vercel v0 leads the visual/app-builder products at 54/75 through Vercel deploy, GitHub, preview, and app-building linkage. Figma Make scores 50/75 from design-system context and Figma distribution. Lovable scores 46/75 as a credible full-stack app builder with cost and assurance caveats. Claude Design scores 44/75 because it has impressive visual breadth but launch-stage operational evidence.",
+  "quadrant": {
+    "x_axis": "Nice-to-Have Output -> Proprietary Workflow Context",
+    "y_axis": "Prototype Surface -> Production Workflow Control",
+    "placement": {
+      "Cursor": "Upper-right: strongest same-cohort workflow control, with designer-ergonomics caveat",
+      "Claude Code": "Upper-right: terminal-native production control, with non-visual surface caveat",
+      "Codex": "Upper-right: strong agentic coding command center, slightly lower continuity than editor-native Cursor",
+      "Vercel v0": "Upper-right: best visual app-builder link to deploy and production surfaces",
+      "Figma Make": "Right of center: strongest design-context surface, below code-agent production control",
+      "Lovable": "Near center-right: app-builder depth, below stronger incumbent/code-agent control",
+      "Claude Design": "Right of center on output breadth, below workflow midpoint"
+    },
+    "marker_convention": "All seven targets are scored in the same 75-point cohort. Circles mark visual/app-builder surfaces; diamonds mark coding tools retained as a caveat about workflow entry point.",
+    "marker_shapes": {
+      "Cursor": "diamond",
+      "Claude Code": "diamond",
+      "Codex": "diamond",
+      "Vercel v0": "circle",
+      "Figma Make": "circle",
+      "Lovable": "circle",
+      "Claude Design": "circle"
+    },
+    "rationale": "The x-axis captures owned context, trust, distribution, and workflow state. The y-axis captures closeness to production control. Coding tools plot high because they work directly in repositories, editors, terminals, and review loops. Visual/app-builder tools plot lower when they stop at prototypes or first deploys without durable production-operation control."
+  },
+  "scores": {
+    "Cursor": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Cursor indexes codebases, uses editor state, rules, terminal context, and PR history, giving it the deepest local implementation context in this cohort."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Cursor publishes security, SOC 2 Type II, privacy-mode, and enterprise controls, while its own security page still cautions sensitive environments to assess risk."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "The product benefits from AI-editor adoption and VS Code familiarity; recent reviewer transcripts also frame it as a default agentic coding workspace for many builders."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Cursor improves implementation throughput but does not own product judgment, brand taste, accessibility acceptance, or release decisions."
+        },
+        "liability_governance": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Review diffs, approval flows, security controls, privacy modes, and enterprise settings help governance, but customers remain accountable for shipped code."
+        },
+        "subtotal": 18
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Reviewer transcripts show frequent agentic coding use; for designers specifically, frequency depends on comfort working in a code editor."
+        },
+        "operational_dependence": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Cursor can sit inside the implementation loop through files, terminal commands, code review, agent tools, and codebase indexing."
+        },
+        "system_position": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "It occupies the editor/agent layer where UI code is inspected, modified, run, reviewed, and committed."
+        },
+        "switching_cost": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "Rules, indexed context, editor habits, and project setup create meaningful friction, though code remains portable."
+        },
+        "budget_durability": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Paid team and enterprise packaging ties spend to daily software delivery rather than one-off prototype generation."
+        },
+        "subtotal": 21
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Inference",
+          "rationale": "Better models should increase value because Cursor attaches model output to repository context, terminal execution, and review loops."
+        },
+        "wrapper_risk_test": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "The codebase/editor position lowers wrapper risk, though Cursor still depends on access to frontier models and competing agentic editors."
+        },
+        "agent_readiness_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Cursor documents agent tools for search, edit, terminal execution, MCP, and codebase search."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "It can surface diffs and run checks, but production correctness, security, accessibility, and user acceptance remain human-owned."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts show full-feature coding workflows and PR-oriented review, but not end-to-end responsibility for product outcomes."
+        },
+        "subtotal": 20
+      },
+      "total": 59
+    },
+    "Claude Code": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Code reads project files, executes commands, uses memory/rules, connects via MCP, and can integrate external context such as Figma through tools."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Anthropic trust, enterprise packaging, and Claude distribution support buyer trust, though code-agent risk still requires customer controls."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Code inherits Claude/Anthropic distribution and has terminal, IDE, and GitHub workflow surfaces."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "It can reason through code and edge cases, but product judgment, UX quality, and release approval remain user responsibilities."
+        },
+        "liability_governance": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "GitHub Actions, MCP controls, permissions, and review workflows help governance but do not transfer accountability."
+        },
+        "subtotal": 17
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Recent practitioner transcripts show recurring use for planning, coding, testing, and codebase exploration."
+        },
+        "operational_dependence": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "It can modify files, run commands, create commits, and operate in real repos, making it part of the implementation loop."
+        },
+        "system_position": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Code sits directly in terminal/IDE/GitHub workflows where production code changes happen."
+        },
+        "switching_cost": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "Project memories, commands, MCP setup, and workflow habits create friction, although source code remains portable."
+        },
+        "budget_durability": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude paid plans and enterprise packaging make spend attach to software delivery, despite transcript-reported credit/cost management needs."
+        },
+        "subtotal": 21
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Inference",
+          "rationale": "Stronger reasoning and coding models should directly improve repo-level planning, edits, testing, and debugging."
+        },
+        "wrapper_risk_test": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "Terminal, GitHub, MCP, and workflow integration reduce wrapper risk, but competition among code agents remains intense."
+        },
+        "agent_readiness_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Code is explicitly an agentic coding tool with MCP, IDE integrations, and GitHub workflows."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "It can run checks and support reviews, but users still own correctness, security, accessibility, and production outcomes."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts show sophisticated codebase work and production-style review, but not durable ownership after deployment."
+        },
+        "subtotal": 20
+      },
+      "total": 58
+    },
+    "Codex": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Codex connects to repositories, cloud worktrees, IDE/terminal surfaces, skills, and PR review flows, but is less continuously editor-native than Cursor."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "OpenAI security, enterprise data controls, and Codex product positioning support trust for teams."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Codex benefits from ChatGPT/OpenAI distribution, app, IDE, and terminal surfaces."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "It can reason through implementation, but product/design judgment and final release decisions remain external."
+        },
+        "liability_governance": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "PR review, worktrees, comments, and business security controls support governance without assuming outcome liability."
+        },
+        "subtotal": 17
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Official and reviewer transcripts position Codex for recurring engineering tasks, review, refactors, and multi-agent work."
+        },
+        "operational_dependence": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Codex can modify repos, run work in cloud environments, support PRs, and integrate with local workflows."
+        },
+        "system_position": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "It sits close to code, review, branch/worktree, terminal, and PR workflows."
+        },
+        "switching_cost": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "Skills, automations, and OpenAI account workflows add friction, but code and repos remain portable."
+        },
+        "budget_durability": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Team credits, ChatGPT/OpenAI packaging, and engineering workflow value make budget durability stronger than prototype-only tools."
+        },
+        "subtotal": 20
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Inference",
+          "rationale": "OpenAI coding-model improvements should directly increase Codex value across implementation, review, and multi-agent workflows."
+        },
+        "wrapper_risk_test": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "Repo, worktree, PR, skills, and automations reduce thin-wrapper risk, though the code-agent category is highly competitive."
+        },
+        "agent_readiness_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Codex is positioned as a multi-agent coding command center with cloud environments, skills, automations, IDE, and terminal surfaces."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Codex can run checks and support review, but customers own acceptance and production consequences."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Official evidence shows feature, refactor, migration, review, and app-building workflows, but not customer outcome ownership."
+        },
+        "subtotal": 20
+      },
+      "total": 57
+    },
+    "Vercel v0": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "v0 can use repos, environment variables, Vercel configuration, design mode, databases, and APIs, but customer/product context often lives outside v0."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Vercel security, trust, deployment protections, and enterprise controls support buyer trust."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "v0 benefits from Vercel distribution, templates, one-click deploy, and developer-channel reach."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "v0 can generate and revise apps, but product judgment, architecture, security, and release decisions still need human review."
+        },
+        "liability_governance": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "GitHub, PRs, deploy protection, access controls, and Vercel platform defaults strengthen governance."
+        },
+        "subtotal": 17
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "App and website iteration can be recurring, but v0 may not be a daily operating surface for every team."
+        },
+        "operational_dependence": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Repo import, deploy, preview, branch, and PR workflows can become part of shipping work."
+        },
+        "system_position": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "v0 links AI generation to code, GitHub, Vercel deployment, and production preview workflows."
+        },
+        "switching_cost": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "Git portability lowers lock-in while Vercel setup, deploy habits, and generated project context create some friction."
+        },
+        "budget_durability": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Team/business packaging and production software use support budget durability."
+        },
+        "subtotal": 18
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Inference",
+          "rationale": "Better models should increase v0 value because outputs are tied to code, deploy, debugging, and platform workflows."
+        },
+        "wrapper_risk_test": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "Vercel linkage reduces wrapper risk, but visible prompt-to-app generation remains exposed to coding agents and model-native builders."
+        },
+        "agent_readiness_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "v0 positions itself around agentic app/website building, planning, integrations, GitHub, and deployment."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "v0 can route work through code and deployment controls, but users still own production correctness."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "v0 can create, publish, and deploy working applications, but durable operations still depend on customer process."
+        },
+        "subtotal": 19
+      },
+      "total": 54
+    },
+    "Figma Make": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Figma Make can attach Figma designs, components, library styling, images, and team templates to prompt-to-app workflows."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Figma paid plans, enterprise posture, collaboration, permissions, and security docs support buyer trust."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Make benefits from Figma files, collaboration graph, paid seats, Community, and designer mindshare."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Make accelerates prototypes and web apps but does not own product judgment, usability validation, or production acceptance."
+        },
+        "liability_governance": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Figma sharing, plan controls, and governance help, but Figma docs still place content rights and publishing responsibility on users."
+        },
+        "subtotal": 17
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 3,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts support repeated MVP/prototype use, but not daily production operation for most teams."
+        },
+        "operational_dependence": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Make supports previews, collaboration, code editing, backends, and publishing, but teams can still move implementation elsewhere."
+        },
+        "system_position": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "It sits inside Figma where design files, components, previews, and team collaboration already happen."
+        },
+        "switching_cost": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Generated artifacts are useful, but teams can recreate outputs elsewhere if Figma context is not central."
+        },
+        "budget_durability": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Paid-seat and AI-credit packaging creates a budget path tied to existing Figma use."
+        },
+        "subtotal": 15
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Inference",
+          "rationale": "Better models should improve Make because Figma owns design context, components, and collaboration surfaces."
+        },
+        "wrapper_risk_test": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "Figma context reduces wrapper risk, but prompt-to-app generation is exposed to coding agents and app builders."
+        },
+        "agent_readiness_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "Figma documents code, packages, publishing, and MCP/code-agent handoff for Make files."
+        },
+        "accountability_test": {
+          "score": 1,
+          "evidence_label": "Direct evidence",
+          "rationale": "Make can publish and share, but it does not absorb responsibility for production correctness, rights, compliance, or app outcomes."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts and docs support strong interactive prototype/MVP outcomes, though not sustained production operation."
+        },
+        "subtotal": 18
+      },
+      "total": 50
+    },
+    "Lovable": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Lovable stores project code, chat context, GitHub sync, connectors, and app-building history, but deeper customer data usually lives elsewhere."
+        },
+        "trust": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Security scans, SSO, audit logs, publishing controls, and enterprise features improve trust, but production assurance remains customer-owned."
+        },
+        "distribution": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Lovable has direct app-builder distribution, templates, pricing tiers, connectors, and GitHub workflow without Figma/Vercel-scale incumbent channels."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Lovable can assemble apps quickly, but product, architecture, UX, and security judgment remain substantially user-owned."
+        },
+        "liability_governance": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Security and audit features help governance, but docs and transcript context reinforce that users must validate critical behavior."
+        },
+        "subtotal": 14
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 3,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts support recurring prototype and app-building use, but not universal daily operational dependence."
+        },
+        "operational_dependence": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Publishing, hosting, GitHub sync, cloud, and connectors make it operationally useful, though users can continue elsewhere."
+        },
+        "system_position": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Lovable spans generation, app code, publishing, GitHub, cloud/backend paths, and connectors."
+        },
+        "switching_cost": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "GitHub sync/export improves portability while project history, connectors, and cloud setup create moderate friction."
+        },
+        "budget_durability": {
+          "score": 2,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Docs and transcripts show credit/usage-cost sensitivity, making large sustained production budgets less certain."
+        },
+        "subtotal": 15
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 4,
+          "evidence_label": "Inference",
+          "rationale": "Better models should improve app assembly and debugging but also lower barriers for competing app builders."
+        },
+        "wrapper_risk_test": {
+          "score": 3,
+          "evidence_label": "Inference",
+          "rationale": "Lovable has more workflow depth than a thin wrapper, but prompt-to-app generation remains crowded and model-sensitive."
+        },
+        "agent_readiness_test": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Agent mode, browser testing, connectors, GitHub sync, and cloud integration make it meaningfully agent-ready."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Direct evidence",
+          "rationale": "Security scans and controls help, but Lovable does not take responsibility for production correctness or app-specific assurance."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts and docs support live full-stack app outcomes, with review and reliability caveats."
+        },
+        "subtotal": 17
+      },
+      "total": 46
+    },
+    "Claude Design": {
+      "proprietary_advantage": {
+        "context": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Design can build design systems from codebases, design files, brand assets, and web capture, but production telemetry and customer state remain outside the product."
+        },
+        "trust": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "It inherits Claude/Anthropic trust and paid-plan distribution, though product-specific governance evidence is still sparse."
+        },
+        "distribution": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Design launches inside Claude for paid subscriber tiers and benefits from Claude distribution."
+        },
+        "judgment": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "It expands visual exploration but does not own brand approval, design judgment, accessibility, or production acceptance."
+        },
+        "liability_governance": {
+          "score": 2,
+          "evidence_label": "Direct evidence",
+          "rationale": "Admin controls and org sharing exist, but launch-stage docs leave gaps around auditability, data residency, API maturity, and production governance."
+        },
+        "subtotal": 15
+      },
+      "workflow_criticality": {
+        "frequency": {
+          "score": 3,
+          "evidence_label": "Credible third-party evidence",
+          "rationale": "Transcripts support repeated artifact/prototype use, but frequency varies by role and launch-stage limits."
+        },
+        "operational_dependence": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Evidence supports ideation, refinement, export, and handoff rather than dependence as a system of record or production control plane."
+        },
+        "system_position": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Design can hand off to Claude Code and read design/code context, but does not itself own Git, deploy, or release workflows."
+        },
+        "switching_cost": {
+          "score": 1,
+          "evidence_label": "Inference",
+          "rationale": "Outputs can be exported or recreated, and durable lock-in beyond Claude preference is not yet proven."
+        },
+        "budget_durability": {
+          "score": 3,
+          "evidence_label": "Direct evidence",
+          "rationale": "Paid-plan access and extra usage create a budget path, while transcript evidence flags limits and cost friction."
+        },
+        "subtotal": 12
+      },
+      "ai_resilience_tests": {
+        "model_improvement_test": {
+          "score": 5,
+          "evidence_label": "Direct evidence",
+          "rationale": "The product is model-native and powered by Anthropic multimodal capabilities, so model improvements should raise output breadth and quality."
+        },
+        "wrapper_risk_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "The launch surface is easy to imitate unless design-system, collaboration, handoff, and workflow controls deepen."
+        },
+        "agent_readiness_test": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "Claude Design packages handoff bundles for Claude Code and supports code-powered prototypes, but external integration evidence is early."
+        },
+        "accountability_test": {
+          "score": 2,
+          "evidence_label": "Inference",
+          "rationale": "Customers still own correctness, rights, approval, brand fit, accessibility, and production use."
+        },
+        "outcome_depth_test": {
+          "score": 4,
+          "evidence_label": "Direct evidence",
+          "rationale": "It spans prototypes, slides, decks, one-pagers, collateral, and interactive visual artifacts, though not production operation."
+        },
+        "subtotal": 17
+      },
+      "total": 44
+    }
+  },
+  "top_strengths": {
+    "Cursor": [
+      "Deep repo/editor context, codebase indexing, terminal/tool execution, reviewable diffs, enterprise security posture, and strong daily workflow fit."
+    ],
+    "Claude Code": [
+      "Strong terminal/IDE/GitHub positioning, MCP extensibility, project memory, real-file edits, and credible practitioner workflow evidence."
+    ],
+    "Codex": [
+      "OpenAI distribution, repository/worktree/PR workflows, skills and automations, multi-agent command-center positioning, and strong model-improvement leverage."
+    ],
+    "Vercel v0": [
+      "Best visual-builder bridge into code, GitHub, previews, Vercel deploys, and production sharing."
+    ],
+    "Figma Make": [
+      "Design-file context, components, libraries, collaboration, stakeholder buy-in workflows, publishing, and agent handoff."
+    ],
+    "Lovable": [
+      "Fast app generation, live publishing, GitHub sync, cloud/backend path, connectors, and increasingly explicit security tooling."
+    ],
+    "Claude Design": [
+      "Chat-native visual creation, broad artifact range, design-system setup, inline refinement, export/handoff, and Claude distribution."
+    ]
+  },
+  "main_vulnerabilities": {
+    "Cursor": [
+      "Not a visual design surface; designers need code fluency or engineering partnership, and source-code privacy/security concerns remain material."
+    ],
+    "Claude Code": [
+      "Requires technical workflow comfort, can consume credits quickly, and is not optimized as a visual design review surface."
+    ],
+    "Codex": [
+      "Not a visual design tool; switching costs are moderate and production acceptance still needs human review."
+    ],
+    "Vercel v0": [
+      "Some moat belongs to Vercel rather than v0 alone; output quality, security, and architecture still require review."
+    ],
+    "Figma Make": [
+      "Still more design/prototype surface than production operating system; accountability remains user-owned."
+    ],
+    "Lovable": [
+      "Credit/usage costs, production assurance, and security review remain exposed; less incumbent distribution than Figma or Vercel."
+    ],
+    "Claude Design": [
+      "Research-preview launch, sparse operational governance, low switching cost, and transcript-reported generic output/bug/limit concerns."
+    ]
+  },
+  "strategic_read": {
+    "durable_layers": {
+      "Cursor": [
+        "Codebase index, editor state, rules, terminal execution, PR/review loop, and daily developer workflow position."
+      ],
+      "Claude Code": [
+        "Terminal and GitHub workflow embed, MCP ecosystem, project memory, Anthropic distribution, and handoff compatibility with Claude Design."
+      ],
+      "Codex": [
+        "OpenAI account distribution, coding models, cloud worktrees, PR/review loop, skills, automations, and multi-surface access."
+      ],
+      "Vercel v0": [
+        "Vercel deployment surface, GitHub/PR path, preview links, enterprise security, and developer distribution."
+      ],
+      "Figma Make": [
+        "Figma design context, components/libraries, collaboration graph, existing paid-seat distribution, and design-to-prototype continuity."
+      ],
+      "Lovable": [
+        "Project/chat/code context, publish path, GitHub sync, cloud/backend workflows, connectors, and security scans."
+      ],
+      "Claude Design": [
+        "Claude multimodal model surface, Claude distribution, broad visual artifact range, design-system setup, and Claude Code handoff."
+      ]
+    },
+    "commoditizing_layers": [
+      "Prompt-to-layout generation",
+      "One-off landing pages",
+      "Generic app scaffolds",
+      "Static prototypes",
+      "Basic code edits without review context"
+    ],
+    "next_moves": {
+      "Cursor": [
+        "Run designer-led UI-generation tests, measure design-system adherence, and validate security/privacy settings for enterprise codebases."
+      ],
+      "Claude Code": [
+        "Score with a controlled designer-to-UI implementation run and test review discipline, rollback, accessibility, and security behavior."
+      ],
+      "Codex": [
+        "Run the same UI task protocol as visual builders and separate app-generation speed from reviewed production-readiness."
+      ],
+      "Vercel v0": [
+        "Run controlled live tasks across existing repos and measure bug rate, review quality, deployment handoff, and post-launch maintenance."
+      ],
+      "Figma Make": [
+        "Prove production handoff, lifecycle governance, and sustained usefulness after engineering takes over."
+      ],
+      "Lovable": [
+        "Reduce cost friction, prove sustained maintenance workflows, and make production security guarantees more operationally concrete."
+      ],
+      "Claude Design": [
+        "Publish clearer governance/API/integration docs and run side-by-side creation-to-publish tasks against the other cohort members."
+      ]
+    }
+  },
+  "final_verdict": "The same-cohort rerun moves the coding tools from contextual diamonds into the ranked set. Cursor, Claude Code, and Codex lead because they operate closest to production code, test/build loops, and reviewable changes. That does not mean they are better design products; it means the AI resilience rubric rewards owned workflow context and production control. v0 is the strongest visual/app-builder product because Vercel gives it deploy and GitHub linkage. Figma Make remains the strongest design-context surface. Lovable is a credible full-stack app builder but must prove trust, cost durability, and sustained maintenance. Claude Design remains high-upside but launch-stage: broad artifact generation and Claude Code handoff are promising, but governance, integrations, and production-operation evidence are still thin.",
+  "confidence": {
+    "level": "Medium overall",
+    "reason": "Official evidence is current and YouTube transcript evidence covers every product, but controlled live UI-generation runs were not performed. Confidence is highest for code-agent workflow placement and lower for designer-specific usability of code-native tools.",
+    "by_target": {
+      "Cursor": "Medium-high. Official security/docs evidence is strong and transcript evidence is recent, but UI-generation-for-designers needs controlled runs.",
+      "Claude Code": "Medium-high. Official Claude Code docs and current transcripts support the score; designer-specific usability remains less proven.",
+      "Codex": "Medium-high. OpenAI official evidence is strong and transcripts cover comparative use; design-specific UI runs are still missing.",
+      "Vercel v0": "Medium. Official evidence is strong and transcripts add context, but no controlled live task run was performed.",
+      "Figma Make": "Medium-high. Official docs and transcripts align on design-context strengths; production depth is still less proven.",
+      "Lovable": "Medium. Official docs and transcripts support a credible app-builder workflow, with cost/reliability caveats.",
+      "Claude Design": "Low-medium. Official launch docs and transcripts are current, but the product is new and operational evidence is sparse."
+    },
+    "unknowns_that_would_change_the_score_most": [
+      "Controlled same-prompt UI-generation runs for all seven tools",
+      "Enterprise governance and production approval evidence",
+      "Longitudinal generated-app maintenance data",
+      "Designer-specific evidence for code-native tools"
+    ]
+  },
+  "evidence_notes": {
+    "shared_evidence_window": "Most recent 12 months for change-sensitive evidence, with current official product, docs, pricing, integration, trust/security, launch materials, and April 23, 2026 transcript pulls prioritized.",
+    "official_sources": [
+      "https://www.anthropic.com/news/claude-design-anthropic-labs",
+      "https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans",
+      "https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing",
+      "https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design",
+      "https://support.claude.com/en/articles/14604416-get-started-with-claude-design",
+      "https://help.figma.com/hc/en-us/articles/31304412302231-Explore-Figma-Make",
+      "https://developers.figma.com/docs/code/intro-to-figma-make/",
+      "https://www.figma.com/pricing/",
+      "https://www.figma.com/security/",
+      "https://help.figma.com/hc/en-us/articles/31825370509591-Governance-for-Figma-Enterprise",
+      "https://docs.lovable.dev/features/publish",
+      "https://docs.lovable.dev/integrations/github",
+      "https://docs.lovable.dev/integrations/cloud",
+      "https://docs.lovable.dev/features/security",
+      "https://docs.lovable.dev/features/audit-logs",
+      "https://lovable.dev/pricing",
+      "https://vercel.com/blog/introducing-the-new-v0",
+      "https://v0.app/",
+      "https://v0.app/docs/github",
+      "https://v0.app/pricing",
+      "https://vercel.com/security",
+      "https://security.vercel.com/",
+      "https://openai.com/codex",
+      "https://platform.openai.com/docs/codex/overview",
+      "https://openai.com/security",
+      "https://cursor.com/product",
+      "https://docs.cursor.com/chat/overview",
+      "https://docs.cursor.com/chat/codebase",
+      "https://docs.cursor.com/en/agent/tools",
+      "https://docs.cursor.com/en/context/mcp",
+      "https://www.cursor.com/en/pricing",
+      "https://www.cursor.com/security",
+      "https://www.anthropic.com/claude-code",
+      "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "https://docs.anthropic.com/en/docs/claude-code/mcp",
+      "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+      "https://docs.anthropic.com/en/docs/claude-code/github-actions",
+      "https://trust.anthropic.com/",
+      "https://anthropic.statuspage.io/",
+      "https://status.figma.com/",
+      "https://status.lovable.dev/",
+      "https://www.vercel-status.com/",
+      "https://v0-status.com/"
+    ],
+    "repo_sources": [],
+    "sources_by_function": [
+      {
+        "function": "Product facts and scope",
+        "supports": "Defines the product surface, user, workflow, supported outputs, and scoped target boundary for each cohort member.",
+        "evidence_weight": "Highest: current official product pages, launch posts, help centers, docs, and pricing pages.",
+        "stale_context_handling": "Use current official pages at report time; do not reuse older repo summaries for product facts.",
+        "sources": [
+          "https://www.anthropic.com/news/claude-design-anthropic-labs",
+          "https://help.figma.com/hc/en-us/articles/31304412302231-Explore-Figma-Make",
+          "https://docs.lovable.dev/features/publish",
+          "https://v0.app/",
+          "https://openai.com/codex",
+          "https://cursor.com/product",
+          "https://www.anthropic.com/claude-code"
+        ]
+      },
+      {
+        "function": "Workflow and integration claims",
+        "supports": "Substantiates design-system context, code/Git handoff, publishing, deployment, repository sync, terminal/editor workflows, and MCP/tool integrations.",
+        "evidence_weight": "High: official developer docs, integration docs, and product docs; supplement with transcript evidence for user-visible workflow friction.",
+        "stale_context_handling": "Prefer current docs and fresh transcript pulls; avoid dated repo task evidence for this rerun.",
+        "sources": [
+          "https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design",
+          "https://developers.figma.com/docs/code/intro-to-figma-make/",
+          "https://docs.lovable.dev/integrations/github",
+          "https://v0.app/docs/github",
+          "https://platform.openai.com/docs/codex/overview",
+          "https://docs.cursor.com/en/agent/tools",
+          "https://docs.anthropic.com/en/docs/claude-code/mcp"
+        ]
+      },
+      {
+        "function": "Adoption and packaging signals",
+        "supports": "Informs distribution, budget durability, paid-plan fit, usage-limit friction, and team/enterprise packaging.",
+        "evidence_weight": "Medium-high: official pricing and packaging pages plus recent transcript context for cost/friction patterns.",
+        "stale_context_handling": "Use latest pricing pages and label transcript cost comments as qualitative, not official pricing facts.",
+        "sources": [
+          "https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing",
+          "https://www.figma.com/pricing/",
+          "https://lovable.dev/pricing",
+          "https://v0.app/pricing",
+          "https://openai.com/codex",
+          "https://www.cursor.com/en/pricing",
+          "https://www.anthropic.com/claude-code"
+        ]
+      },
+      {
+        "function": "Reliability and operational risk",
+        "supports": "Checks incident history, service disruption evidence, and whether the product can be operationally depended on.",
+        "evidence_weight": "High for official status pages; medium for transcript-reported bugs/friction.",
+        "stale_context_handling": "Use current status pages and current transcripts; do not treat old incidents as current unless repeated.",
+        "sources": [
+          "https://anthropic.statuspage.io/",
+          "https://status.figma.com/",
+          "https://status.lovable.dev/",
+          "https://www.vercel-status.com/",
+          "https://v0-status.com/"
+        ]
+      },
+      {
+        "function": "Trust, security, and governance",
+        "supports": "Supports trust, liability governance, admin control, auditability, source-code privacy, data handling, and enterprise readiness.",
+        "evidence_weight": "Highest: official trust centers, security docs, admin guides, and governance docs.",
+        "stale_context_handling": "Use current trust/security docs and mark missing or launch-stage controls as uncertainty.",
+        "sources": [
+          "https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans",
+          "https://www.figma.com/security/",
+          "https://docs.lovable.dev/features/security",
+          "https://vercel.com/security",
+          "https://openai.com/security",
+          "https://www.cursor.com/security",
+          "https://trust.anthropic.com/"
+        ]
+      },
+      {
+        "function": "Qualitative reviewer transcript context",
+        "supports": "Captures hands-on workflow friction, output quality, cost/credit sensitivity, designer/developer ergonomics, and reviewer uncertainty for every target.",
+        "evidence_weight": "Medium: third-party qualitative evidence; official demo transcripts are used only for workflow demonstration, not independent validation.",
+        "stale_context_handling": "Use transcript pull date and video dates; cross-check product facts against official sources.",
+        "sources": [
+          "https://www.youtube.com/watch?v=IkspcJdeP3U",
+          "https://www.youtube.com/watch?v=IksDIJzfXg8",
+          "https://www.youtube.com/watch?v=Zrqpq-uQBM0",
+          "https://www.youtube.com/watch?v=EUPbdk972JI",
+          "https://www.youtube.com/watch?v=lhaGyrp1vfY",
+          "https://www.youtube.com/watch?v=0UCWNYd3Heg",
+          "https://www.youtube.com/watch?v=YCaCpONZdMw",
+          "https://www.youtube.com/watch?v=ey2XShILsx0",
+          "https://www.youtube.com/watch?v=qEs7UHZSfrg",
+          "https://www.youtube.com/watch?v=HFM3se4lNiw",
+          "https://www.youtube.com/watch?v=JSuS-zXMVwE",
+          "https://www.youtube.com/watch?v=EJX9Ckqt0YU",
+          "https://www.youtube.com/watch?v=uogzSxOw4LU",
+          "https://www.youtube.com/watch?v=MzhIr7BfpI0"
+        ]
+      },
+      {
+        "function": "Cohort normalization and coding-tool caveats",
+        "supports": "Explains why Codex, Cursor, and Claude Code are scored in the same cohort but retained as diamond markers: they are codebase-native UI-generation tools, not visual-first design surfaces.",
+        "evidence_weight": "Analytical normalization using the same rubric, official docs, and transcript context.",
+        "stale_context_handling": "Treat marker shape as a caveat, not a scoring exemption; refresh with controlled live UI-generation runs.",
+        "sources": [
+          "https://openai.com/codex",
+          "https://www.cursor.com/security",
+          "https://docs.anthropic.com/en/docs/claude-code/overview"
+        ]
+      }
+    ],
+    "youtube_transcript_method": "YouTube review/tutorial/demo searches were run for all seven products. Captions were pulled with yt-dlp on April 23, 2026 and used as qualitative third-party context, not official product facts or controlled empirical task evidence.",
+    "youtube_transcript_sources": [
+      {
+        "target_name": "Claude Design",
+        "title": "Claude Design is NOT what you think",
+        "publisher": "Malewicz",
+        "published_date": "2026-04-18",
+        "url": "https://www.youtube.com/watch?v=IkspcJdeP3U",
+        "transcript_type": "captions pulled via yt-dlp",
+        "evidence_use": "Product-position critique and Figma-replacement skepticism."
+      },
+      {
+        "target_name": "Claude Design",
+        "title": "I Tested Claude Design and Here's the Problem (Hands on review)",
+        "publisher": "Matt Thorne",
+        "published_date": "2026-04-19",
+        "url": "https://www.youtube.com/watch?v=IksDIJzfXg8",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Hands-on output and workflow friction."
+      },
+      {
+        "target_name": "Figma Make",
+        "title": "Figma Make review: game-changer or all hype?",
+        "publisher": "No Code MBA",
+        "published_date": "2025-07-09",
+        "url": "https://www.youtube.com/watch?v=Zrqpq-uQBM0",
+        "transcript_type": "provided captions",
+        "evidence_use": "Third-party review of app/prototype generation, design-context fit, and limits."
+      },
+      {
+        "target_name": "Figma Make",
+        "title": "Designing Fast MVP's for Buy-in with Figma Make",
+        "publisher": "Jesse Showalter",
+        "published_date": "2025-10-28",
+        "url": "https://www.youtube.com/watch?v=EUPbdk972JI",
+        "transcript_type": "automatic captions",
+        "evidence_use": "MVP workflow and stakeholder buy-in use case."
+      },
+      {
+        "target_name": "Lovable",
+        "title": "Lovable vs MeDo, which AI app builder actually works?",
+        "publisher": "Tech With Tim",
+        "published_date": "2026-01-14",
+        "url": "https://www.youtube.com/watch?v=lhaGyrp1vfY",
+        "transcript_type": "captions pulled via yt-dlp",
+        "evidence_use": "Comparative app-builder workflow and reliability context."
+      },
+      {
+        "target_name": "Lovable",
+        "title": "Base44 vs Lovable: which AI app builder comes out on top?",
+        "publisher": "Santrel Media",
+        "published_date": "2025-12-29",
+        "url": "https://www.youtube.com/watch?v=0UCWNYd3Heg",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Comparative app-builder workflow, speed, and output quality context."
+      },
+      {
+        "target_name": "Vercel v0",
+        "title": "Replit vs. Lovable vs. v0 | Which is best for you? (Fall 2025 review)",
+        "publisher": "Olivia in the City",
+        "published_date": "2025-10-31",
+        "url": "https://www.youtube.com/watch?v=YCaCpONZdMw",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Comparative app-builder positioning and workflow tradeoffs."
+      },
+      {
+        "target_name": "Vercel v0",
+        "title": "v0 for AI Apps | Demo",
+        "publisher": "Vercel",
+        "published_date": "2026-01-05",
+        "url": "https://www.youtube.com/watch?v=ey2XShILsx0",
+        "transcript_type": "provided captions",
+        "evidence_use": "Official demo of AI app workflow and Vercel-oriented path."
+      },
+      {
+        "target_name": "Codex",
+        "title": "Codex vs Claude Code: which AI coding agent is better?",
+        "publisher": "Steve (Builder.io)",
+        "published_date": "2025-09-28",
+        "url": "https://www.youtube.com/watch?v=qEs7UHZSfrg",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Comparative code-agent workflow, strengths, and limitations."
+      },
+      {
+        "target_name": "Codex",
+        "title": "Introducing the Codex app",
+        "publisher": "OpenAI",
+        "published_date": "2026-02-02",
+        "url": "https://www.youtube.com/watch?v=HFM3se4lNiw",
+        "transcript_type": "provided captions",
+        "evidence_use": "Official Codex app workflow and product positioning."
+      },
+      {
+        "target_name": "Cursor",
+        "title": "Cursor ditches VS Code, but not everyone is happy...",
+        "publisher": "Fireship",
+        "published_date": "2026-04-06",
+        "url": "https://www.youtube.com/watch?v=JSuS-zXMVwE",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Recent Cursor positioning, workflow, and adoption friction context."
+      },
+      {
+        "target_name": "Cursor",
+        "title": "Cursor vs Conductor vs Superset \u2014\u00a0Which Agentic Code Editor Is The Best?",
+        "publisher": "Your Average Tech Bro",
+        "published_date": "2026-03-13",
+        "url": "https://www.youtube.com/watch?v=EJX9Ckqt0YU",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Comparative agentic editor workflow and output context."
+      },
+      {
+        "target_name": "Claude Code",
+        "title": "The Ultimate Claude Code Guide | MCP, Skills & More",
+        "publisher": "Tech With Tim",
+        "published_date": "2026-04-13",
+        "url": "https://www.youtube.com/watch?v=uogzSxOw4LU",
+        "transcript_type": "captions pulled via yt-dlp",
+        "evidence_use": "Claude Code workflow, MCP, skills, and advanced usage context."
+      },
+      {
+        "target_name": "Claude Code",
+        "title": "How I use Claude Code (Senior Software Engineer Tips)",
+        "publisher": "Maddy Zhang",
+        "published_date": "2026-04-05",
+        "url": "https://www.youtube.com/watch?v=MzhIr7BfpI0",
+        "transcript_type": "automatic captions",
+        "evidence_use": "Practitioner workflow, review discipline, and production coding context."
+      }
+    ],
+    "youtube_transcript_read": "Coding-tool transcripts support strong production-control placement but caveat technical fluency, cost, and review burden. Visual/app-builder transcripts support speed and accessibility while reinforcing design sameness, credit/cost, launch-stage, and production-readiness concerns."
+  },
+  "comparison": {
+    "ranked_targets": [
+      {
+        "target_name": "Cursor",
+        "total": 59,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Claude Code",
+        "total": 58,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Codex",
+        "total": 57,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Vercel v0",
+        "total": 54,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Figma Make",
+        "total": 50,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Lovable",
+        "total": 46,
+        "band": "mixed but promising"
+      },
+      {
+        "target_name": "Claude Design",
+        "total": 44,
+        "band": "vulnerable middle"
+      }
+    ],
+    "relative_summary": "When scored as one cohort, coding tools lead because the rubric rewards proximity to implementation context, versioned code, terminal/test loops, and production review. That is a category effect as much as an execution effect: Cursor, Claude Code, and Codex are not visual-first design products, so their diamond marker remains as a caveat. v0 is the strongest app-builder because it bridges AI generation to Vercel deploys and GitHub. Figma Make has the strongest design-context story. Lovable is a credible app-builder but weaker on trust and cost durability. Claude Design is high-upside but early and less operationally embedded.",
+    "key_differences": [
+      "Cursor: strongest editor/repo context and daily workflow embed, but less visual/designer-native.",
+      "Claude Code: strongest terminal/Claude ecosystem handoff story, but requires technical workflow fluency.",
+      "Codex: strongest OpenAI multi-agent command-center distribution, but not a visual design surface.",
+      "Vercel v0: best visual app-builder connection to deploy, previews, GitHub, and production sharing.",
+      "Figma Make: best design-system and collaboration context, but weaker production control.",
+      "Lovable: strong app-builder and deploy workflow, but trust, cost, and assurance remain exposed.",
+      "Claude Design: broad visual artifact generation and Claude Code handoff, but sparse launch-stage governance and operational proof."
+    ],
+    "category_vs_execution_effects": "The coding tools lead largely because their category is closer to production code. Their diamond shape is a caveat that they are scored in the same cohort but serve a different entry point: code editor, terminal, and repo rather than a visual workspace. Among visual/app-builder tools, v0 leads on production linkage, Figma Make leads on design context, Lovable leads on full-stack app-builder accessibility, and Claude Design leads on broad visual artifact breadth but trails on workflow embed."
+  }
+}
