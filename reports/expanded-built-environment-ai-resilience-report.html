@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expanded Built-Environment | AI Resilience Report</title>
+<style>
+:root {
+  --ink: #101010;
+  --muted: #5f6368;
+  --line: #d8d8d2;
+  --soft: #f7f7f4;
+  --soft-strong: #eeeeea;
+  --max: 1180px;
+  --measure: 900px;
+  --sticky-nav-anchor-offset: 44px;
+}
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--sticky-nav-anchor-offset);
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+.page {
+  width: min(var(--max), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 28px 0 72px;
+}
+.primary-figure { margin: 0; }
+.primary-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(78vh, 860px);
+}
+.chart-note,
+.paper-header,
+.nav,
+.report-body,
+.footer {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+.chart-note {
+  margin-top: 14px;
+  color: #303236;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.58;
+}
+.paper-header {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.paper-header h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 650;
+  line-height: 1.12;
+}
+.meta {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.abstract {
+  margin-top: 18px;
+  color: #2d2f32;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+}
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 22px;
+}
+.score-card {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 12px 14px;
+  min-height: 82px;
+}
+.score-card strong {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+}
+.score-card span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, .95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav a {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #282828;
+  font-size: 12px;
+  font-weight: 680;
+  text-decoration: none;
+}
+.report-body {
+  display: grid;
+  gap: 0;
+  margin-top: 26px;
+}
+.report-body p,
+.report-body ul,
+.report-body .table-wrap {
+  margin-top: 16px;
+}
+.report-body p {
+  color: #2d2f32;
+  font-size: 16px;
+}
+.report-body strong { color: #111; }
+.report-body h2 {
+  margin: 44px 0 0;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1.08;
+}
+.report-body h2[id] {
+  scroll-margin-top: var(--sticky-nav-anchor-offset);
+}
+.report-body h3 {
+  margin: 34px 0 0;
+  font-size: 21px;
+  line-height: 1.08;
+}
+.report-body ul {
+  padding-left: 22px;
+  color: #2d2f32;
+}
+.report-body li + li { margin-top: 8px; }
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+}
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+th:last-child,
+td:last-child { border-right: 0; }
+thead th {
+  background: var(--soft-strong);
+  font-size: 12px;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+tbody tr:last-child td { border-bottom: 0; }
+code {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  font-family: "Aptos Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .92em;
+}
+a { color: #111; text-underline-offset: 2px; }
+.footer {
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .page { width: calc(100vw - 24px); }
+  .chart-note,
+  .paper-header,
+  .nav,
+  .report-body,
+  .footer { max-width: none; }
+}
+</style>
+</head>
+<body>
+<main class="page paper">
+<figure class="primary-figure" aria-label="AI resilience 2x2 chart">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">Expanded built-environment AI resilience 2x2</title>
+  <desc id="desc">A black and white 2x2 chart plotting eight built-environment companies on proprietary advantage and workflow criticality.</desc>
+  <rect width="1500" height="900" fill="#ffffff" />
+  <text x="120" y="58" fill="#000000" font-size="34" font-weight="700" font-family="Helvetica, Arial, sans-serif">Expanded Built-Environment AI Resilience</text>
+  <text x="120" y="92" fill="#555555" font-size="18" font-family="Helvetica, Arial, sans-serif">Prepared June 18, 2026</text>
+  <line x1="220" y1="110" x2="220" y2="730" stroke="#000000" stroke-width="3" />
+  <line x1="220" y1="730" x2="980" y2="730" stroke="#000000" stroke-width="3" />
+  <line x1="600.0" y1="110" x2="600.0" y2="730" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="10 8" />
+  <line x1="220" y1="420.0" x2="980" y2="420.0" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="10 8" />
+  <text x="220" y="778" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Commodity Output</text>
+  <text x="748" y="778" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Proprietary Advantage</text>
+  <text transform="translate(132 620) rotate(-90)" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Nice-to-Have Utility</text>
+  <text transform="translate(132 320) rotate(-90)" fill="#000000" font-size="22" font-family="Helvetica, Arial, sans-serif">Mission-Critical Workflow</text>
+  <text x="236" y="144" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Convenience</text>
+  <text x="236" y="712" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Fragile</text>
+  <text x="786" y="144" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Resilient</text>
+  <text x="758" y="712" fill="#8a8a8a" font-size="20" font-weight="700" font-family="Helvetica, Arial, sans-serif">Premium Niche</text>
+  <path d="M 919.2 110.0 L 1032 192 L 1040 192" fill="none" stroke="#777777" stroke-width="1.5" />
+  <rect x="911.2" y="102.0" width="16" height="16" fill="#000000" />
+  <text x="1052" y="192" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">IBM Maximo (71/75)</text>
+  <path d="M 888.8 159.6 L 1032 246 L 1040 246" fill="none" stroke="#777777" stroke-width="1.5" />
+  <circle cx="888.8" cy="159.6" r="9" fill="#000000" />
+  <text x="1052" y="246" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">BrainBox AI/Trane (68/75)</text>
+  <path d="M 828.0 184.4 L 1032 300 L 1040 300" fill="none" stroke="#777777" stroke-width="1.5" />
+  <circle cx="828.0" cy="184.4" r="9" fill="#000000" />
+  <text x="1052" y="300" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">75F (65/75)</text>
+  <path d="M 797.6 159.6 L 1032 354 L 1040 354" fill="none" stroke="#777777" stroke-width="1.5" />
+  <circle cx="797.6" cy="159.6" r="9" fill="#000000" />
+  <text x="1052" y="354" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Runwise (65/75)</text>
+  <path d="M 828.0 184.4 L 1032 408 L 1040 408" fill="none" stroke="#777777" stroke-width="1.5" />
+  <circle cx="828.0" cy="184.4" r="9" fill="#000000" />
+  <text x="1052" y="408" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">GridPoint (63/75)</text>
+  <path d="M 828.0 234.0 L 1032 462 L 1040 462" fill="none" stroke="#777777" stroke-width="1.5" />
+  <rect x="820.0" y="226.0" width="16" height="16" fill="#000000" />
+  <text x="1052" y="462" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Accruent (60/75)</text>
+  <path d="M 858.4 234.0 L 1032 516 L 1040 516" fill="none" stroke="#777777" stroke-width="1.5" />
+  <rect x="850.4" y="226.0" width="16" height="16" fill="#000000" />
+  <text x="1052" y="516" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Planon (60/75)</text>
+  <path d="M 767.2 234.0 L 1032 570 L 1040 570" fill="none" stroke="#777777" stroke-width="1.5" />
+  <rect x="759.2" y="226.0" width="16" height="16" fill="#000000" />
+  <text x="1052" y="570" fill="#000000" font-size="21" font-weight="700" font-family="Helvetica, Arial, sans-serif" text-anchor="start" dominant-baseline="middle">Facilio (59/75)</text>
+</svg>
+</figure>
+<p class="chart-note"><strong>How to read the markers.</strong> Every marker is scored and ranked in the same 75-point cohort. Marker shape identifies the workflow entry point; it is not a scoring adjustment.</p>
+<header class="paper-header">
+<p class="eyebrow">Research report</p>
+<h1>Expanded Built-Environment</h1>
+<p class="meta">15-factor rubric - 75-point scale - same-cohort rerun</p>
+<p class="abstract"><strong>Abstract.</strong> IBM Maximo leads the cohort because it owns critical-asset workflow data, maintenance execution, and high-switching-cost enterprise operations. BrainBox AI/Trane is the strongest pure autonomous-control story. Runwise, 75F, and GridPoint are resilient because software intelligence connects to physical building systems and measurable outcomes. Accruent and Planon are resilient enterprise workflow platforms, while Facilio is promising and unusually agent-ready but still has a newer, more copyable agentic layer.</p>
+<div class="score-grid">
+<div class="score-card"><strong>71/75</strong><span>IBM Maximo - strong resilience</span></div>
+<div class="score-card"><strong>68/75</strong><span>BrainBox AI/Trane - strong resilience</span></div>
+<div class="score-card"><strong>65/75</strong><span>75F - strong resilience</span></div>
+<div class="score-card"><strong>65/75</strong><span>Runwise - strong resilience</span></div>
+<div class="score-card"><strong>63/75</strong><span>GridPoint - strong resilience</span></div>
+<div class="score-card"><strong>60/75</strong><span>Accruent - strong resilience</span></div>
+<div class="score-card"><strong>60/75</strong><span>Planon - strong resilience</span></div>
+</div>
+</header>
+<nav class="nav" aria-label="Report sections">
+<a href="#executive-summary">Executive Summary</a>
+<a href="#comparison-block">Comparison Block</a>
+<a href="#2x2-placement">2x2 Placement</a>
+<a href="#full-score-table">Full Score Table</a>
+<a href="#top-strengths">Top Strengths</a>
+<a href="#main-vulnerabilities">Main Vulnerabilities</a>
+<a href="#strategic-read">Strategic Read</a>
+<a href="#final-verdict">Final Verdict</a>
+<a href="#confidence-level">Confidence Level</a>
+<a href="#evidence-notes">Evidence Notes</a>
+<a href="#evidence-sources-by-function">Evidence Sources By Function</a>
+</nav>
+<article class="report-body">
+<p>Prepared June 18, 2026 using the <code>ai_resilience_evaluator</code>
+rubric from <code>mikeylong/AiReslienceEvaluator</code>.</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This rerun expands the original Accruent/Runwise comparison into an
+eight-company built-environment cohort spanning enterprise asset
+systems, IWMS/facilities platforms, smart-building controls, and energy
+optimization.</p>
+<p>The highest-scoring target is <strong>IBM Maximo
+(<code>71/75</code>)</strong>, because it combines critical-asset
+workflow ownership, enterprise system-of-record depth,
+predictive-maintenance AI, and high switching costs. <strong>BrainBox
+AI/Trane (<code>68/75</code>)</strong> is the strongest pure AI-control
+story because its value is tied to autonomous HVAC control through
+Trane's building-management channel. <strong>Runwise
+(<code>65/75</code>)</strong> and <strong>75F
+(<code>65/75</code>)</strong> remain strong because they own physical
+control loops, sensors, and building-specific operating data.</p>
+<p>The category effect matters. Software-only FM/IWMS systems can be
+highly resilient when they own governed records and recurring workflows,
+but physical control platforms get extra resilience when better models
+directly improve control decisions, comfort, energy savings, and
+alerting.</p>
+<p><strong>Ranking</strong></p>
+<ol type="1">
+<li>IBM Maximo: <code>71/75</code> - strong resilience</li>
+<li>BrainBox AI/Trane: <code>68/75</code> - strong resilience</li>
+<li>75F: <code>65/75</code> - strong resilience</li>
+<li>Runwise: <code>65/75</code> - strong resilience</li>
+<li>GridPoint: <code>63/75</code> - strong resilience</li>
+<li>Accruent: <code>60/75</code> - strong resilience</li>
+<li>Planon: <code>60/75</code> - strong resilience</li>
+<li>Facilio: <code>59/75</code> - mixed but promising</li>
+</ol>
+<h2 id="comparison-block">Comparison Block</h2>
+<p>Sorted by descending total score. Category effects describe how much
+the segment itself helps or hurts AI resilience; execution quality
+describes how well the company appears to be using that segment
+advantage.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Target</th>
+<th>Score</th>
+<th>Category effects</th>
+<th>Execution quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>IBM Maximo</td>
+<td>71/75</td>
+<td>Critical-asset EAM gains the highest category tailwind because
+better AI acts on governed asset records, inspections, reliability data,
+and high-stakes work execution.</td>
+<td>Execution quality is strongest on trust, APIs, enterprise
+distribution, and current Maximo Assistant evidence; agent-native
+delegation should be made clearer.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BrainBox AI/Trane</td>
+<td>68/75</td>
+<td>Autonomous HVAC control gets a strong category tailwind because
+model quality can directly improve comfort, energy, carbon, and
+operating actions.</td>
+<td>Execution quality is strong on autonomous-control evidence and Trane
+channel leverage; open-agent and operator-governance detail is
+thinner.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>75F</td>
+<td>65/75</td>
+<td>Full-stack BAS hardware and interoperability create a category
+tailwind similar to controls incumbents, though at smaller public
+scale.</td>
+<td>Execution quality is strong on hardware, APIs, BACnet/OpenADR
+posture, and security controls; public AI/adoption evidence is less
+current.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Runwise</td>
+<td>65/75</td>
+<td>Wireless control plus energy/comfort outcomes create category
+strength, but the lane is narrower than broad EAM or global controls
+platforms.</td>
+<td>Execution quality is strong on building counts, savings, service
+accountability, and current AI-control narrative; formal trust evidence
+is the main gap.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GridPoint</td>
+<td>63/75</td>
+<td>Energy and demand-response control is category-favorable because
+savings are measurable and tied to grid economics.</td>
+<td>Execution quality is strong on deployment footprint and savings
+proof; public SOC/API/current-AI evidence is weaker.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Accruent</td>
+<td>60/75</td>
+<td>Enterprise FM/CMMS/IWMS breadth is resilient through records and
+compliance, but category advantage varies by module.</td>
+<td>Execution quality is strong on installed base, APIs, and security
+posture; visible AI is more embedded assistant/automation than
+autonomous agent execution.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Planon</td>
+<td>60/75</td>
+<td>IWMS source-of-truth and SAP adjacency support resilience, while
+weaker public AI-control evidence limits the category lift.</td>
+<td>Execution quality is strong on trust, platform posture, SAP channel,
+and IWMS maturity; recent named AI products are less explicit.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Facilio</td>
+<td>59/75</td>
+<td>Agent-native FM workflows are strategically relevant, but the
+category is still proving whether agent orchestration becomes a durable
+moat.</td>
+<td>Execution quality is strongest on Atom and MCP posture; long-term
+proof, certification clarity, and incumbent switching-cost depth are
+less mature.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2x2-placement">2x2 Placement</h2>
+<ul>
+<li>X-axis:
+<code>Commodity Output -&gt; Proprietary Advantage</code></li>
+<li>Y-axis:
+<code>Nice-to-Have Utility -&gt; Mission-Critical Workflow</code></li>
+<li>Placement:
+<code>IBM Maximo and BrainBox AI/Trane lead the resilient quadrant; Runwise, 75F, GridPoint, Accruent, and Planon are also resilient; Facilio sits just below the strong-resilience threshold because its agentic layer is newer and more copyable, despite excellent agent readiness.</code></li>
+</ul>
+<p><strong>Rationale:</strong> The chart separates companies that own
+physical/critical workflow execution from those with valuable but more
+software-layered workflow control. IBM Maximo wins on critical-asset
+system position. BrainBox AI/Trane, Runwise, 75F, and GridPoint score
+high on physical control or energy-control loops. Accruent and Planon
+score well through enterprise records, compliance, and workflow breadth.
+Facilio has the best explicit MCP/agent posture, but its current moat
+depends on proving that agentic execution becomes durable workflow
+ownership rather than a feature layer incumbents can copy.</p>
+<h2 id="full-score-table">Full Score Table</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Category</th>
+<th>Factor</th>
+<th>Score</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM Maximo</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>5/5</td>
+<td>Direct evidence. Maximo manages asset history, work data,
+maintenance workflows, inspections, sensor data, and reliability context
+across critical infrastructure.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>5/5</td>
+<td>Direct evidence. IBM's enterprise cloud/security posture, Maximo
+security documentation, and critical-industry customer base support high
+trust.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>5/5</td>
+<td>Direct evidence. IBM sells Maximo across manufacturing, energy,
+utilities, transportation, government, healthcare, and other
+asset-intensive sectors.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. Maximo embeds reliability, inspection, and maintenance
+logic, but final operational judgment remains with asset owners and
+technicians.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>4/5</td>
+<td>Direct evidence. The suite supports compliance, safety, inspections,
+work control, and governed asset records, though customer operators
+retain final liability.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>5/5</td>
+<td>Inference. Maintenance, inspection, reliability, and work-order
+processes are daily operating workflows in asset-intensive
+organizations.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>5/5</td>
+<td>Direct evidence. IBM positions Maximo around uptime, safety,
+compliance, outage reduction, and reliability for critical equipment and
+infrastructure.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>5/5</td>
+<td>Direct evidence. Maximo acts as a system of record and action for
+assets, work orders, maintenance processes, and reliability
+workflows.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>5/5</td>
+<td>Inference. Historical asset data, integrations, work processes,
+training, and compliance records make migration materially costly.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>5/5</td>
+<td>Inference. Critical-asset uptime, safety, inspections, and regulated
+maintenance are durable budget lines.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Direct evidence. IBM describes AI and sensor-data use for issue
+detection, prioritization, forecasting, and predictive maintenance.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>5/5</td>
+<td>Inference. The moat is enterprise asset data, workflows,
+integrations, and operational governance, not a thin AI interface.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>4/5</td>
+<td>Inference. IBM's platform and integration posture can support
+agentic workflows, but the public Maximo evidence is stronger for AI
+insights than explicit MCP-style delegation.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Maximo governs inspected and maintenance-controlled
+workflows, but accountability remains shared with operators.</td>
+</tr>
+<tr>
+<td>IBM Maximo</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. The product targets uptime, reliability, safety,
+asset life, production continuity, and field execution.</td>
+</tr>
+<tr>
+<td><strong>IBM Maximo</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IBM Maximo</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>25/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IBM Maximo</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IBM Maximo</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>71/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. The system uses building telemetry, weather,
+occupancy, energy use, HVAC behavior, and control data.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>5/5</td>
+<td>Direct evidence. BrainBox cites SOC 2 Type II, encryption, RBAC/MFA,
+NIST alignment, and Trane's enterprise building-controls
+distribution.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>5/5</td>
+<td>Direct evidence. Trane acquired BrainBox AI and routes it through a
+global HVAC and building-management customer base.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. Autonomous control and diagnostics encode domain-specific
+HVAC and energy judgment, though building operators still own final
+business constraints.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>4/5</td>
+<td>Direct evidence. Trane/BrainBox operate in safety- and
+comfort-sensitive controls workflows with security controls, but public
+evidence still leaves customer operating responsibility in place.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>5/5</td>
+<td>Direct evidence. HVAC optimization and control run continuously, not
+episodically.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>5/5</td>
+<td>Direct evidence. The product affects energy cost, comfort,
+emissions, maintenance prioritization, and building operations.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. It integrates with Trane controls and building
+systems, but may sit alongside existing BMS infrastructure rather than
+replace all control layers.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Building integrations, tuned control models, and
+operational trust create switching friction.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>5/5</td>
+<td>Direct evidence. Energy reduction, carbon goals, and HVAC
+performance are direct budget and compliance concerns.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Direct evidence. The value proposition is model-driven autonomous
+HVAC prediction, optimization, and conversational building
+intelligence.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>5/5</td>
+<td>Direct evidence. The moat is connected building control, telemetry,
+Trane distribution, and autonomous execution, not generic model
+output.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>4/5</td>
+<td>Direct evidence. ARIA and Trane AI-agent claims support
+conversational diagnosis and workflow assistance, but public evidence is
+less explicit on open delegated-agent APIs.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Trane's enterprise support and BrainBox security
+posture add accountability beyond recommendations.</td>
+</tr>
+<tr>
+<td>BrainBox AI/Trane</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. Claims center on energy-cost reduction, carbon
+reduction, comfort, and operational building performance.</td>
+</tr>
+<tr>
+<td><strong>BrainBox AI/Trane</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>22/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BrainBox AI/Trane</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BrainBox AI/Trane</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BrainBox AI/Trane</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>68/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. 75F owns building telemetry from sensors,
+controllers, thermostats, gateways, analytics, apps, and BAS
+workflows.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4/5</td>
+<td>Direct evidence. 75F publishes SOC 2 Type 1 evidence, security
+controls, encryption, audit logs, RBAC/MFA, and network/gateway
+security.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4/5</td>
+<td>Credible third-party evidence. Public sources and company releases
+show meaningful installations and recognizable customer logos, though
+less scale than IBM, Trane, or GridPoint.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. 75F embeds HVAC, IAQ, demand-response, and
+building-automation logic in hardware and software.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>4/5</td>
+<td>Direct evidence. Security, audit logs, BACnet/OpenADR/Project
+Haystack posture, and building-control workflows support governance,
+though final operations remain customer-owned.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>5/5</td>
+<td>Direct evidence. Building automation, comfort, IAQ, and HVAC
+controls operate continuously.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>5/5</td>
+<td>Direct evidence. The system affects comfort, HVAC energy use, IAQ,
+demand response, and building performance.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. 75F provides full-stack BAS functions but may
+coexist with other building systems and integrators.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Installed hardware, control sequences, data integrations,
+and operator training create migration cost.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>4/5</td>
+<td>Inference. Energy efficiency, comfort, IAQ, and controls budgets are
+durable, but buyer economics vary by building segment.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Inference. Better models should improve control sequencing,
+diagnostics, IAQ optimization, and demand-response decisions over
+sensor/control data.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>5/5</td>
+<td>Direct evidence. 75F is hardware, controls, APIs, apps, and
+automation, not a software-only model wrapper.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>4/5</td>
+<td>Direct evidence. Project Haystack open APIs and BACnet/OpenADR
+support system interoperability, though public evidence is not MCP-style
+agent governance.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Security, controls, SOC evidence, and
+building-automation responsibilities create accountability beyond
+recommendations.</td>
+</tr>
+<tr>
+<td>75F</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. 75F targets HVAC savings, IAQ, comfort, demand
+response, and building automation outcomes.</td>
+</tr>
+<tr>
+<td><strong>75F</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>75F</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>22/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>75F</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>75F</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>65/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. Runwise uses wireless hardware, indoor sensors,
+weather forecasts, building-response history, usage data, and live
+operating state.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4/5</td>
+<td>Direct evidence. Runwise claims 10,300+ powered buildings, 1,000+
+customers, 24/7 support, utility relationships, and dedicated building
+experts.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4/5</td>
+<td>Direct evidence. Runwise has strong property-owner deployment in its
+core market, though narrower global reach than large incumbents.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. The system embeds building-control logic and
+field-service expertise rather than just surfacing dashboards.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>3/5</td>
+<td>Direct evidence. Runwise provides service accountability and savings
+claims, but public terms leave core safety and equipment responsibility
+with customers.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>5/5</td>
+<td>Direct evidence. Heating, cooling, water, and alerting systems are
+continuously monitored or controlled.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>5/5</td>
+<td>Direct evidence. The product affects tenant comfort, energy cost,
+critical alerts, emissions/fines, and building operations.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. Runwise sits in the monitoring and control layer,
+but does not replace every safety, equipment, or BMS function.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Installed devices, sensor data, integrations, service
+routines, and building-specific behavior models create switching
+friction.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>5/5</td>
+<td>Direct evidence. Runwise ties budget to energy savings, rebates,
+carbon fines, and operating profit.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Direct evidence. Runwise's current AI-control evidence describes
+decisions that skip or run heat cycles using indoor data, forecasts,
+seasonality, and prior response.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>5/5</td>
+<td>Direct evidence. The moat is installed controls, wireless sensors,
+operational data, service, and measured outcomes.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>4/5</td>
+<td>Direct evidence. Runwise says it has open APIs and many
+integrations, but public evidence is thinner on autonomous third-party
+agent governance.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. No long-term contracts, 24/7 support, dedicated
+experts, technician service, and savings guarantees add commercial
+accountability.</td>
+</tr>
+<tr>
+<td>Runwise</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. The product directly targets energy savings,
+comfort, fines, leak/gas/heating alerts, and building operations.</td>
+</tr>
+<tr>
+<td><strong>Runwise</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>19/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Runwise</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Runwise</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>23/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Runwise</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>65/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. GridPoint uses equipment-level data, meters,
+sensors, controls, schedules, alerts, building assets, and historical
+energy data.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4/5</td>
+<td>Inference. Large deployed footprint and utility/commercial energy
+role support trust, but public SOC/ISO security evidence was not found
+in sampled sources.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>5/5</td>
+<td>Direct evidence. GridPoint says its platform is deployed across
+20,000+ commercial buildings and is nearing $1.5B in customer
+savings.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. Energy optimization, demand response, and asset-control
+algorithms encode operational energy judgment.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>3/5</td>
+<td>Inference. Demand-response reporting and IPMVP-style savings
+evidence support governance, but formal safety/security/legal
+accountability is less public.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>5/5</td>
+<td>Direct evidence. Energy monitoring, schedules, controls, and demand
+response are continuous or frequent operating workflows.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>4/5</td>
+<td>Direct evidence. GridPoint affects energy cost, HVAC performance,
+occupant comfort, food quality, compliance readiness, and maintenance
+costs.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. It controls and monitors building energy assets,
+but is more energy-focused than a full BAS or CMMS.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Installed controllers, energy history, utility programs,
+schedules, and operational reporting create switching friction.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>5/5</td>
+<td>Direct evidence. Energy savings, demand response, and
+grid-interactive building economics are durable operating budget
+drivers.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Inference. Better models should improve forecasting, optimization,
+diagnostics, and curtailment strategy over GridPoint's building-energy
+data.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>4/5</td>
+<td>Direct evidence. Controls, metering, demand response, utility
+programs, and building asset data make GridPoint deeper than a dashboard
+wrapper.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>3/5</td>
+<td>Inference. Public evidence supports automation and controls, but not
+explicit AI-agent interfaces or delegated-action governance.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Customer savings, demand-response performance,
+real-time monitoring, and remote diagnostics make outcomes
+inspectable.</td>
+</tr>
+<tr>
+<td>GridPoint</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. The product targets energy cost, carbon, HVAC
+performance, food quality, grid services, and maintenance
+reduction.</td>
+</tr>
+<tr>
+<td><strong>GridPoint</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GridPoint</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>22/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GridPoint</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>21/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GridPoint</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>63/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. Accruent stores and connects work orders, asset
+records, engineering documents, IoT signals, audit records, space data,
+and facilities history.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>4/5</td>
+<td>Direct evidence. Accruent publishes ISO/IEC 27001, SOC 1, SOC 2, UK
+ICO alignment, and critical-infrastructure compliance commitments.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>5/5</td>
+<td>Direct evidence. Accruent says it has helped more than 10,000
+organizations in more than 150 countries.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>3/5</td>
+<td>Inference. The products encode facilities, maintenance,
+engineering-document, and compliance workflows, while scarce judgment
+often remains with customers and technicians.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>4/5</td>
+<td>Direct evidence. Accruent emphasizes compliance, audit logs, role
+controls, configurable security, and regulated workflows.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4/5</td>
+<td>Inference. Maintenance, asset, space, document, and monitoring
+workflows are recurrent, though frequency varies by product and
+user.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>4/5</td>
+<td>Direct evidence. Accruent positions its products around downtime
+reduction, compliance readiness, predictive maintenance, and asset
+lifecycle optimization.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. Products act as systems of record and action for
+facilities and asset workflows while coexisting with ERP, BMS, and
+field-service systems.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Configured workflows, history, integrations, training,
+audit records, and implementation work create migration cost.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>4/5</td>
+<td>Inference. Maintenance, compliance, asset uptime, and
+facilities-management spend are durable, but broad modules vary in
+budget priority.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>4/5</td>
+<td>Direct evidence. Crue AI, predictive maintenance, Observe, EDMS
+automation, and analytics should improve when grounded in proprietary
+workflow context.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>4/5</td>
+<td>Inference. Generic AI can copy assistant features, but cannot easily
+replace installed records, integrations, and governance.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>3/5</td>
+<td>Direct evidence. Accruent has REST APIs and integrations, but public
+evidence is stronger for conventional integration than explicit
+delegated-agent control.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Compliance, auditability, security controls, and
+services give Accruent an accountability layer beyond AI output.</td>
+</tr>
+<tr>
+<td>Accruent</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>5/5</td>
+<td>Direct evidence. The products target downtime, compliance, energy,
+asset life, operational continuity, and safety-adjacent work.</td>
+</tr>
+<tr>
+<td><strong>Accruent</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Accruent</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Accruent</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Accruent</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>60/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. Planon unifies real estate, facilities, workplace,
+asset, service, energy, sustainability, and IoT-enabled building
+data.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>5/5</td>
+<td>Direct evidence. Planon's trust center cites independent audits, ISO
+27001, ISAE 3402 Type II, SOC 2, and other assurance signals.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4/5</td>
+<td>Direct evidence. Planon positions itself as a global smart
+sustainable building management provider with broad IWMS adoption.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Inference. Embedded AI and IWMS workflows encode facilities, space,
+asset, contract, and maintenance judgment, but operators keep final
+decisions.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>4/5</td>
+<td>Direct evidence. Planon emphasizes validated unified data, GDPR
+compliance, certifications, and governed cloud services.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4/5</td>
+<td>Inference. Workplace, service, maintenance, and portfolio workflows
+are recurring, though not all modules are daily for all users.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>4/5</td>
+<td>Direct evidence. The platform supports real estate, facility
+management, asset maintenance, workplace services, and sustainability
+operations.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. Planon is an IWMS/source-of-truth layer with IoT
+and smart-building integration, but often coexists with controls, ERP,
+and service systems.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Portfolio data, configured workflows, integrations, and
+service processes create migration cost.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>4/5</td>
+<td>Inference. Real estate, facilities, maintenance, and sustainability
+management are durable but can be cyclical by module.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>4/5</td>
+<td>Direct evidence. Planon describes embedded AI for ticket creation,
+contract summaries, adaptive maintenance, triage, and building
+intelligence.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>4/5</td>
+<td>Inference. The moat is unified validated IWMS data and workflow
+integration, not standalone AI text generation.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>3/5</td>
+<td>Inference. Planon has platform and integration posture, but public
+evidence is less explicit on external agent/MCP-style execution.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Trust-center controls, validated data, GDPR
+compliance, and governed workflows support accountability.</td>
+</tr>
+<tr>
+<td>Planon</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>4/5</td>
+<td>Direct evidence. Planon targets cost, utilization, maintenance,
+energy, workplace services, and sustainability outcomes.</td>
+</tr>
+<tr>
+<td><strong>Planon</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>21/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Planon</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Planon</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>19/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Planon</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>60/75</strong></td>
+<td>Strong resilience.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Proprietary advantage</td>
+<td>Context</td>
+<td>4/5</td>
+<td>Direct evidence. Facilio unifies assets, work orders, tenants,
+vendors, compliance, finance, energy, refrigeration, and portfolio
+operations.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Proprietary advantage</td>
+<td>Trust</td>
+<td>3/5</td>
+<td>Direct evidence. Facilio states SOC 2 compliance and security
+controls, but its public security page also says it is working toward
+SOC2 compliant standards, creating some evidence ambiguity.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Proprietary advantage</td>
+<td>Distribution</td>
+<td>4/5</td>
+<td>Direct evidence. Facilio has visible enterprise portfolio customers
+and multi-site positioning, but less established reach than IBM,
+Accruent, Planon, or Trane.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Proprietary advantage</td>
+<td>Judgment</td>
+<td>4/5</td>
+<td>Direct evidence. Atom agents are designed to execute service,
+finance, compliance, approval, reporting, and dispatch workflows, not
+just record them.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Proprietary advantage</td>
+<td>Liability / Governance</td>
+<td>3/5</td>
+<td>Direct evidence. MCP permissions, OAuth2, and audit trails are
+strong, but broader liability and compliance posture is less proven
+publicly than mature incumbents.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Workflow criticality</td>
+<td>Frequency</td>
+<td>4/5</td>
+<td>Direct evidence. Service requests, work orders, vendor coordination,
+compliance, and invoices are recurring operational workflows.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Workflow criticality</td>
+<td>Operational Dependence</td>
+<td>4/5</td>
+<td>Inference. For multi-site FM teams, Facilio can become operationally
+important, though it may layer on top of existing CMMS/ERP systems.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Workflow criticality</td>
+<td>System Position</td>
+<td>4/5</td>
+<td>Direct evidence. Facilio can be the connected CMMS/platform layer or
+an AI layer over existing CMMS, ERP, and finance systems.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Workflow criticality</td>
+<td>Switching Cost</td>
+<td>4/5</td>
+<td>Inference. Operational workflows, integrations, agent
+configurations, and portfolio data create friction once deployed.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>Workflow criticality</td>
+<td>Budget Durability</td>
+<td>4/5</td>
+<td>Inference. Facilities uptime, vendor coordination, compliance, and
+back-office labor reduction have durable budget logic.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>AI resilience tests</td>
+<td>Model Improvement Test</td>
+<td>5/5</td>
+<td>Direct evidence. Facilio's Atom and MCP posture should benefit
+directly from better models that can coordinate FM workflows and
+retrieve operational context.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>AI resilience tests</td>
+<td>Wrapper Risk Test</td>
+<td>3/5</td>
+<td>Inference. Facilio is more than a wrapper, but its most visible
+differentiation is AI-agent orchestration that other platforms may
+copy.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>AI resilience tests</td>
+<td>Agent Readiness Test</td>
+<td>5/5</td>
+<td>Direct evidence. Facilio MCP connects Claude, ChatGPT, Copilot, and
+Cursor to Facilio data with permissions, OAuth2, and audit logs.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>AI resilience tests</td>
+<td>Accountability Test</td>
+<td>4/5</td>
+<td>Direct evidence. Audit trails, permissions, human oversight, and
+workflow execution controls support accountability.</td>
+</tr>
+<tr>
+<td>Facilio</td>
+<td>AI resilience tests</td>
+<td>Outcome Depth Test</td>
+<td>4/5</td>
+<td>Direct evidence. The suite targets service intake, dispatch,
+compliance, invoice validation, reporting, maintenance, and asset
+lifecycle outcomes.</td>
+</tr>
+<tr>
+<td><strong>Facilio</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Proprietary advantage</strong></td>
+<td><strong>18/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Facilio</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>Workflow criticality</strong></td>
+<td><strong>20/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Facilio</strong></td>
+<td><strong>Subtotal</strong></td>
+<td><strong>AI resilience tests</strong></td>
+<td><strong>21/25</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Facilio</strong></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>59/75</strong></td>
+<td>Mixed but promising.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="top-strengths">Top Strengths</h2>
+<h3 id="ibm-maximo">IBM Maximo</h3>
+<ul>
+<li>Deep critical-asset system-of-record and system-of-action
+position.</li>
+<li>Strong AI plus sensor-data posture for predictive maintenance and
+reliability.</li>
+<li>Large enterprise distribution and high switching costs.</li>
+</ul>
+<h3 id="brainbox-aitrane">BrainBox AI/Trane</h3>
+<ul>
+<li>Autonomous HVAC control is directly strengthened by better
+models.</li>
+<li>Trane distribution gives BrainBox a major deployment channel.</li>
+<li>Strong security and building-control evidence.</li>
+</ul>
+<h3 id="75f">75F</h3>
+<ul>
+<li>Full-stack building automation rather than pure analytics.</li>
+<li>Open API and interoperability posture are stronger than most
+challengers.</li>
+<li>Hardware/control surface makes AI harder to commoditize.</li>
+</ul>
+<h3 id="runwise">Runwise</h3>
+<ul>
+<li>Physical control loop plus service accountability.</li>
+<li>Building-specific data makes better models more valuable.</li>
+<li>Outcome claims are tied to energy savings and comfort, not just
+analytics.</li>
+</ul>
+<h3 id="gridpoint">GridPoint</h3>
+<ul>
+<li>Large deployment footprint and measurable savings claims.</li>
+<li>Energy-control economics are tightly tied to customer budget.</li>
+<li>Demand response and grid services add system-level value beyond
+dashboards.</li>
+</ul>
+<h3 id="accruent">Accruent</h3>
+<ul>
+<li>Broad enterprise installed base across built-environment
+categories.</li>
+<li>Deep records and compliance context across facilities, assets,
+documents, and IoT.</li>
+<li>Security and professional-services posture supports enterprise
+adoption.</li>
+</ul>
+<h3 id="planon">Planon</h3>
+<ul>
+<li>Strong IWMS source-of-truth position.</li>
+<li>Good trust/compliance evidence.</li>
+<li>Embedded AI is tied to operational workflows rather than isolated
+chat.</li>
+</ul>
+<h3 id="facilio">Facilio</h3>
+<ul>
+<li>Best explicit agent/MCP posture in the cohort.</li>
+<li>AI is aimed at workflow execution, not just summarization.</li>
+<li>Can layer onto existing CMMS/ERP/finance systems without
+rip-and-replace.</li>
+</ul>
+<h2 id="main-vulnerabilities">Main Vulnerabilities</h2>
+<h3 id="ibm-maximo-1">IBM Maximo</h3>
+<ul>
+<li>Large-platform complexity can slow adoption and make user experience
+uneven.</li>
+<li>Explicit agent-native governance is less visible than AI insight and
+workflow automation.</li>
+<li>Some reporting, assistant, and planning features can be copied by
+generic AI layers.</li>
+</ul>
+<h3 id="brainbox-aitrane-1">BrainBox AI/Trane</h3>
+<ul>
+<li>Can be category-limited to HVAC and energy optimization rather than
+full facilities operations.</li>
+<li>Open API and third-party agent posture is less clear than the
+control/AI story.</li>
+<li>Customer liability and building safety constraints remain outside
+the AI system.</li>
+</ul>
+<h3 id="75f-1">75F</h3>
+<ul>
+<li>Some adoption and funding evidence is older than the default
+12-month window.</li>
+<li>Distribution is meaningful but below the largest incumbents.</li>
+<li>AI claims are real but less recently documented than BrainBox/Trane
+or Runwise.</li>
+</ul>
+<h3 id="runwise-1">Runwise</h3>
+<ul>
+<li>Security/compliance evidence is less formal publicly than BrainBox,
+75F, IBM, or Planon.</li>
+<li>Category strength is highest where Runwise's wireless
+building-control wedge fits.</li>
+<li>Legal accountability is bounded by terms that keep equipment and
+tenant safety duties with customers.</li>
+</ul>
+<h3 id="gridpoint-1">GridPoint</h3>
+<ul>
+<li>Explicit AI messaging is less current/public than BrainBox, Runwise,
+or Facilio.</li>
+<li>Security certification evidence is less visible publicly.</li>
+<li>Scope is energy and controls rather than full facilities
+management.</li>
+</ul>
+<h3 id="accruent-1">Accruent</h3>
+<ul>
+<li>Portfolio breadth makes resilience uneven by module.</li>
+<li>Generic AI can compress assistant, reporting, search, and
+recommendation layers.</li>
+<li>Agent-native execution controls are less visible publicly than
+conventional APIs.</li>
+</ul>
+<h3 id="planon-1">Planon</h3>
+<ul>
+<li>Mission criticality varies by module and customer maturity.</li>
+<li>Agent-native execution posture is less clear than Facilio's.</li>
+<li>Physical control loop is less direct than Runwise, 75F,
+BrainBox/Trane, or GridPoint.</li>
+</ul>
+<h3 id="facilio-1">Facilio</h3>
+<ul>
+<li>Newer agent claims have less long-term proof than incumbent workflow
+systems.</li>
+<li>Security evidence is directionally positive but publicly
+inconsistent.</li>
+<li>Some differentiation may compress if incumbents add similar agent
+layers.</li>
+</ul>
+<h2 id="strategic-read">Strategic Read</h2>
+<h3 id="durable-layers">Durable Layers</h3>
+<ul>
+<li>IBM Maximo: Asset and work history, Reliability models, Enterprise
+integrations, Inspection and compliance workflows, IBM trust and
+distribution.</li>
+<li>BrainBox AI/Trane: HVAC telemetry, Autonomous control models, Trane
+installed channel, Security posture, Energy and carbon outcomes.</li>
+<li>75F: Sensors and controls, Project Haystack APIs, BACnet/OpenADR
+interoperability, Security controls, Building automation data.</li>
+<li>Runwise: Installed controls, Wireless sensor network, Building
+response history, Service organization, Energy and compliance ROI.</li>
+<li>GridPoint: Energy asset data, Grid-interactive controls,
+Demand-response programs, 20,000+ building footprint, Savings
+history.</li>
+<li>Accruent: Asset and facility records, Engineering documents,
+Compliance artifacts, Security posture, Implementation history.</li>
+<li>Planon: Unified IWMS data, Trust center, Smart-building integration,
+Configured facility and real estate workflows.</li>
+<li>Facilio: Operational workflow graph, Agent permissions and audit
+trails, CMMS integrations, Portfolio operations data.</li>
+</ul>
+<h3 id="commoditizing-layers">Commoditizing Layers</h3>
+<ul>
+<li>IBM Maximo: Generic dashboard narratives, Assistant UX, Basic
+maintenance summaries.</li>
+<li>BrainBox AI/Trane: Generic energy reports, Chat-based diagnostics,
+Standalone optimization advice without control access.</li>
+<li>75F: Analytics UI, Generic IAQ or energy recommendations, Digital
+assistant copy.</li>
+<li>Runwise: Energy dashboards, Generic operating recommendations, AI
+explanations without control or service.</li>
+<li>GridPoint: Energy analytics dashboards, Generic recommendations,
+Basic anomaly descriptions.</li>
+<li>Accruent: Assistant UI, Summarization, Document Q&amp;A, Dashboard
+narratives.</li>
+<li>Planon: Ticket intake chat, Contract summaries, Simple
+reporting.</li>
+<li>Facilio: Chat interface, Generic ticket summaries, AI copy around
+agents.</li>
+</ul>
+<h3 id="next-moves">Next Moves</h3>
+<ul>
+<li>IBM Maximo: Expose clearer permissioned agent interfaces for work
+planning and execution.</li>
+<li>IBM Maximo: Keep AI tied to governed asset records, inspections, and
+maintenance actions.</li>
+<li>BrainBox AI/Trane: Make agent permissions and operator override
+controls visible.</li>
+<li>BrainBox AI/Trane: Expand from HVAC optimization into broader
+building operations while preserving control trust.</li>
+<li>75F: Refresh public AI launch evidence and adoption metrics.</li>
+<li>75F: Make permissioned automation and operator-override governance
+more explicit.</li>
+<li>Runwise: Publish clearer security and controls-governance
+evidence.</li>
+<li>Runwise: Keep extending from heating into broader building systems
+without losing installation speed.</li>
+<li>GridPoint: Clarify AI/model layer and agent-readiness claims.</li>
+<li>GridPoint: Publish stronger security and controls-governance
+evidence.</li>
+<li>Accruent: Make AI action-safe inside governed workflows.</li>
+<li>Accruent: Expose clearer agent-grade controls for maintenance,
+compliance, and asset work.</li>
+<li>Planon: Make AI execution permissions and audit trails more
+visible.</li>
+<li>Planon: Deepen integration between IWMS intelligence and
+building-control actions.</li>
+<li>Facilio: Publish clearer SOC/security attestations and live-agent
+case outcomes.</li>
+<li>Facilio: Tie agents to durable compliance and financial controls
+that competitors cannot copy quickly.</li>
+</ul>
+<h2 id="final-verdict">Final Verdict</h2>
+<p>The resilient end of this market is not defined by who has the
+flashiest AI assistant. It is defined by who owns trusted operational
+context, control authority, recurring work, and accountable
+outcomes.</p>
+<p><strong>IBM Maximo</strong> is the strongest overall resilience
+candidate because critical-asset customers run maintenance, inspection,
+reliability, and compliance workflows through it. <strong>BrainBox
+AI/Trane</strong> is the clearest example of AI becoming more valuable
+as it gets better because autonomous HVAC control is the product, not an
+add-on. <strong>Runwise</strong>, <strong>75F</strong>, and
+<strong>GridPoint</strong> are also strong because they connect software
+intelligence to live building systems and measurable energy/comfort
+outcomes. <strong>Accruent</strong> and <strong>Planon</strong> are
+resilient enterprise workflow platforms, but their visible AI layers
+need to remain tied to governed actions and records.
+<strong>Facilio</strong> is strategically interesting because it is
+agent-native, but its score is held below the strong band until its
+agentic execution shows the same proof depth and switching cost as older
+systems of record or physical control platforms.</p>
+<h2 id="confidence-level">Confidence Level</h2>
+<p><code>Medium-high</code>. The research uses current official sources
+where available, and the strongest claims are anchored in product pages,
+trust pages, and 2025-2026 releases. Confidence is lower for private
+retention, live implementation quality, customer-level economics, and
+agent-governance details that are not public.</p>
+<h2 id="evidence-notes">Evidence Notes</h2>
+<p>Research used a shared current-source window through June 18, 2026.
+Official company materials were weighted first. Credible third-party or
+press-release evidence was used mainly for acquisition, funding,
+adoption, or analyst-category context. No YouTube transcript evidence
+was used.</p>
+<h3 id="ibm-maximo-sources">IBM Maximo Sources</h3>
+<ul>
+<li><a
+href="https://www.ibm.com/products/maximo"><span>www.ibm.com/products/maximo</span></a></li>
+<li><a
+href="https://www.ibm.com/products/maximo/asset-performance-management"><span>www.ibm.com/products/maximo/asset-performance-management</span></a></li>
+<li><a
+href="https://newsroom.ibm.com/blog-enhanced-maximo-streamlines-workforce-efficiency%2C-investment-planning%2C-and-facilities-management-introduces-gen-ai-assistant">newsroom.ibm.com/blog-enhanced-maximo-streamlines-workforce-efficiency%2C-investment-planning%2C-and-facilities-management-introduces-gen-ai-assistant</a></li>
+<li><a
+href="https://www.ibm.com/new/announcements/introducing-maximo-assistant-an-ai-resource-for-teams"><span>www.ibm.com/new/announcements/introducing-maximo-assistant-an-ai-resource-for-teams</span></a></li>
+<li><a
+href="https://developer.ibm.com/apis/catalog/maximo--maximo-manage-rest-api/">developer.ibm.com/apis/catalog/maximo--maximo-manage-rest-api/</a></li>
+<li><a
+href="https://cloud.ibm.com/docs/mas-ms?topic=mas-ms-Security">cloud.ibm.com/docs/mas-ms?topic=mas-ms-Security</a></li>
+<li><a
+href="https://www.ibm.com/new/announcements/maximo-application-suite-achieves-fedramp-authorization"><span>www.ibm.com/new/announcements/maximo-application-suite-achieves-fedramp-authorization</span></a></li>
+</ul>
+<h3 id="brainbox-aitrane-sources">BrainBox AI/Trane Sources</h3>
+<ul>
+<li><a
+href="https://www.trane.com/commercial/north-america/us/en/products-systems/smart-building-technology/ai-solutions/trane-autonomous-control.html"><span>www.trane.com/commercial/north-america/us/en/products-systems/smart-building-technology/ai-solutions/trane-autonomous-control.html</span></a></li>
+<li><a
+href="https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Ignites-a-New-Era-for-Smart-Buildings-with-Game-Changing-AI-Controls-and-AI-Agent/default.aspx">investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Ignites-a-New-Era-for-Smart-Buildings-with-Game-Changing-AI-Controls-and-AI-Agent/default.aspx</a></li>
+<li><a
+href="https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Launches-BrainBox-AI-Lab-to-Transform-Energy-Management-and-Sustainability-in-Buildings/default.aspx">investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Launches-BrainBox-AI-Lab-to-Transform-Energy-Management-and-Sustainability-in-Buildings/default.aspx</a></li>
+<li><a
+href="https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Completes-Acquisition-of-BrainBox-AI/default.aspx">investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2025/Trane-Technologies-Completes-Acquisition-of-BrainBox-AI/default.aspx</a></li>
+<li><a
+href="https://brainboxai.com/en/articles/bulletproofing-your-building-data-why-it-teams-love-brainbox-ai">brainboxai.com/en/articles/bulletproofing-your-building-data-why-it-teams-love-brainbox-ai</a></li>
+</ul>
+<h3 id="75f-sources">75F Sources</h3>
+<ul>
+<li><a href="https://www.75f.io/"><span>www.75f.io/</span></a></li>
+<li><a
+href="https://www.75f.io/software/saffron-ai/"><span>www.75f.io/software/saffron-ai/</span></a></li>
+<li><a
+href="https://www.75f.io/software/api/"><span>www.75f.io/software/api/</span></a></li>
+<li><a
+href="https://www.75f.io/software/security/"><span>www.75f.io/software/security/</span></a></li>
+<li><a
+href="https://www.75f.io/news/75f-earns-soc-2-compliance/"><span>www.75f.io/news/75f-earns-soc-2-compliance/</span></a></li>
+<li><a
+href="https://www.globenewswire.com/news-release/2025/02/06/3022482/0/en/75f-raises-additional-45m-series-b-to-increase-energy-savings-and-make-building-automation-easier.html"><span>www.globenewswire.com/news-release/2025/02/06/3022482/0/en/75f-raises-additional-45m-series-b-to-increase-energy-savings-and-make-building-automation-easier.html</span></a></li>
+</ul>
+<h3 id="runwise-sources">Runwise Sources</h3>
+<ul>
+<li><a
+href="https://www.runwise.com/"><span>www.runwise.com/</span></a></li>
+<li><a
+href="https://www.runwise.com/faq"><span>www.runwise.com/faq</span></a></li>
+<li><a
+href="https://www.runwise.com/services/heating"><span>www.runwise.com/services/heating</span></a></li>
+<li><a
+href="https://www.runwise.com/learn/ai-is-transforming-buildings-across-the-u.s"><span>www.runwise.com/learn/ai-is-transforming-buildings-across-the-u.s</span></a></li>
+<li><a
+href="https://www.runwise.com/terms-of-service"><span>www.runwise.com/terms-of-service</span></a></li>
+<li><a
+href="https://www.prnewswire.com/news-releases/runwise-raises-55m-to-scale-the-smart-operating-system-for-buildings-302476505.html"><span>www.prnewswire.com/news-releases/runwise-raises-55m-to-scale-the-smart-operating-system-for-buildings-302476505.html</span></a></li>
+</ul>
+<h3 id="gridpoint-sources">GridPoint Sources</h3>
+<ul>
+<li><a
+href="https://www.gridpoint.com/"><span>www.gridpoint.com/</span></a></li>
+<li><a
+href="https://www.gridpoint.com/platform/"><span>www.gridpoint.com/platform/</span></a></li>
+<li><a
+href="https://www.gridpoint.com/solutions/"><span>www.gridpoint.com/solutions/</span></a></li>
+<li><a
+href="https://www.gridpoint.com/solutions/demand-management/"><span>www.gridpoint.com/solutions/demand-management/</span></a></li>
+<li><a
+href="https://www.gridpoint.com/news/gridpoint-nears-1-5b-in-customer-energy-savings-as-electricity-prices-hit-record-highs/"><span>www.gridpoint.com/news/gridpoint-nears-1-5b-in-customer-energy-savings-as-electricity-prices-hit-record-highs/</span></a></li>
+<li><a
+href="https://www.prnewswire.com/news-releases/gridpoint-nears-1-5-billion-in-customer-energy-savings-as-electricity-prices-hit-record-highs-302703248.html"><span>www.prnewswire.com/news-releases/gridpoint-nears-1-5-billion-in-customer-energy-savings-as-electricity-prices-hit-record-highs-302703248.html</span></a></li>
+</ul>
+<h3 id="accruent-sources">Accruent Sources</h3>
+<ul>
+<li><a
+href="https://www.accruent.com/solutions/facility-asset-management-software"><span>www.accruent.com/solutions/facility-asset-management-software</span></a></li>
+<li><a
+href="https://www.accruent.com/solutions/cmms-software"><span>www.accruent.com/solutions/cmms-software</span></a></li>
+<li><a
+href="https://www.accruent.com/products/maintenance-connection/comprehensive-integrations"><span>www.accruent.com/products/maintenance-connection/comprehensive-integrations</span></a></li>
+<li><a
+href="https://www.accruent.com/products/observe"><span>www.accruent.com/products/observe</span></a></li>
+<li><a
+href="https://www.accruent.com/resources/blog-posts/how-accruent-is-simplifying-organizational-complexity-with-ai"><span>www.accruent.com/resources/blog-posts/how-accruent-is-simplifying-organizational-complexity-with-ai</span></a></li>
+<li><a
+href="https://www.accruent.com/security-compliance-certifications"><span>www.accruent.com/security-compliance-certifications</span></a></li>
+<li><a
+href="https://www.accruent.com/about-us"><span>www.accruent.com/about-us</span></a></li>
+</ul>
+<h3 id="planon-sources">Planon Sources</h3>
+<ul>
+<li><a
+href="https://planonsoftware.com/us/">planonsoftware.com/us/</a></li>
+<li><a
+href="https://planonsoftware.com/us/software/">planonsoftware.com/us/software/</a></li>
+<li><a
+href="https://planonsoftware.com/us/software/iwms/">planonsoftware.com/us/software/iwms/</a></li>
+<li><a
+href="https://planonsoftware.com/us/software/planon-platform/">planonsoftware.com/us/software/planon-platform/</a></li>
+<li><a
+href="https://planonsoftware.com/us/software/iwms/sap/">planonsoftware.com/us/software/iwms/sap/</a></li>
+<li><a
+href="https://planonsoftware.com/us/news/planon-sap-solution-extension/">planonsoftware.com/us/news/planon-sap-solution-extension/</a></li>
+<li><a
+href="https://planonsoftware.com/us/resources/blogs/making-buildings-think-ai-in-planon-iwms/">planonsoftware.com/us/resources/blogs/making-buildings-think-ai-in-planon-iwms/</a></li>
+<li><a
+href="https://planonsoftware.com/us/trustcenter/industry-standards-and-regulations/">planonsoftware.com/us/trustcenter/industry-standards-and-regulations/</a></li>
+<li><a
+href="https://planonsoftware.com/us/about-us/">planonsoftware.com/us/about-us/</a></li>
+</ul>
+<h3 id="facilio-sources">Facilio Sources</h3>
+<ul>
+<li><a href="https://facilio.com/">facilio.com/</a></li>
+<li><a
+href="https://facilio.com/product/cmms-software/">facilio.com/product/cmms-software/</a></li>
+<li><a
+href="https://facilio.com/product/connected-buildings/">facilio.com/product/connected-buildings/</a></li>
+<li><a
+href="https://facilio.com/ai-suite/">facilio.com/ai-suite/</a></li>
+<li><a
+href="https://facilio.com/ai-suite/mcp/">facilio.com/ai-suite/mcp/</a></li>
+<li><a
+href="https://facilio.com/newsroom/facilio-launches-autonomous-ai-for-facilities-management/">facilio.com/newsroom/facilio-launches-autonomous-ai-for-facilities-management/</a></li>
+<li><a
+href="https://facilio.com/security/">facilio.com/security/</a></li>
+<li><a
+href="https://facilio.com/privacy-policy/">facilio.com/privacy-policy/</a></li>
+<li><a href="https://facilio.com/about/">facilio.com/about/</a></li>
+<li><a
+href="https://facilio.com/newsroom/integrated-estate-management-facilio-press-release/">facilio.com/newsroom/integrated-estate-management-facilio-press-release/</a></li>
+<li><a
+href="https://facilio.com/newsroom/hellofresh-facilio-press-release/">facilio.com/newsroom/hellofresh-facilio-press-release/</a></li>
+</ul>
+<h3 id="near-miss-companies">Near-Miss Companies</h3>
+<ul>
+<li><strong>ServiceChannel:</strong> Strong facilities-management and
+contractor-network platform with 2026 AI launch evidence; excluded to
+keep the focused cohort balanced and avoid over-weighting retail FM
+workflow platforms. Source: <a
+href="https://servicechannel.com/press/servicechannel-launches-servicechannel-ai-for-facilities-management/">servicechannel.com/press/servicechannel-launches-servicechannel-ai-for-facilities-management/</a></li>
+<li><strong>Brightly:</strong> Direct CMMS/asset-management peer with
+Siemens backing, large public-sector footprint, SOC 2 Type II evidence,
+and 2026 data/AI positioning; excluded because the selected cohort
+already includes Accruent, IBM Maximo, Planon, and Facilio. Source: <a
+href="https://www.brightlysoftware.com/resource/brightly-software-accelerates-asset-intelligence-with-new-data-ai-innovations"><span>www.brightlysoftware.com/resource/brightly-software-accelerates-asset-intelligence-with-new-data-ai-innovations</span></a></li>
+<li><strong>Siemens Building X:</strong> Major smart-building incumbent
+with open APIs, cybersecurity certifications, and AI/ML apps; excluded
+from the scored set to avoid over-weighting mega building-automation
+incumbents. Source: <a
+href="https://www.siemens.com/en-us/products/building-x/"><span>www.siemens.com/en-us/products/building-x/</span></a></li>
+<li><strong>Johnson Controls OpenBlue/FM:Systems:</strong> Strong
+controls plus workplace/facilities footprint after Johnson Controls
+acquired FM:Systems; excluded for the same incumbent-weighting reason as
+Siemens. Source: <a
+href="https://fmsystems.com/johnson-controls-openblue/">fmsystems.com/johnson-controls-openblue/</a></li>
+<li><strong>Eptura:</strong> Broad worktech/IWMS portfolio with
+Microsoft and Autodesk adjacency; excluded because product naming and
+acquisition complexity would require a separate normalization pass.
+Source: <a
+href="https://eptura.com/news/eptura-worktech-platform/">eptura.com/news/eptura-worktech-platform/</a></li>
+<li><strong>Spacewell:</strong> Relevant IWMS, smart-building,
+occupancy, and AI energy-optimization platform; excluded because Planon
+covers the global IWMS/smart-building lane in the focused set. Source:
+<a
+href="https://spacewell.com/ai-building-management/">spacewell.com/ai-building-management/</a></li>
+<li><strong>eMaint by Fluke Reliability:</strong> Strong CMMS with
+reliability, API, SCADA/PLC/BMS integration, and condition-monitoring
+adjacency; excluded because IBM Maximo covers the heavier industrial
+EAM/reliability lane. Source: <a
+href="https://www.emaint.com/emaint-integrations-your-cmms-connected/"><span>www.emaint.com/emaint-integrations-your-cmms-connected/</span></a></li>
+</ul>
+<h2 id="evidence-sources-by-function">Evidence Sources By Function</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source function</th>
+<th>What it supports</th>
+<th>Representative sources</th>
+<th>Evidence weight</th>
+<th>Stale-context handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product facts and scope</td>
+<td>Product category, buyer/user workflow, and core operational surface
+for each scored company.</td>
+<td>IBM Maximo, Accruent product pages, Facilio, Planon, Runwise,
+BrainBox/Trane, 75F, GridPoint.</td>
+<td>High</td>
+<td>Official product pages were treated as current unless visibly stale;
+older pages were used only for stable product background.</td>
+</tr>
+<tr>
+<td>Workflow and integration claims</td>
+<td>APIs, integrations, system-of-record/action role, BMS/control-loop
+posture, and agent readiness.</td>
+<td>Facilio MCP, 75F API, IBM Maximo, Accruent APIs, Runwise FAQ,
+GridPoint platform, Trane AI Control.</td>
+<td>High</td>
+<td>Explicit current integration claims were preferred; agent-readiness
+scores were conservative where public evidence showed automation but not
+delegated-agent governance.</td>
+</tr>
+<tr>
+<td>Adoption and distribution signals</td>
+<td>Customer footprint, installed building counts, global reach,
+acquisition/distribution channel, and funding/deployment context.</td>
+<td>IBM, Accruent About, Runwise homepage/PR, GridPoint 2026 release,
+Trane/BrainBox releases, 75F funding release.</td>
+<td>Medium-high</td>
+<td>Latest official figures were preferred; older adoption claims were
+labeled as stale or used cautiously.</td>
+</tr>
+<tr>
+<td>Trust, security, and governance claims</td>
+<td>Certifications, auditability, RBAC, OAuth, encryption, SOC/ISO
+evidence, liability/accountability posture.</td>
+<td>Accruent security, Planon Trust Center, BrainBox security, 75F
+security/SOC, Facilio security/privacy, IBM Cloud/Maximo security docs,
+Runwise terms.</td>
+<td>High</td>
+<td>Legal/security pages outweighed marketing copy; missing public
+SOC/ISO evidence reduced trust/governance scores.</td>
+</tr>
+<tr>
+<td>AI and model-resilience claims</td>
+<td>Whether better models strengthen the product or commoditize visible
+features.</td>
+<td>IBM AI/APM pages, Facilio Atom/MCP, Planon AI-in-IWMS, Runwise AI
+article, Trane/BrainBox AI releases, 75F Saffron/API, GridPoint
+automation pages.</td>
+<td>Medium-high</td>
+<td>Dated 2025-2026 AI launches were weighted most; older or undated AI
+claims were treated as supporting context rather than decisive
+proof.</td>
+</tr>
+</tbody>
+</table></div>
+
+</article>
+<p class="footer">Generated Jun 18, 2026 &middot; <a href="https://github.com/mikeylong/AiReslienceEvaluator">GitHub repo</a></p>
+</main>
+</body>
+</html>
